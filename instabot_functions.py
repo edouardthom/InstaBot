@@ -10,7 +10,59 @@ import numpy as np
 import datetime
 import pandas as pd
 import traceback
+import os.path as path
     
+
+
+def log_in(username,password,for_aws=True):
+    print("Starting the log-in for {}...".format(username))
+    try:
+        if for_aws:
+            chrome_options = Options()
+            chrome_options.add_argument("--disable-extensions")
+            chrome_options.add_argument("--disable-dev-shm-usage")
+            chrome_options.add_argument('headless')
+            chrome_options.add_argument('--no-sandbox')
+            #chrome_options.add_argument('start-maximized')
+            driver = webdriver.Chrome(chrome_options=chrome_options)
+        else:
+            driver = webdriver.Chrome()
+        print("INFO : driver launched")
+        
+        driver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
+        print("INFO : authentication page loaded")
+        
+        sleep_random_time(2,3)
+        
+        username_field = driver.find_element_by_name('username')
+        username_field.send_keys(username)
+        password_field = driver.find_element_by_name('password')
+        password_field.send_keys(password)
+        
+        sleep_random_time(0.5,1)
+
+        ### Sometimes Insta shows a pop-up asking the user if he is ok with cookies - we say yes
+        try:
+            continu = '/html/body/div[2]/div/div/div/div[2]/button[1]'
+            driver.find_element_by_xpath(continu).click()
+        except:
+            pass
+        
+        connexion_button = '//*[@id="loginForm"]/div/div[3]/button'
+        driver.find_element_by_xpath(connexion_button).click()
+        
+        sleep_random_time(1,1.5)
+        
+        print("Login successful for username {}.".format(username))
+        return driver
+    except:
+        print("ABORTED : error while logging in")
+        traceback.print_exc()
+        return 0
+
+
+
+
 
 def unfollow_account_from_profile_page(user_to_unfollow,driver):
     unfollowing_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/span/span[1]/button'
@@ -221,52 +273,6 @@ def get_all_following_from_profile_page(user,driver):
 
 
 
-
-
-
-def log_in(username,password,for_aws=True):
-    print("Starting the log-in for {}...".format(username))
-    try:
-        if for_aws:
-            chrome_options = Options()
-            chrome_options.add_argument("--disable-extensions")
-            chrome_options.add_argument("--disable-dev-shm-usage")
-            chrome_options.add_argument('headless')
-            chrome_options.add_argument('--no-sandbox')
-            #chrome_options.add_argument('start-maximized')
-            driver = webdriver.Chrome(chrome_options=chrome_options)
-        else:
-            driver = webdriver.Chrome()
-        print("INFO : driver launched")
-        
-        driver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
-        print("INFO : authentication page loaded")
-        
-        sleep_random_time(2,3)
-        
-        username_field = driver.find_element_by_name('username')
-        username_field.send_keys(username)
-        password_field = driver.find_element_by_name('password')
-        password_field.send_keys(password)
-        
-        sleep_random_time(0.5,1)
-        
-        connexion_button = '//*[@id="react-root"]/section/main/div/article/div/div[1]/div/form/div[4]/button/div'
-        driver.find_element_by_xpath(connexion_button).click()
-        
-        sleep_random_time(1,1.5)
-        
-
-        print("Login successful for username {}.".format(username))
-        return driver
-    except:
-        print("ABORTED : error while logging in")
-        traceback.print_exc()
-        return 0
-
-
-
-
 def explore_hashtag(hashtag,nb_follows,user,driver):
     
     print("Starting exploring #{}...".format(hashtag))
@@ -294,14 +300,16 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
         
         ### Get the account name
         username_ok=0
-        account_name_possible_xpaths = ['html/body/div[4]/div[1]/div/div/a',
+        account_name_possible_xpaths = ['/html/body/div[5]/div[2]/div/article/header/div[2]/div[1]/div[1]/span/a',
+                                        'html/body/div[4]/div[1]/div/div/a',
                                         '/html/body/div[3]/div[2]/div/article/header/div[2]/div[1]/div[1]/h2/a',
                                         '/html/body/div[4]/div[2]/div/article/header/div[2]/div[1]/div[1]/h2/a']
         for xpath in account_name_possible_xpaths:
             try:
                 # If it fails we don't reload, otherwise we'd loose the view with the arrows right/left
                 account_name_button = get_and_click_element(xpath,driver,click=False,
-                                                            two_tries_with_reload=False,print_exception=False)
+                                                            two_tries_with_reload=False,
+                                                            print_exception=False)
                 un = account_name_button.text
             except:
                 un = 'Next'
@@ -310,7 +318,7 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
                 username_ok=1
                 break
         if username_ok==0:
-            print("ERROR : coundn't access the account name")
+            print("ERROR : couldn't access the account name")
             success_right_arrow_press = press_righ_arrow(pic_number,driver)
             if success_right_arrow_press==0:
                 print("ERROR : stop the processing of hashtag {}".format(hashtag))
@@ -373,7 +381,7 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
                                          "days_before_unfollowing":[days_before_unfollowing],
                                          "unfollow_time_by_user":[None]})
         try:
-            data = pd.read_csv("instaedobot_follow_actions_{}.csv".format(user))
+            data = pd.read_csv("follow_actions_{}.csv".format(user))
         except:
             columns_instaedobot_follow_actions = ["hashtag",
                                       "first_pic_liked",
@@ -412,7 +420,7 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
     
 def press_righ_arrow(pic_number,driver):
     if pic_number==0:
-        arrow_right_xpath = '/html/body/div[4]/div[1]/div/div/a'
+        arrow_right_xpath = '/html/body/div[5]/div[1]/div/div/a'
         button = get_and_click_element(arrow_right_xpath,driver)
         ### If we fail to click the right arrow
         if button==0:
@@ -422,7 +430,7 @@ def press_righ_arrow(pic_number,driver):
             return 0
         sleep(1)  
     else:
-        arrow_right_xpath = '/html/body/div[4]/div[1]/div/div/a[2]'
+        arrow_right_xpath = '/html/body/div[5]/div[1]/div/div/a[2]'
         button = get_and_click_element(arrow_right_xpath,driver)
         ### If we fail to click the right arrow
         if button==0:
@@ -436,7 +444,7 @@ def press_righ_arrow(pic_number,driver):
     
 
 def try_to_follow_from_profile_page(driver):
-    follow_button_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/span/span[1]/button'
+    follow_button_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div/div/span/span[1]/button'
     follow_button = get_and_click_element(follow_button_xpath,driver,click=False)
     if follow_button==0:
         print("ERROR trying to follow from profile page")
@@ -480,7 +488,7 @@ def get_account_data_from_profile_page(driver):
         nb_posts = treat_number(nb_posts)
         sleep(0.3)
         
-        username_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[1]/h1'
+        username_xpath = '//*[@id="react-root"]/section/main/div/header/section/div[1]/h2'
         username = driver.find_element_by_xpath(username_xpath).text
         sleep(0.3)
         
@@ -495,7 +503,7 @@ def get_account_data_from_profile_page(driver):
 
 def like_1st_pic(driver):
     try :
-        like_button_xpath = '/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button'
+        like_button_xpath = '/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button'
         get_and_click_element(like_button_xpath,driver,click=True,
                           two_tries_with_reload=False,print_exception=False)
         return 1

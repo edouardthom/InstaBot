@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from instaedobot_functions import *
-from instaedobot_prepare_data_for_plot import *
+from instabot_functions import *
+from instabot_prepare_data_for_plot import *
 import warnings 
 
 warnings.filterwarnings("ignore") #f**k warnings
@@ -12,17 +12,17 @@ warnings.filterwarnings("ignore") #f**k warnings
 
 user = "edouard_thom"
 username = 'edouard.thom@gmail.com'
-password = 'pro-accent!0In$'
+password = ''
 hashtags = ["instalife","friends","beach","ski","followeraktif","follower4follower",
             "instagood","followme","selfie","foodie",
-            "followersfree","car","clothing","followers","like4like","f2f","l4l"]
+            "car","clothing","followers","like4like","f2f","l4l"]
 
 
 
 last_round = datetime.datetime.now()
 while 1:
     print("Right now : "+last_round.strftime("%m/%d/%Y, %H:%M:%S"))
-    driver = log_in(username,password,for_aws=True)
+    driver = log_in(username,password,for_aws=False)
     sleep(3)
     
     update_followers(user,driver)
