@@ -72,6 +72,10 @@ class registeredTableDefinitions:
         "follow_time" : "When the new follower started following",
         "unfollow_time" : "When the new follower stopped following - null if the new follower is still following"   
     }}
+        
+    logs = {
+    ""
+    }
 
 
 class dataAPI(registeredTableDefinitions):
