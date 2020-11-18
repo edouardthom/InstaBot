@@ -1,7 +1,6 @@
 # InstaBot  
-*Version 1.0 - Work In Progress*
 
-### *InstaBot (1.0) focuses on Instagram audience expansion.*
+### InstaBot (1.0) focuses on Instagram audience expansion.
 
 ## Features :  
 * automatically interact with accounts in a smart way to maximise the number of followers 
@@ -26,3 +25,5 @@
   * This should provide more granular insights that a daily email newsletter
 * (2.0) Possibility to optimise the interactions strategy to maximise certain metrics, using past data 
   * Diverse techniques can be employed to make the most of historical data to optimise the bot interactions (follows, likes,comments) , in order to maximise metrics such as the number of followers or their loyalty. We can think of the bot making the decision to follow a certain account based on a score given by a ML model.
+   
+*Version 1.0 - Work In Progress*
