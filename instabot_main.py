@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore") #f**k warnings
 
 user = "edouard_thom"
 username = 'edouard.thom@gmail.com'
-password = ''
+password = 'pro-accent!0k&'
 hashtags = ["instalife","friends","beach","ski","followeraktif","follower4follower",
             "instagood","followme","selfie","foodie",
             "car","clothing","followers","like4like","f2f","l4l"]

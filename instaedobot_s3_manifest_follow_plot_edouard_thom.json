@@ -1,9 +1,0 @@
-{
-    "fileLocations": [
-        {
-            "URIPrefixes": [
-                "s3://instaedobot/instaedobot_follow_plot_edouard_thom.csv"
-            ]
-        }
-    ]
-}

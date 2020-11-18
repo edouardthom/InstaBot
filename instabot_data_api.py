@@ -4,14 +4,18 @@
 
 ########################################## Data API ##########################################
 
-###### 1. Data API definition and objective :
-# In this file is defined an API-like abstraction that positions as a layer between the user and
-# the data stored under the form of CSVs.
-# Its goal is to ensure a clean querying and writing of the multiple tables stored under the form of 
-# CSV files in the database (here the database if simply a folder of CSVs). 
-# Within the API are defined the schema (ie. column names and description) and documentation for each table.
-# The API provides functions to load the tables content, add records into tables, or store new versions of 
-# the tables, all this while respecting the pre-defined table schemas.
+###### 1. Data API definition and objectives :
+# The data produced by the bot is essential for diverse consumers. These consumers are of 2 types :
+# - analysts : the human beings that will query the data to perform any kind of analysis and produce insights
+# - services : any service built on top of the data, such as ML models, dashboard, email sending...
+# The data API is here to ensure perfect clarity to the consumers over what the data contains, and guarantees
+# the quality of that data by controlling the modification that data producers (here the bot) can bring to 
+# that data.
+# Concretely, within the API are defined the schema and documentation for each table.
+# The schema of a table being the list of column names, types, nullability, possibly acceped values and description.
+# On their side, data producers (here the bot python code) can call the API whenever they want to get or alter the 
+# data in any way. When a call is about a modification, the API check that it is conform to the registered schema
+# of the concerned table.
 
 ###### 2. How to use it :
 ### - Register a new table definition :
@@ -109,8 +113,7 @@ class dataAPI(registeredTableDefinitions):
             data.to_csv(name+"_"+user+".csv")
         else:
             raise Exception("DataAPIInvalidSchema") 
-   
-    
+
             
      
         
