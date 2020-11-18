@@ -44,7 +44,7 @@ import pandas as pd
 class registeredTableDefinitions:
     
     '''
-    In that class all the table definitions, stored as class variables.
+    In that class we have all the table definitions, stored as class variables.
     The name of the class variable is the name of the table definition.
     A table definitions is a table description, a list of column names and a name for each column .
     It is stored under the form of the dict with the following structure :
@@ -110,7 +110,7 @@ class dataAPI(registeredTableDefinitions):
         schema_columns = list(schema.keys())
         data_ok = set(data.columns).issubset(set(schema_columns))
         if data_ok:
-            data.to_csv(name+"_"+user+".csv")
+            data.to_csv(name+"_"+user+".csv",index=False)
         else:
             raise Exception("DataAPIInvalidSchema") 
 

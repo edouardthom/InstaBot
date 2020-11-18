@@ -32,10 +32,6 @@ while 1:
     unfollowing_of_bot_followed_users(user,driver)
     last_unfollowing_round = datetime.datetime.now()
     sleep(3)
-    
-    update_plot_data(user)
-    last_update_plot_data = datetime.datetime.now()
-    sleep(3)
  
     nb_follows_per_hashtag = 4
     for _ in range(3):

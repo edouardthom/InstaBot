@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -14,57 +15,76 @@ class registeredUIComponents:
     
     login_email_input_field = {
         "xpaths" : ['//*[@id="loginForm"]/div/div[1]/div/label/input'],
+        "description" : ""
     }
     login_password_input_field = {
         "xpaths" : ['//*[@id="loginForm"]/div/div[2]/div/label/input'],
+        "description" : ""
     }
     login_accept_cookies = {
         "xpaths" : ['/html/body/div[2]/div/div/div/div[2]/button[1]'],
+        "description" : ""
     }
     login_connexion_button = {
         "xpaths" : ['//*[@id="loginForm"]/div/div[3]/button/div'],
+        "description" : ""
     }
     profile_page_followers_button = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a/span'],
+        "description" : ""
     }
     profile_page_following_button = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a'],
+        "description" : ""
     }
     first_thumbnail_photo = {
         "xpaths" : ['//*[@id="react-root"]/section/main/article/div[1]/div/div/div[1]/div[1]/a/div'],
+        "description" : ""
     }
     picture_carousel_account_name = {
-        "xpaths" : ['/html/body/div[5]/div[2]/div/article/header/div[2]/div[1]/div[1]/span/a'],
+        "xpaths" : ['/html/body/div[5]/div[2]/div/article/header/div[2]/div[1]/div[1]/span/a',
+                    '/html/body/div[4]/div[2]/div/article/header/div[2]/div[1]/div[1]/span/a'],
+        "description" : ""
     }    
     pictures_carousel_first_pic_right_arrow = {
         "xpaths" : ['/html/body/div[5]/div[1]/div/div/a'],
+        "description" : ""
     }
     pictures_carousel_not_first_pic_right_arrow = {
         "xpaths" : ['/html/body/div[5]/div[1]/div/div/a[2]'],
+        "description" : ""
     }
     profile_page_follow_button = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div/div/span/span[1]/button'],
+        "description" : ""
     }
     pictures_carousel_like_button = {
         "xpaths" : ['/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button'],
+        "description" : ""
     }
     profile_page_target_nb_followers = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a'],
+        "description" : ""
     }
     profile_page_target_nb_following = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a'],
+        "description" : ""
     }
     profile_page_target_nb_posts = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[1]/span/span'],
+        "description" : ""
     }
     profile_page_target_username = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[1]/h2'],
+        "description" : ""
     }
     unfollow_button = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div[2]/div/span/span[1]/button'],
+        "description" : ""
     }
     unfollow_red_button_confirm = {
         "xpaths" : ['/html/body/div[5]/div/div/div/div[3]/button[1]'],
+        "description" : ""
     }
 
     
