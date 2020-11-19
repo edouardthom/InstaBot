@@ -21,6 +21,8 @@
 * Send emails containing relevant insights
   * Grab and process the data to get insights
   * Ship these insights to whoever is interested via email
+* Multi-account support
+  * The bot should be able to run for several different Instagram accounts in parallel.
 * (2.0) Display relevant insights in a real-time dashboard easily accessible
   * This should provide more granular insights that a daily email newsletter
 * (2.0) Possibility to optimise the interactions strategy to maximise certain metrics, using past data 

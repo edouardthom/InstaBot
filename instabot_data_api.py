@@ -30,16 +30,16 @@
 # Once a table definition has been registered, there can be as many tables (CSVs) following that table definition
 # as users. 
 # You can : 
-# - load these tables as pandas dataframe : dataAPI().get(table_definition_name,user_name)
-# - add a record to any table : dataAPI().get(table_definition_name",user_name,record)
-# - store a new version of the table : dataAPI().store(table_definition_name",user_name,new_table)
+# - load these tables as pandas dataframe : dataAPI().get(table_definition_name,user)
+# - add a record to any table : dataAPI().get(table_definition_name",user,record)
+# - store a new version of the table : dataAPI().store(table_definition_name",user,new_table)
 # You can see that for each call to the API you have to specify an existing table_definition_name
 # (basically a registered table definition)
 
 
 import os
 import pandas as pd
-
+import datetime
 
 class registeredTableDefinitions:
     
@@ -72,10 +72,17 @@ class registeredTableDefinitions:
         "follow_time" : "When the new follower started following",
         "unfollow_time" : "When the new follower stopped following - null if the new follower is still following"   
     }}
-        
+     
+    ### The default dataframe for logs    
     logs = {
-    ""
-    }
+    "description" : "The unified source of logs",
+    "schema" : {
+        "timestamp" : "When the log was generated",
+        "user" : "the user the bot is working on.",
+        "function" : "Which function was running when the log was fired.",
+        "seriousness" : "Type of the log : INFO or ERROR",
+        "message" : "Content of the log - keep it short"
+    }}
 
 
 class dataAPI(registeredTableDefinitions):
@@ -118,14 +125,28 @@ class dataAPI(registeredTableDefinitions):
         else:
             raise Exception("DataAPIInvalidSchema") 
 
-            
+    ### Regarding the logs
+
+    def log(self,user,function,seriousness,message):
+        """
+        Logs are a specific data source so we create a special function :))
+        """
+        if seriousness != "ERROR" and seriousness != "INFO":
+            raise Exception("DataAPIInvalidLogSeriousness")
+        log = {"timestamp":datetime.datetime.now().replace(microsecond = 0),
+               "user" : user,
+               "function" : function,
+               "seriousness" : seriousness,
+               "message" : message}
+        ### We store the logs in the default dataframe : "logs.csv"
+        # table definition registered in the class registeredTableDefinitions
+        # In any case we print each log, the storage depends on the variable STORE_LOGS set in main
+        print(seriousness + " | "+user+" | "+function+" | "+message)
+        if STORE_LOGS:
+            self.add_record("logs",user,log)
      
         
-        
-        
-        
-        
-        
+    
         
         
 

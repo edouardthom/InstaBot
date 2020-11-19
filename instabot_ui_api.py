@@ -4,6 +4,8 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from instabot_data_api import dataAPI
+
 
 class registeredUIComponents:
     
@@ -94,7 +96,7 @@ class UIComponentsAPI(registeredUIComponents):
     def __init__(self):
         pass
         
-    def get(self,component,driver):
+    def get(self,component,user,driver):
         if component not in [i for i in dir(registeredUIComponents) if not callable(i)]:
             raise Exception("UIComponentNotRegisteredInUIAPI")
         xpaths = getattr(registeredUIComponents, component).get("xpaths")
@@ -104,11 +106,11 @@ class UIComponentsAPI(registeredUIComponents):
                 return element
             except :
                 pass
-        print("ERROR - Failed to access component : "+component)
+        dataAPI().log(user,"UIAPI","ERROR","failed to access component : "+component) 
         return 0
     
-    def click(self,component,driver):
-        element = self.get(component,driver)
+    def click(self,component,user,driver):
+        element = self.get(component,user,driver)
         if element == 0:
             return 0
         else:
@@ -116,12 +118,12 @@ class UIComponentsAPI(registeredUIComponents):
                 element.click()
                 return 1
             except:
-                print("ERROR - Failed to click component : "+component)
+                dataAPI().log(user,"UIAPI","ERROR","failed to click component : "+component) 
                 return 0
             
             
-    def get_text(self,component,driver):
-        element = self.get(component,driver)
+    def get_text(self,component,user,driver):
+        element = self.get(component,user,driver)
         if element == 0:
             return 0
         else:
@@ -129,11 +131,11 @@ class UIComponentsAPI(registeredUIComponents):
                 text = element.text
                 return text
             except:
-                print("ERROR - Failed to get component text : "+component)
+                dataAPI().log(user,"UIAPI","ERROR","failed get component text : "+component)
                 return 0
 
-    def get_text_and_click(self,component,driver):
-        element = self.get(component,driver)
+    def get_text_and_click(self,component,user,driver):
+        element = self.get(component,user,driver)
         if element == 0:
             return 0
         else:
@@ -142,12 +144,12 @@ class UIComponentsAPI(registeredUIComponents):
                 element.click()
                 return text
             except:
-                print("ERROR - Failed to get component text + click : "+component)
+                dataAPI().log(user,"UIAPI","ERROR","failed to get component text + click : "+component)
                 return 0
 
             
-    def enter_text(self,component,text,driver):
-        element = self.get(component,driver)
+    def enter_text(self,component,text,user,driver):
+        element = self.get(component,user,driver)
         if element == 0:
             return 0
         else:
@@ -155,9 +157,8 @@ class UIComponentsAPI(registeredUIComponents):
                 element.send_keys(text)
                 return 1
             except:
-                print("ERROR - Failed to enter text into component : "+component)
+                dataAPI().log(user,"UIAPI","ERROR","failed to enter text into component : "+component)
                 return 0          
-            
             
             
             
