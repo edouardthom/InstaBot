@@ -1,0 +1,622 @@
+timestamp,user,function,seriousness,message
+2020-11-19 21:29:28,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-19 21:29:28,edouard_thom,log_in,INFO,start
+2020-11-19 21:29:31,edouard_thom,log_in,INFO,success
+2020-11-19 21:29:34,edouard_thom,update_followers,INFO,start
+2020-11-19 21:29:38,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-19 21:29:40,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:32:26,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 156/157
+2020-11-19 21:32:26,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-19 21:32:26,edouard_thom,update_followers,INFO,success
+2020-11-19 21:32:29,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-19 21:32:29,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-19 21:32:30,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-19 21:32:32,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:41:51,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 497/498
+2020-11-19 21:41:51,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-19 21:41:51,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 new unfollowing since last update
+2020-11-19 21:41:51,edouard_thom,unfollowing_of_bot_followed_users,INFO,Unfollow data for user {} successfully updated
+2020-11-19 21:41:54,edouard_thom,explore_hashtag,INFO,"start, #instalife"
+2020-11-19 21:42:00,edouard_thom,explore_hashtag,INFO,start processing for account : czerwona_po_treningu
+2020-11-19 21:42:02,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:03,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : czerwona_po_treningu, 839, 839, 87"
+2020-11-19 21:42:03,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:03,edouard_thom,explore_hashtag,INFO,successfully followed account : czerwona_po_treningu
+2020-11-19 21:42:04,edouard_thom,explore_hashtag,INFO,start processing for account : michellelouwaars
+2020-11-19 21:42:06,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:06,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : michellelouwaars, 1876, 1876, 130"
+2020-11-19 21:42:06,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:06,edouard_thom,explore_hashtag,INFO,successfully followed account : michellelouwaars
+2020-11-19 21:42:07,edouard_thom,explore_hashtag,INFO,start processing for account : vishakhafit_
+2020-11-19 21:42:10,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:10,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : vishakhafit_, 1994, 1994, 972"
+2020-11-19 21:42:10,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:10,edouard_thom,explore_hashtag,INFO,successfully followed account : vishakhafit_
+2020-11-19 21:42:10,edouard_thom,explore_hashtag,INFO,start processing for account : unamourdevie
+2020-11-19 21:42:12,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:12,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : unamourdevie, 1751, 1751, 625"
+2020-11-19 21:42:12,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:13,edouard_thom,explore_hashtag,INFO,successfully followed account : unamourdevie
+2020-11-19 21:42:13,edouard_thom,explore_hashtag,INFO,"hashtag instalife processed, 4 accounts followed"
+2020-11-19 21:42:16,edouard_thom,explore_hashtag,INFO,"start, #instagood"
+2020-11-19 21:42:22,edouard_thom,explore_hashtag,INFO,start processing for account : dare_23
+2020-11-19 21:42:23,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:24,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : dare_23, 2838, 2838, 109"
+2020-11-19 21:42:24,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:24,edouard_thom,explore_hashtag,INFO,successfully followed account : dare_23
+2020-11-19 21:42:24,edouard_thom,explore_hashtag,INFO,start processing for account : romecityworld
+2020-11-19 21:42:26,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:26,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : romecityworld, 152, 152, 1405"
+2020-11-19 21:42:26,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:26,edouard_thom,explore_hashtag,INFO,successfully followed account : romecityworld
+2020-11-19 21:42:27,edouard_thom,explore_hashtag,INFO,start processing for account : wlodarczykapolonia
+2020-11-19 21:42:28,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:29,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : wlodarczykapolonia, 798, 798, 116"
+2020-11-19 21:42:29,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:29,edouard_thom,explore_hashtag,INFO,successfully followed account : wlodarczykapolonia
+2020-11-19 21:42:30,edouard_thom,explore_hashtag,INFO,start processing for account : inescosta4
+2020-11-19 21:42:31,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:32,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : inescosta4, 786, 786, 415"
+2020-11-19 21:42:32,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:32,edouard_thom,explore_hashtag,INFO,successfully followed account : inescosta4
+2020-11-19 21:42:32,edouard_thom,explore_hashtag,INFO,"hashtag instagood processed, 4 accounts followed"
+2020-11-19 21:42:35,edouard_thom,explore_hashtag,INFO,"start, #follower4follower"
+2020-11-19 21:42:41,edouard_thom,explore_hashtag,INFO,start processing for account : mxcaegger
+2020-11-19 21:42:43,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:43,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : mxcaegger, 520, 520, 24"
+2020-11-19 21:42:43,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:43,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 21:42:44,edouard_thom,explore_hashtag,INFO,start processing for account : lu_nogueira.f
+2020-11-19 21:42:46,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:46,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : lu_nogueira.f, 1381, 1381, 37"
+2020-11-19 21:42:46,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:46,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 21:42:46,edouard_thom,explore_hashtag,INFO,start processing for account : craftiamo
+2020-11-19 21:42:48,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:48,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : craftiamo, 2986, 2986, 23"
+2020-11-19 21:42:48,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:48,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 21:42:49,edouard_thom,explore_hashtag,INFO,start processing for account : frenk95ita
+2020-11-19 21:42:51,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:51,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : frenk95ita, 1584, 1584, 71"
+2020-11-19 21:42:51,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:51,edouard_thom,explore_hashtag,INFO,successfully followed account : frenk95ita
+2020-11-19 21:42:51,edouard_thom,explore_hashtag,INFO,start processing for account : craftiamo
+2020-11-19 21:42:53,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:53,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : craftiamo, 2986, 2986, 23"
+2020-11-19 21:42:53,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:53,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 21:42:54,edouard_thom,explore_hashtag,INFO,start processing for account : dana.s03
+2020-11-19 21:42:55,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:55,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : dana.s03, 7470, 7470, 58"
+2020-11-19 21:42:55,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:55,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 21:42:57,edouard_thom,explore_hashtag,INFO,start processing for account : _rebeccaratti_
+2020-11-19 21:42:58,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:42:58,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : _rebeccaratti_, 1225, 1225, 60"
+2020-11-19 21:42:58,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:42:59,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 21:43:00,edouard_thom,explore_hashtag,INFO,start processing for account : lu_nogueira.f
+2020-11-19 21:43:01,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:43:01,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : lu_nogueira.f, 1381, 1381, 37"
+2020-11-19 21:43:01,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:43:01,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 21:43:02,edouard_thom,explore_hashtag,INFO,start processing for account : giutadde
+2020-11-19 21:43:04,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:43:04,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : giutadde, 1620, 1620, 260"
+2020-11-19 21:43:04,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:43:04,edouard_thom,explore_hashtag,INFO,successfully followed account : giutadde
+2020-11-19 21:43:05,edouard_thom,explore_hashtag,INFO,start processing for account : lalapols
+2020-11-19 21:43:06,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:43:06,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : lalapols, 370, 370, 76"
+2020-11-19 21:43:06,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:43:06,edouard_thom,explore_hashtag,INFO,successfully followed account : lalapols
+2020-11-19 21:43:08,edouard_thom,explore_hashtag,INFO,start processing for account : luciamakeup24
+2020-11-19 21:43:10,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:43:10,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : luciamakeup24, 117, 117, 12"
+2020-11-19 21:43:10,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 21:43:10,edouard_thom,explore_hashtag,INFO,successfully followed account : luciamakeup24
+2020-11-19 21:43:10,edouard_thom,explore_hashtag,INFO,"hashtag follower4follower processed, 4 accounts followed"
+2020-11-19 21:43:13,edouard_thom,MAIN,INFO,"loop 0 executed, success : [update_followers : 1, unfollowing_of_bot_followed_users : 1, explore_hashtag : [1, 1, 1]]"
+2020-11-19 21:43:13,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-19 21:43:13,edouard_thom,log_in,INFO,start
+2020-11-19 21:43:17,edouard_thom,log_in,INFO,success
+2020-11-19 21:43:20,edouard_thom,update_followers,INFO,start
+2020-11-19 21:43:23,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-19 21:43:25,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:46:11,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 156/157
+2020-11-19 21:46:11,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-19 21:46:11,edouard_thom,update_followers,INFO,success
+2020-11-19 21:46:14,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-19 21:46:14,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-19 21:46:15,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-19 21:46:17,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:53:27,edouard_thom,get_followers_following_for_user_one_try,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 207, in get_followers_following_for_user_one_try
+    sleep(1)
+KeyboardInterrupt
+"
+2020-11-19 21:53:29,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:53:29,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 21:53:31,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:53:31,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 21:53:31,edouard_thom,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-19 21:53:31,edouard_thom,unfollowing_of_bot_followed_users,ERROR,failed to get the following list -> stop the function execution
+2020-11-19 21:53:34,edouard_thom,explore_hashtag,INFO,"start, #foodie"
+2020-11-19 21:53:38,edouard_thom,log_in,INFO,start
+2020-11-19 21:53:41,edouard_thom,log_in,INFO,success
+2020-11-19 21:53:48,edouard_thom,log_in,INFO,start
+2020-11-19 21:53:53,edouard_thom,log_in,INFO,success
+2020-11-19 21:56:28,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:56:41,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 21:56:41,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : blackholert, 1419, 1197, 346"
+2020-11-19 21:58:02,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-19 21:58:02,edouard_thom,log_in,INFO,start
+2020-11-19 21:58:07,edouard_thom,log_in,INFO,success
+2020-11-19 21:58:10,edouard_thom,update_followers,INFO,start
+2020-11-19 21:58:13,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-19 21:58:15,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:58:20,edouard_thom,get_followers_following_for_user_one_try,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 206, in get_followers_following_for_user_one_try
+    driver.execute_script('arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', fBody)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 636, in execute_script
+    'args': converted_args})['value']
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 321, in execute
+    self.error_handler.check_response(response)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py"", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: window was already closed
+  (Session info: chrome=87.0.4280.67)
+
+"
+2020-11-19 21:58:22,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:58:22,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 21:58:24,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 21:58:24,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 21:58:24,edouard_thom,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-19 21:58:24,edouard_thom,update_followers,ERROR,failed to get the followers list -> abort the followers update
+2020-11-19 21:58:24,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-19 21:58:24,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-19 21:58:24,edouard_thom,unfollowing_of_bot_followed_users,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 130, in unfollowing_of_bot_followed_users
+    driver.get(profile_url)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 321, in execute
+    self.error_handler.check_response(response)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py"", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: window was already closed
+  (Session info: chrome=87.0.4280.67)
+
+"
+2020-11-19 21:58:27,edouard_thom,explore_hashtag,INFO,"start, #instagood"
+2020-11-19 21:58:31,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-19 21:58:31,edouard_thom,log_in,INFO,start
+2020-11-19 21:58:34,edouard_thom,log_in,INFO,success
+2020-11-19 21:58:37,edouard_thom,update_followers,INFO,start
+2020-11-19 21:58:40,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-19 21:58:42,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 22:01:28,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 156/157
+2020-11-19 22:01:28,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-19 22:01:28,edouard_thom,update_followers,INFO,success
+2020-11-19 22:01:31,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-19 22:01:31,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-19 22:01:32,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-19 22:01:34,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 22:10:43,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 508/509
+2020-11-19 22:10:43,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-19 22:10:43,edouard_thom,unfollowing_of_bot_followed_users,INFO,1 new unfollowing since last update
+2020-11-19 22:10:43,edouard_thom,unfollowing_of_bot_followed_users,INFO,Unfollow data for user {} successfully updated
+2020-11-19 22:10:46,edouard_thom,explore_hashtag,INFO,"start, #followme"
+2020-11-19 22:10:52,edouard_thom,explore_hashtag,INFO,start processing for account : anastasia_kobylets
+2020-11-19 22:10:53,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:10:54,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : anastasia_kobylets, 1588, 7476, 34"
+2020-11-19 22:10:54,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:10:54,edouard_thom,explore_hashtag,INFO,successfully followed account : anastasia_kobylets
+2020-11-19 22:10:54,edouard_thom,explore_hashtag,INFO,start processing for account : measaad_
+2020-11-19 22:10:56,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:10:56,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : measaad_, 565, 527, 11"
+2020-11-19 22:10:56,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:10:56,edouard_thom,explore_hashtag,INFO,successfully followed account : measaad_
+2020-11-19 22:10:57,edouard_thom,explore_hashtag,INFO,start processing for account : daniielwolver
+2020-11-19 22:10:59,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:10:59,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : daniielwolver, 10600, 7491, 92"
+2020-11-19 22:10:59,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:10:59,edouard_thom,explore_hashtag,INFO,successfully followed account : daniielwolver
+2020-11-19 22:11:00,edouard_thom,explore_hashtag,INFO,start processing for account : claudiadelgiudice_
+2020-11-19 22:11:02,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:02,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : claudiadelgiudice_, 3145, 922, 901"
+2020-11-19 22:11:02,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:02,edouard_thom,explore_hashtag,INFO,successfully followed account : claudiadelgiudice_
+2020-11-19 22:11:02,edouard_thom,explore_hashtag,INFO,"hashtag followme processed, 4 accounts followed"
+2020-11-19 22:11:05,edouard_thom,explore_hashtag,INFO,"start, #selfie"
+2020-11-19 22:11:11,edouard_thom,explore_hashtag,INFO,start processing for account : gessica_silva14
+2020-11-19 22:11:12,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:12,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : gessica_silva14, 2391, 932, 8"
+2020-11-19 22:11:12,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:12,edouard_thom,explore_hashtag,INFO,successfully followed account : gessica_silva14
+2020-11-19 22:11:13,edouard_thom,explore_hashtag,INFO,start processing for account : andjolini
+2020-11-19 22:11:15,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:15,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : andjolini, 2267, 361, 28"
+2020-11-19 22:11:15,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:15,edouard_thom,explore_hashtag,INFO,successfully followed account : andjolini
+2020-11-19 22:11:15,edouard_thom,explore_hashtag,INFO,start processing for account : josie.santi
+2020-11-19 22:11:17,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:17,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : josie.santi, 4643, 1308, 321"
+2020-11-19 22:11:17,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:17,edouard_thom,explore_hashtag,INFO,successfully followed account : josie.santi
+2020-11-19 22:11:18,edouard_thom,explore_hashtag,INFO,start processing for account : ivanalcaraz10
+2020-11-19 22:11:20,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:20,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : ivanalcaraz10, 153000, 733, 516"
+2020-11-19 22:11:20,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:20,edouard_thom,explore_hashtag,INFO,successfully followed account : ivanalcaraz10
+2020-11-19 22:11:20,edouard_thom,explore_hashtag,INFO,"hashtag selfie processed, 4 accounts followed"
+2020-11-19 22:11:23,edouard_thom,explore_hashtag,INFO,"start, #follower4follower"
+2020-11-19 22:11:29,edouard_thom,explore_hashtag,INFO,start processing for account : mxcaegger
+2020-11-19 22:11:31,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:31,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : mxcaegger, 1324, 520, 24"
+2020-11-19 22:11:31,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:31,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:32,edouard_thom,explore_hashtag,INFO,start processing for account : lu_nogueira.f
+2020-11-19 22:11:34,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:34,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : lu_nogueira.f, 4622, 1381, 37"
+2020-11-19 22:11:34,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:34,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:35,edouard_thom,explore_hashtag,INFO,start processing for account : craftiamo
+2020-11-19 22:11:36,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:36,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : craftiamo, 1629, 2986, 23"
+2020-11-19 22:11:36,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:36,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:37,edouard_thom,explore_hashtag,INFO,start processing for account : frenk95ita
+2020-11-19 22:11:39,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:39,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : frenk95ita, 4962, 1584, 71"
+2020-11-19 22:11:39,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:39,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:40,edouard_thom,explore_hashtag,INFO,start processing for account : craftiamo
+2020-11-19 22:11:41,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:41,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : craftiamo, 1629, 2986, 23"
+2020-11-19 22:11:41,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:41,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:42,edouard_thom,explore_hashtag,INFO,start processing for account : dana.s03
+2020-11-19 22:11:43,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:43,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : dana.s03, 35300, 7471, 58"
+2020-11-19 22:11:44,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:44,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:45,edouard_thom,explore_hashtag,INFO,start processing for account : _rebeccaratti_
+2020-11-19 22:11:46,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:46,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : _rebeccaratti_, 2196, 1225, 60"
+2020-11-19 22:11:46,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:46,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:48,edouard_thom,explore_hashtag,INFO,start processing for account : lu_nogueira.f
+2020-11-19 22:11:49,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:49,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : lu_nogueira.f, 4622, 1381, 37"
+2020-11-19 22:11:49,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:49,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:50,edouard_thom,explore_hashtag,INFO,start processing for account : giutadde
+2020-11-19 22:11:51,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:52,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : giutadde, 1196, 1620, 260"
+2020-11-19 22:11:52,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:52,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:11:52,edouard_thom,explore_hashtag,INFO,start processing for account : omino_strano
+2020-11-19 22:11:54,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:54,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : omino_strano, 87, 403, 112"
+2020-11-19 22:11:54,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:54,edouard_thom,explore_hashtag,INFO,successfully followed account : omino_strano
+2020-11-19 22:11:55,edouard_thom,explore_hashtag,INFO,start processing for account : asia.giuffrida__
+2020-11-19 22:11:56,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:56,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : asia.giuffrida__, 844, 216, 10"
+2020-11-19 22:11:56,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:56,edouard_thom,explore_hashtag,INFO,successfully followed account : asia.giuffrida__
+2020-11-19 22:11:57,edouard_thom,explore_hashtag,INFO,start processing for account : yonnyvumadja
+2020-11-19 22:11:59,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:11:59,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : yonnyvumadja, 22400, 3194, 92"
+2020-11-19 22:11:59,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:11:59,edouard_thom,explore_hashtag,INFO,successfully followed account : yonnyvumadja
+2020-11-19 22:12:00,edouard_thom,explore_hashtag,INFO,start processing for account : valentinabarone_
+2020-11-19 22:12:02,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:12:02,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : valentinabarone_, 483, 349, 287"
+2020-11-19 22:12:02,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:12:02,edouard_thom,explore_hashtag,INFO,successfully followed account : valentinabarone_
+2020-11-19 22:12:02,edouard_thom,explore_hashtag,INFO,"hashtag follower4follower processed, 4 accounts followed"
+2020-11-19 22:12:05,edouard_thom,MAIN,INFO,"loop 0 executed, success : [update_followers : 1, unfollowing_of_bot_followed_users : 1, explore_hashtag : [1, 1, 1]]"
+2020-11-19 22:12:05,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-19 22:12:05,edouard_thom,log_in,INFO,start
+2020-11-19 22:12:08,edouard_thom,log_in,INFO,success
+2020-11-19 22:12:11,edouard_thom,update_followers,INFO,start
+2020-11-19 22:12:14,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-19 22:12:16,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 22:15:04,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 157/158
+2020-11-19 22:15:04,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-19 22:15:04,edouard_thom,update_followers,INFO,success
+2020-11-19 22:15:07,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-19 22:15:07,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-19 22:15:08,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-19 22:15:10,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 22:24:38,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 520/521
+2020-11-19 22:24:38,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-19 22:24:38,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 new unfollowing since last update
+2020-11-19 22:24:38,edouard_thom,unfollowing_of_bot_followed_users,INFO,Unfollow data for user {} successfully updated
+2020-11-19 22:24:41,edouard_thom,explore_hashtag,INFO,"start, #beach"
+2020-11-19 22:24:47,edouard_thom,explore_hashtag,INFO,start processing for account : _giada.franzoni_
+2020-11-19 22:24:49,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:24:49,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : _giada.franzoni_, 3657, 603, 69"
+2020-11-19 22:24:49,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:24:49,edouard_thom,explore_hashtag,INFO,successfully followed account : _giada.franzoni_
+2020-11-19 22:24:50,edouard_thom,explore_hashtag,INFO,start processing for account : davidetaglini
+2020-11-19 22:24:52,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:24:52,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : davidetaglini, 1692, 371, 43"
+2020-11-19 22:24:52,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:24:52,edouard_thom,explore_hashtag,INFO,successfully followed account : davidetaglini
+2020-11-19 22:24:53,edouard_thom,explore_hashtag,INFO,start processing for account : sadikaa__
+2020-11-19 22:24:54,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:24:55,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : sadikaa__, 3985, 3198, 81"
+2020-11-19 22:24:55,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:24:55,edouard_thom,explore_hashtag,INFO,successfully followed account : sadikaa__
+2020-11-19 22:24:55,edouard_thom,explore_hashtag,INFO,start processing for account : geordrs
+2020-11-19 22:24:57,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:24:57,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : geordrs, 4971, 4872, 20"
+2020-11-19 22:24:57,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:24:57,edouard_thom,explore_hashtag,INFO,successfully followed account : geordrs
+2020-11-19 22:24:57,edouard_thom,explore_hashtag,INFO,"hashtag beach processed, 4 accounts followed"
+2020-11-19 22:25:00,edouard_thom,explore_hashtag,INFO,"start, #instalife"
+2020-11-19 22:25:07,edouard_thom,explore_hashtag,INFO,start processing for account : nm_addicted_to_travel
+2020-11-19 22:25:09,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:09,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : nm_addicted_to_travel, 2950, 1994, 202"
+2020-11-19 22:25:09,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:09,edouard_thom,explore_hashtag,INFO,successfully followed account : nm_addicted_to_travel
+2020-11-19 22:25:10,edouard_thom,explore_hashtag,INFO,start processing for account : czerwona_po_treningu
+2020-11-19 22:25:12,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:12,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : czerwona_po_treningu, 1246, 839, 87"
+2020-11-19 22:25:12,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:12,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:25:13,edouard_thom,explore_hashtag,INFO,start processing for account : michellelouwaars
+2020-11-19 22:25:15,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:15,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : michellelouwaars, 9565, 1876, 130"
+2020-11-19 22:25:15,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:15,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:25:15,edouard_thom,explore_hashtag,INFO,start processing for account : leprerita
+2020-11-19 22:25:17,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:17,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : leprerita, 16200, 7391, 331"
+2020-11-19 22:25:17,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:17,edouard_thom,explore_hashtag,INFO,successfully followed account : leprerita
+2020-11-19 22:25:18,edouard_thom,explore_hashtag,INFO,start processing for account : gnldmrl
+2020-11-19 22:25:20,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:20,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : gnldmrl, 8050, 1704, 2637"
+2020-11-19 22:25:20,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:20,edouard_thom,explore_hashtag,INFO,successfully followed account : gnldmrl
+2020-11-19 22:25:21,edouard_thom,explore_hashtag,INFO,start processing for account : alexandreladu
+2020-11-19 22:25:22,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:22,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : alexandreladu, 2924, 934, 101"
+2020-11-19 22:25:22,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:22,edouard_thom,explore_hashtag,INFO,successfully followed account : alexandreladu
+2020-11-19 22:25:22,edouard_thom,explore_hashtag,INFO,"hashtag instalife processed, 4 accounts followed"
+2020-11-19 22:25:25,edouard_thom,explore_hashtag,INFO,"start, #ski"
+2020-11-19 22:25:31,edouard_thom,explore_hashtag,INFO,start processing for account : north
+2020-11-19 22:25:33,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:33,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : north, 333000, 1104, 442"
+2020-11-19 22:25:33,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:33,edouard_thom,explore_hashtag,INFO,successfully followed account : north
+2020-11-19 22:25:35,edouard_thom,explore_hashtag,INFO,start processing for account : sendy_paradise
+2020-11-19 22:25:36,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:36,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : sendy_paradise, 18700, 12, 166"
+2020-11-19 22:25:36,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:36,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-19 22:25:37,edouard_thom,explore_hashtag,INFO,start processing for account : val_thorens
+2020-11-19 22:25:39,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:39,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : val_thorens, 147000, 173, 3379"
+2020-11-19 22:25:39,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:39,edouard_thom,explore_hashtag,INFO,successfully followed account : val_thorens
+2020-11-19 22:25:40,edouard_thom,explore_hashtag,INFO,start processing for account : crystalholidays
+2020-11-19 22:25:41,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:41,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : crystalholidays, 17900, 213, 1360"
+2020-11-19 22:25:41,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:45,edouard_thom,UIAPI,ERROR,failed to access component : profile_page_follow_button
+2020-11-19 22:25:45,edouard_thom,explore_hashtag,INFO,start processing for account : teleskiermag
+2020-11-19 22:25:47,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:47,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : teleskiermag, 16800, 395, 2420"
+2020-11-19 22:25:47,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:47,edouard_thom,explore_hashtag,INFO,successfully followed account : teleskiermag
+2020-11-19 22:25:48,edouard_thom,explore_hashtag,INFO,start processing for account : carv.ski
+2020-11-19 22:25:50,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-19 22:25:50,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : carv.ski, 7271, 3892, 56"
+2020-11-19 22:25:50,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-19 22:25:50,edouard_thom,explore_hashtag,INFO,successfully followed account : carv.ski
+2020-11-19 22:25:50,edouard_thom,explore_hashtag,INFO,"hashtag ski processed, 4 accounts followed"
+2020-11-19 22:25:53,edouard_thom,MAIN,INFO,"loop 0 executed, success : [update_followers : 1, unfollowing_of_bot_followed_users : 1, explore_hashtag : [1, 1, 1]]"
+2020-11-19 22:25:53,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-19 22:25:53,edouard_thom,log_in,INFO,start
+2020-11-19 22:25:57,edouard_thom,log_in,INFO,success
+2020-11-19 22:26:00,edouard_thom,update_followers,INFO,start
+2020-11-19 22:26:03,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-19 22:26:05,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 22:27:04,edouard_thom,get_followers_following_for_user_one_try,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 207, in get_followers_following_for_user_one_try
+    sleep(1)
+KeyboardInterrupt
+"
+2020-11-19 22:27:06,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 22:27:06,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 22:27:08,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 22:27:08,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 22:27:08,edouard_thom,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-19 22:27:08,edouard_thom,update_followers,ERROR,failed to get the followers list -> abort the followers update
+2020-11-19 22:27:08,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-19 22:27:08,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-19 22:27:08,edouard_thom,unfollowing_of_bot_followed_users,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/connection.py"", line 84, in create_connection
+    raise err
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/connection.py"", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 672, in urlopen
+    chunked=chunked,
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1026, in _send_output
+    self.send(msg)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 966, in send
+    self.connect()
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 184, in connect
+    conn = self._new_conn()
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 169, in _new_conn
+    self, ""Failed to establish a new connection: %s"" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7faf99623cd0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 130, in unfollowing_of_bot_followed_users
+    driver.get(profile_url)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py"", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py"", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/request.py"", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/request.py"", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/poolmanager.py"", line 330, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/retry.py"", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=53439): Max retries exceeded with url: /session/16799622190f43f87bf984a571a4ce34/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7faf99623cd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+"
+2020-11-19 22:27:11,edouard_thom,explore_hashtag,INFO,"start, #l4l"
+2020-11-19 22:46:09,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:46:09,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:47:04,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:47:04,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:47:07,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 22:50:37,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:50:37,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:50:38,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 22:50:59,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:50:59,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:51:00,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 22:52:14,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:54:13,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:54:13,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:54:14,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 22:54:22,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:54:22,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:54:23,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 22:54:42,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:57:06,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:57:06,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:57:08,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 22:57:35,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:57:41,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:58:57,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 22:58:57,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 22:58:58,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 23:08:23,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-19 23:08:23,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-19 23:08:25,edouard_thom,send_basic_insights_email,INFO,email successfully sent to the user
+2020-11-19 23:19:52,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-19 23:19:52,edouard_thom,log_in,INFO,start
+2020-11-19 23:19:55,edouard_thom,log_in,INFO,success
+2020-11-19 23:19:58,edouard_thom,update_followers,INFO,start
+2020-11-19 23:20:01,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-19 23:20:03,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 23:20:15,edouard_thom,get_followers_following_for_user_one_try,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 216, in get_followers_following_for_user_one_try
+    sleep(1)
+KeyboardInterrupt
+"
+2020-11-19 23:20:17,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 23:20:17,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 23:20:19,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-19 23:20:19,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-19 23:20:19,edouard_thom,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-19 23:20:19,edouard_thom,update_followers,ERROR,failed to get the followers list -> abort the followers update
+2020-11-19 23:20:19,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-19 23:20:19,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-19 23:20:19,edouard_thom,unfollowing_of_bot_followed_users,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/connection.py"", line 84, in create_connection
+    raise err
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/connection.py"", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 672, in urlopen
+    chunked=chunked,
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1026, in _send_output
+    self.send(msg)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 966, in send
+    self.connect()
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 184, in connect
+    conn = self._new_conn()
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 169, in _new_conn
+    self, ""Failed to establish a new connection: %s"" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fce1081e450>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 137, in unfollowing_of_accounts_followed_by_bot
+    driver.get(profile_url)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py"", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py"", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/request.py"", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/request.py"", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/poolmanager.py"", line 330, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/retry.py"", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=63628): Max retries exceeded with url: /session/bf346e24fd5f14ef03cb46ae7eb7f272/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fce1081e450>: Failed to establish a new connection: [Errno 61] Connection refused'))
+"
+2020-11-19 23:20:22,edouard_thom,explore_hashtag,INFO,"start, #l4l"

@@ -65,11 +65,11 @@ class registeredUIComponents:
         "description" : ""
     }
     profile_page_target_nb_followers = {
-        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a'],
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a/span'],
         "description" : ""
     }
     profile_page_target_nb_following = {
-        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a'],
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a/span'],
         "description" : ""
     }
     profile_page_target_nb_posts = {

@@ -40,6 +40,7 @@
 import os
 import pandas as pd
 import datetime
+from instabot_run_variables import database_path
 
 class registeredTableDefinitions:
     
@@ -93,9 +94,9 @@ class dataAPI(registeredTableDefinitions):
     def get(self,name,user):
         if name not in [i for i in dir(registeredTableDefinitions) if not callable(i)]:
             raise Exception("DataAPITableDoesntExist")
-        exists = os.path.isfile(name+"_"+user+".csv")
+        exists = os.path.isfile(database_path+name+"_"+user+".csv")
         if exists:
-            data = pd.read_csv(name+"_"+user+".csv")
+            data = pd.read_csv(database_path+name+"_"+user+".csv")
         else:
             schema = getattr(registeredTableDefinitions, name).get("schema")
             columns = list(schema.keys())
@@ -112,7 +113,7 @@ class dataAPI(registeredTableDefinitions):
         if record_ok:
             data = self.get(name,user)
             data = data.append(record,ignore_index=True)
-            data.to_csv(name+"_"+user+".csv",index=False)
+            data.to_csv(database_path+name+"_"+user+".csv",index=False)
         else:
             raise Exception("DataAPIInvalidRecord") 
         
@@ -121,7 +122,7 @@ class dataAPI(registeredTableDefinitions):
         schema_columns = list(schema.keys())
         data_ok = set(data.columns).issubset(set(schema_columns))
         if data_ok:
-            data.to_csv(name+"_"+user+".csv",index=False)
+            data.to_csv(database_path+name+"_"+user+".csv",index=False)
         else:
             raise Exception("DataAPIInvalidSchema") 
 
