@@ -54,8 +54,8 @@ If you see often logs like "failed to click component" relative to the same comp
 The central piece of the bot is the while(1) loop that you can find in *instabot_main.py*.  
 Here is the structure of the code with the interactions between the diverse parts :  
    
-![alt text](https://github.com/edouardthom/InstaBot/code_structure.png)  
-   
+![Alt text](/code_structure.png?raw=true "Structure of the code")
+     
 #### About the data API  
 See the objectives and the documentation in the file "instabot_data_api.py"
 
