@@ -118,33 +118,6 @@ def send_bug_report_email(hours_back,email_destination,user):
 
 
 
-######## DEMO EMAILS
-
-text = 'Hola {} !\n\n \
-    I hope you are staying positive and testing negative. \n\n \
-    Here are your account stats for the past {} hours : \n\n \
-        - Number of new followers : {} \n \
-        - Number of accounts that unfollowed you : {} \n\n \
-        - Welcome some of your new followers : {} \n \
-        - Some of the accounts that unfollowed you : {} \n\n \
-    Good bye :) \n \
-    Instagrobot'.format(user,6,4,2,
-                            ", ".join(["your_mom1","your_mom2"]),
-                            ", ".join(["your_dad1","your_dad2"]))
-    
-subject = "Account Insights"
-send_email(subject,text,dev_email,user)
-
-
-
-
-send_bug_report_email(6,dev_email,user)
-
-
-
-
-
-
 
 
 

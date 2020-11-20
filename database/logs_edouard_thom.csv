@@ -492,3 +492,27 @@ KeyboardInterrupt
 2020-11-20 16:41:39,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
 2020-11-20 16:41:40,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
 2020-11-20 16:41:42,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-20 16:47:26,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 322/323
+2020-11-20 16:47:26,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-20 16:47:26,edouard_thom,unfollowing_of_bot_followed_users,INFO,3 accounts stopped being followed since last time this function ran
+2020-11-20 16:47:26,edouard_thom,unfollowing_of_bot_followed_users,INFO,Unfollow data for user edouard_thom successfully updated
+2020-11-20 16:47:29,edouard_thom,explore_hashtag,INFO,"start, #friends"
+2020-11-20 16:47:35,edouard_thom,explore_hashtag,INFO,start processing for account : friendsviids
+2020-11-20 16:47:37,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:47:37,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : friendsviids, 295000, 14, 950"
+2020-11-20 16:47:37,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:47:38,edouard_thom,explore_hashtag,INFO,successfully followed account : friendsviids
+2020-11-20 16:47:38,edouard_thom,explore_hashtag,INFO,start processing for account : dennysmall
+2020-11-20 16:47:40,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:47:40,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : dennysmall, 5085, 1294, 2133"
+2020-11-20 16:47:40,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:47:40,edouard_thom,explore_hashtag,INFO,successfully followed account : dennysmall
+2020-11-20 16:47:40,edouard_thom,explore_hashtag,INFO,"hashtag friends processed, 2 accounts followed"
+2020-11-20 16:47:43,edouard_thom,explore_hashtag,INFO,"start, #foodie"
+2020-11-20 16:49:09,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-20 16:49:09,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-20 16:49:09,edouard_thom,log_in,INFO,start
+2020-11-20 16:49:12,edouard_thom,log_in,INFO,success
+2020-11-20 16:49:15,edouard_thom,update_followers,INFO,start
+2020-11-20 16:49:19,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-20 16:49:21,edouard_thom,get_followers_following_for_user_one_try,INFO,start
