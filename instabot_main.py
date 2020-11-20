@@ -8,7 +8,7 @@ warnings.filterwarnings("ignore") #f**k warnings
 import instabot_data_api
 from instabot_data_api import dataAPI
 instabot_data_api.STORE_LOGS = True 
-from instabot_run_variables import time_between_loops,nb_hashtags_per_loop,nb_follows_per_hashtag,user,email,password,hashtags,email_hours_back,time_between_emails
+from instabot_run_variables import *
 
 
 
@@ -39,9 +39,13 @@ while 1:
         explore_hashtag_outputs.append(explore_hashtag_output)
     driver.close()
     
-    ### Email sending
-    if loop_number%max(1,int(time_between_emails/time_between_loops))==0:
-        send_basic_insights_email(email_hours_back,email,user)
+    ### Insights email sending
+    if loop_number%max(1,int(time_between_insights_emails/time_between_loops))==0:
+        send_basic_insights_email(email_hours_back,user_email,user)
+
+    ### Bug report email sending
+    if loop_number%max(1,int(time_between_maintenance_emails/time_between_loops))==0:
+        send_bug_report_email(email_hours_back,dev_email,user)
     
     ### In case the loop is fully executed, we fire a log that sums-up the success of each function of the loop
     dataAPI().log(user,"MAIN","INFO",'loop {0} executed, success : [update_followers : {1}, unfollowing_of_bot_followed_users : {2}, explore_hashtag : {3}]'.format(loop_number,update_followers_output,unfollowing_output,explore_hashtag_outputs))

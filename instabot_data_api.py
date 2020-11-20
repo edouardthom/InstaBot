@@ -58,10 +58,11 @@ class registeredTableDefinitions:
         "follow_time" : "When the account was followed by the bot",
         "account_username" : "Username of the account that the bot followed",
         "account_nb_followers" : "Number of followers of the account that the bot followed, at the moment of the follow",
+        "account_nb_following" : "Number of accounts that the account is following, at the moment of the follow",
         "account_nb_posts" : "Number of posts of the account that the bot followed, at the moment of the follow",
         "hashtag" : "The hashtag through which the bot found the account", 
         "first_pic_liked" : "If the first pic of the account was liked",
-        "days_before_unfollowing" : "Number of days the bot follows that account - set at random at the moment of the follow",
+        "hours_before_unfollowing" : "Number of hours the bot follows that account - set at random at the moment of the follow",
         "unfollow_time" : "When the account was unfollowed (by the bot of by a human) - can be null"
     }}
 

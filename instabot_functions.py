@@ -121,8 +121,9 @@ def unfollowing_of_accounts_followed_by_bot(user,driver):
         ### Get the follows made by the bot
         follow_actions = dataAPI().get("follow_actions",user)
         
+        ### Identify the accounts that the bot followed that need to be unfollowed because the time as come (remember that each account followed by the bot is assigned a number of hours before the unfollow must happen)
         follow_actions['follow_time'] = follow_actions['follow_time'].apply(lambda x:datetime.datetime.strptime(x,"%Y-%m-%d %H:%M:%S.%f"))
-        follow_actions["planned_unfollow_date"] = follow_actions["follow_time"] + follow_actions.days_before_unfollowing.apply(lambda x:datetime.timedelta(days=x))
+        follow_actions["planned_unfollow_date"] = follow_actions["follow_time"] + follow_actions.hours_before_unfollowing.apply(lambda x:datetime.timedelta(hours=x))
         accounts_to_unfollow = follow_actions[(follow_actions.planned_unfollow_date<=datetime.datetime.now())
                                              &(follow_actions.unfollow_time.isnull())]
         accounts_to_unfollow = accounts_to_unfollow.account_username
@@ -275,9 +276,9 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
         driver.execute_script("window.open('');")
         driver.switch_to.window(driver.window_handles[1])
         driver.get(account_url)        
-        account_username,nb_posts,nb_followers,nb_followed = get_account_data_from_profile_page(user,driver)   
+        account_username,nb_posts,nb_followers,nb_following = get_account_data_from_profile_page(user,driver)   
 
-        if None in [account_username,nb_posts,nb_followers,nb_followed]:
+        if None in [account_username,nb_posts,nb_followers,nb_following]:
             driver.close()
             driver.switch_to.window(driver.window_handles[0])
             right_arrow_pressed = press_righ_arrow(pic_number,user,driver)
@@ -304,14 +305,18 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
         first_pic_liked = 0
         if np.random.randint(2):
             first_pic_liked = UIComponentsAPI().click("pictures_carousel_like_button",user,driver)
-                                           
+        
+        ### The bot follows each accounts for a random limited amount of hours - between 4 and 96 hours.
+        hours_before_unfollowing =  np.random.randint(4,96,1)[0]
+                                   
         record = {"follow_time" : datetime.datetime.now(),
                   "account_username" : account_username,
                   "account_nb_followers" : nb_followers,
+                  "account_nb_following" : nb_following,
                   "account_nb_posts" : nb_posts,
                   "hashtag" : hashtag, 
                   "first_pic_liked" : first_pic_liked,
-                  "days_before_unfollowing" : np.random.randint(1,5,1)[0],
+                  "hours_before_unfollowing" : hours_before_unfollowing,
                   "unfollow_time" : None}
         dataAPI().add_record("follow_actions",user,record)
                

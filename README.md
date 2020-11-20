@@ -17,12 +17,12 @@
 ## Technical requirements    
 * (MVP) Autonomy and robustness 
   * Should be able to run continuously and rarely crash 
-* (MVP) Environment-agnostic  
-  * The bot should be able to run on usual platforms : raspberry Pi, AWS instance, classic desktop...
-  * Only prerequisite : Python, Selenium, Chrome+Driver
 * (MVP) Low maintenance efforts  
   * make it frictionless to ensure that the code keeps up with Instagram UI changes 
   * efficient logs management
+* (MVP) Environment-agnostic  
+  * The bot should be able to run on usual platforms : raspberry Pi, AWS instance, classic desktop...
+  * Only prerequisite : Python, Selenium, Chrome+Driver
 * (MVP) Output good-quality data  
   * transparency and clarity over what the data contains  
   * guarantee the quality of that data 
@@ -60,7 +60,7 @@ If you see often logs like "failed to click component" relative to the same comp
 The central piece of the bot is the while(1) loop that you can find in *instabot_main.py*.  
 Here is the structure of the code with the interactions between the diverse parts :  
    
-![Alt text](/code_structure.png?raw=true "Structure of the code")
+![Alt text](/documentation/code_structure.png?raw=true "Structure of the code")
      
 #### About the data API  
 See the objectives and the documentation in the file "instabot_data_api.py"
