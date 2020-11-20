@@ -34,16 +34,16 @@ You need :
 Once the 4 ingredients above are well set-up :  
 * Clone this repository in a cosy location
 * Navigate to the instabot folder (InstaBot)
-* fill *instabot_running_variables.py* with the values of your choice. Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.    
-* Then simply run  *instabot_main.py* and let the bot do its job. You should see the logs being printed out so you can follow the bot work.    
+* fill *instabot_running_variables.py* with the values of your choice. Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
+* Finally, run  *instabot_main.py* and let the bot do its job. You should see the logs being printed out.    
 #### About the data generated  
 The data is managed within the code by the DataAPI (*instabot_data_api.csv*). It is useful to enforce data quality and bring clarity regarding what the data contains (more info next section).
 The schema and description of each dataframe is defined in the class *registeredTableDefinitions* in the dataAPI file. There you can see exactly what data the bot outputs, and what it contains.
 #### About the maintenance  
 The bot is designed to run even if if faces some unforeseen events. However it can still crash. In that case you will need to look into the logs.  
 By default the logs will be both printed, and be stored in *database_path/logs_X.csv* for user X.  
-Regarding the xpaths of the diverse compoments (buttons, textboxes) the bots will interact with (get text, click, enter text), they are all listed in the *instabot_ui_api.py*. It is yet another API, this time to manage efficiently  the paths to the components.  
-If you see often logs like "failed to click component" relative to the same component, you might need to update its xpath in the class registeredUIComponents in *instabot_ui_api.py*.
+Regarding the xpaths of the diverse compoments (buttons, textboxes) the bots will interact with (get text, click, enter text), they are all listed in the *instabot_ui_api.py*. It is yet another API, this time to manage efficiently the xpaths to the components.  
+If you see often logs like "failed to click component X" , you might need to update its xpath in the class *registeredUIComponents* in *instabot_ui_api.py*.
    
 ## Technical requirements    
 * (MVP) Autonomy and robustness 
@@ -79,3 +79,5 @@ Here is the structure of the code with the interactions between the diverse part
 #### About the data API  
 See the objectives and the documentation in the file "instabot_data_api.py"
     
+I think you should use an
+`<addr>` element here instead.
