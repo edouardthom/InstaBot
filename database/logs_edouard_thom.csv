@@ -471,3 +471,24 @@ KeyboardInterrupt
 2020-11-20 16:37:21,edouard_thom,follow_from_profile_page,INFO,start
 2020-11-20 16:37:22,edouard_thom,explore_hashtag,INFO,successfully followed account : luxuriousupercars
 2020-11-20 16:37:22,edouard_thom,explore_hashtag,INFO,"hashtag car processed, 2 accounts followed"
+2020-11-20 16:37:25,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-20 16:37:25,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-20 16:37:26,edouard_thom,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-20 16:37:26,edouard_thom,send_basic_insights_email,INFO,basic insights email successfully sent for user edouard_thom
+2020-11-20 16:37:28,edouard_thom,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-20 16:37:28,edouard_thom,send_basic_insights_email,INFO,bug report email successfully sent for user edouard_thom
+2020-11-20 16:37:28,edouard_thom,MAIN,INFO,"loop 1 executed, success : [update_followers : 1, unfollowing_of_bot_followed_users : 1, explore_hashtag : [1, 1]]"
+2020-11-20 16:37:28,edouard_thom,MAIN,INFO,heartbeak... time to wait : 3009
+2020-11-20 16:38:28,edouard_thom,MAIN,INFO,loop 2 start
+2020-11-20 16:38:28,edouard_thom,log_in,INFO,start
+2020-11-20 16:38:31,edouard_thom,log_in,INFO,success
+2020-11-20 16:38:34,edouard_thom,update_followers,INFO,start
+2020-11-20 16:38:37,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-20 16:38:39,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-20 16:41:36,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 165/166
+2020-11-20 16:41:36,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-20 16:41:36,edouard_thom,update_followers,INFO,success
+2020-11-20 16:41:39,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-20 16:41:39,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-20 16:41:40,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-20 16:41:42,edouard_thom,get_followers_following_for_user_one_try,INFO,start

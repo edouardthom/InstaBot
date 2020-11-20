@@ -34,11 +34,11 @@ You need :
 * Google Chrome. Check the version you have within Chrome : menu->Help->About.
 * Chrome driver that suits your version of Chrome. You can download it here : https://chromedriver.chromium.org/downloads. Then you need to make it findable by Selenium. On MacOS, as an example, I put it in the folder */usr/local/bin*.  
 #### 2. Run the bot
-* Clone this repository in a cosy location  
+* Clone this repository in a cosy location : `git clone https://github.com/edouardthom/InstaBot.git`
 * Navigate to the instabot folder `cd InstaBot`  
-* Fill *instabot_running_variables.py* with the values of your choice and save.  
+* Fill *instabot_running_variables.py* with the values of your choice, and save.  
   Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
-* Finally, run *instabot_main.py* and let the bot do its job. Depending where you run the code, you might see the logs being printed out.    
+* Finally, run `python instabot_main.py` and let the bot do its job. Depending where you run the code, you might see the logs being printed out.    
   
 If you run in a terminal :  
   
