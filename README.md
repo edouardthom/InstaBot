@@ -13,6 +13,7 @@
 * automatically interact with accounts in a smart way to maximise the number of followers 
 * provide reporting data regarding both the audience evolution and the interaction strategy 
 * communicate insights based on that data  
+   
 **More concretely, what does the bot (MVP) do ?**  
 Once given access to an Instagram account, he follows random accounts, that he finds through the list of hashtags you provided him beforehand.  
 The hope is to be followed-back by a portion of these accounts.  
@@ -28,13 +29,13 @@ Last techy thing : to allow you to monitor the run, logs are stored in the datab
 You need :  
 * Python 3.7
 * Python packages : Selenium, Pandas, Numpy. I recommend conda : you can create a virtual env. with Python 3.7 and install these packages.
-* Google Chrome
-* Chrome driver that suits your version of Chrome. You can download it here : https://chromedriver.chromium.org/downloads. Then you need to make it findable by Selenium. On MacOS, as an example, I put it in the folder */usr/local/bin*.
-Once the 4 ingredients above are well set-up : 
+* Google Chrome  
+* Chrome driver that suits your version of Chrome. You can download it here : https://chromedriver.chromium.org/downloads. Then you need to make it findable by Selenium. On MacOS, as an example, I put it in the folder */usr/local/bin*.  
+Once the 4 ingredients above are well set-up :  
 * Clone this repository in a cosy location
 * Navigate to the instabot folder (InstaBot)
-* fill *instabot_running_variables.py* with the values of your choice. Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
-* Then simply run  *instabot_main.py* and let the bot do its job. You should see the logs being printed out so you can follow the bot work.   
+* fill *instabot_running_variables.py* with the values of your choice. Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.    
+* Then simply run  *instabot_main.py* and let the bot do its job. You should see the logs being printed out so you can follow the bot work.    
 #### About the data generated  
 The data is managed within the code by the DataAPI (*instabot_data_api.csv*). It is useful to enforce data quality and bring clarity regarding what the data contains (more info next section).
 The schema and description of each dataframe is defined in the class *registeredTableDefinitions* in the dataAPI file. There you can see exactly what data the bot outputs, and what it contains.
