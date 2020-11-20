@@ -374,6 +374,17 @@ def get_account_data_from_profile_page(user,driver):
     dataAPI().log(user,"get_account_data_from_profile_page","INFO","raw account data scraped and transformed successfully : {0}, {1}, {2}, {3}".format(account_username,nb_followers,nb_following,nb_posts))
     return account_username,nb_posts,nb_followers,nb_following
 
+
+def like_medias(link,user,driver):
+    # 1st list of links
+    driver.get(link)
+    st1 = UIComponentsAPI().click("like_media_post",user,driver)
+    if st1:
+        # print('successfully')
+        dataAPI().log(user,"like_media","INFO","success")
+    else:
+        dataAPI().log(user,"like_media","ERROR","failed")
+
     
     
 
