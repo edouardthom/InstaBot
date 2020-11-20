@@ -26,23 +26,30 @@ Last techy thing : to allow you to monitor the run, logs are stored in the datab
 *Performances : as of Nov 20, on my 2017 macbook pro 13,  the bot properly run days without crashing :))*
   
 ## Get started with the bot - tutorial  
+#### 1. Set-up the environment 
 You need :  
 * Python 3.7
-* Python packages : Selenium, Pandas, Numpy. I recommend conda : you can create a virtual env. with Python 3.7 and install these packages.
-* Google Chrome  
+* Python packages : Selenium, Pandas, Numpy.  
+  As a package management solution, I recommend conda : you can create a virtual env. with Python 3.7 and install these packages.
+* Google Chrome. Check the version you have within Chrome : menu->Help->About.
 * Chrome driver that suits your version of Chrome. You can download it here : https://chromedriver.chromium.org/downloads. Then you need to make it findable by Selenium. On MacOS, as an example, I put it in the folder */usr/local/bin*.  
-Once the 4 ingredients above are well set-up :  
-* Clone this repository in a cosy location
-* Navigate to the instabot folder (InstaBot)
-* fill *instabot_running_variables.py* with the values of your choice. Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
+#### 2. Run the bot
+* Clone this repository in a cosy location  
+* Navigate to the instabot folder (InstaBot)  
+* Fill *instabot_running_variables.py* with the values of your choice and save.  
+  Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
 * Finally, run  *instabot_main.py* and let the bot do its job. You should see the logs being printed out.    
 #### About the data generated  
-The data is managed within the code by the DataAPI (*instabot_data_api.csv*). It is useful to enforce data quality and bring clarity regarding what the data contains (more info next section).
-The schema and description of each dataframe is defined in the class *registeredTableDefinitions* in the dataAPI file. There you can see exactly what data the bot outputs, and what it contains.
+The bot MVP generates 3 datasets at the moment, including the one containing the logs.  
+The schema and description of each dataset is defined in the class *registeredTableDefinitions* in the *instabot_data_api.csv* file. There you can see exactly what data the bot outputs, and what it contains.
+The datasets are stored as csv in the *InstaBot/database* folder
 #### About the maintenance  
-The bot is designed to run even if if faces some unforeseen events. However it can still crash. In that case you will need to look into the logs.  
-By default the logs will be both printed, and be stored in *database_path/logs_X.csv* for user X.  
-Regarding the xpaths of the diverse compoments (buttons, textboxes) the bots will interact with (get text, click, enter text), they are all listed in the *instabot_ui_api.py*. It is yet another API, this time to manage efficiently the xpaths to the components.  
+The bot is designed to overcome minor errors and keep running. From time to time it can crash but that should remaine relatively rare.    
+It is a good practice to regularly have a look at the logs to spot recurring minor errors and fix them.  
+By default the logs will be printed, and be stored in * InstaBot/database/logs_X.csv* for user X.  
+Bug reports will be sent as well via email.  
+One specific kind of eror occurs when the bot fails to interact (click, enter text,...) with the Instagram UI. It often happens when the source code of Instagram changed, and the bot cannot find a component (button,...) anymore.  
+The UI API (*instagram_ui_api.py*) ensures a frictionless management of the interactions with the UI. All components that the bot interacts with are declared in the *registeredUIComponents* class.  
 If you see often logs like "failed to click component X" , you might need to update its xpath in the class *registeredUIComponents* in *instabot_ui_api.py*.
    
 ## Technical requirements    
