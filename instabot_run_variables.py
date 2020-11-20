@@ -5,7 +5,7 @@ database_path = "/Users/ethomas/Instabot/database/"
 
 user = "edouard_thom"
 user_email = 'edouard.thom@gmail.com'
-password = ''
+password = 'instaedobot_1993'
 
 # The hastags thanks to which the bot will find users to follow
 hashtags = ["instalife","friends","beach","ski","followeraktif","follower4follower",
@@ -26,7 +26,7 @@ nb_follows_per_hashtag = 2
 
 # The gmail account from which the bot can send the emails
 BOT_GMAIL_ADDRESS = 'instabot.insights@gmail.com'
-BOT_GMAIL_PASSWORD = ''
+BOT_GMAIL_PASSWORD = 'instaedobot_1993'
 
 # How often the bot sends insights emails 
 time_between_insights_emails = 600

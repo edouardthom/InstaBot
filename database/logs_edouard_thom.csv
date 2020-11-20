@@ -331,3 +331,143 @@ KeyboardInterrupt
 2020-11-20 14:50:11,edouard_thom,get_followers_following_for_user,ERROR,failed after 3 attempts
 2020-11-20 14:50:11,edouard_thom,unfollowing_of_bot_followed_users,ERROR,failed to get the following list -> stop the function execution
 2020-11-20 14:50:14,edouard_thom,explore_hashtag,INFO,"start, #followers"
+2020-11-20 16:13:29,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-20 16:13:29,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-20 16:13:29,edouard_thom,log_in,INFO,start
+2020-11-20 16:13:34,edouard_thom,UIAPI,ERROR,failed to click component : login_connexion_button
+2020-11-20 16:13:34,edouard_thom,log_in,ERROR,failed
+2020-11-20 16:13:34,edouard_thom,MAIN,INFO,failed to log-in and get the driver - restarting in 2 minutes...
+2020-11-20 16:14:23,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-20 16:14:23,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-20 16:14:23,edouard_thom,log_in,INFO,start
+2020-11-20 16:14:27,edouard_thom,UIAPI,ERROR,failed to click component : login_connexion_button
+2020-11-20 16:14:27,edouard_thom,log_in,ERROR,failed
+2020-11-20 16:14:27,edouard_thom,MAIN,INFO,failed to log-in and get the driver - restarting in 2 minutes...
+2020-11-20 16:14:42,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-20 16:14:42,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-20 16:14:42,edouard_thom,log_in,INFO,start
+2020-11-20 16:14:45,edouard_thom,UIAPI,ERROR,failed to click component : login_connexion_button
+2020-11-20 16:14:45,edouard_thom,log_in,ERROR,failed
+2020-11-20 16:14:45,edouard_thom,MAIN,INFO,failed to log-in and get the driver - restarting in 2 minutes...
+2020-11-20 16:15:12,edouard_thom,log_in,INFO,start
+2020-11-20 16:15:16,edouard_thom,UIAPI,ERROR,failed to click component : login_connexion_button
+2020-11-20 16:15:16,edouard_thom,log_in,ERROR,failed
+2020-11-20 16:15:40,edouard_thom,log_in,INFO,start
+2020-11-20 16:15:44,edouard_thom,UIAPI,ERROR,failed to click component : login_connexion_button
+2020-11-20 16:15:44,edouard_thom,log_in,ERROR,failed
+2020-11-20 16:17:05,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-20 16:17:05,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-20 16:17:05,edouard_thom,log_in,INFO,start
+2020-11-20 16:17:08,edouard_thom,log_in,INFO,success
+2020-11-20 16:17:11,edouard_thom,update_followers,INFO,start
+2020-11-20 16:17:14,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-20 16:17:16,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-20 16:20:14,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 165/166
+2020-11-20 16:20:14,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-20 16:20:14,edouard_thom,update_followers,INFO,success
+2020-11-20 16:20:17,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-20 16:20:17,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-20 16:20:18,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-20 16:20:20,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-20 16:23:12,edouard_thom,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-20 16:23:40,edouard_thom,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-20 16:25:20,edouard_thom,send_email,ERROR,failed to send email to edouard.thom@gmail.com
+2020-11-20 16:25:20,edouard_thom,send_basic_insights_email,INFO,bug report email successfully sent for user edouard_thom
+2020-11-20 16:26:02,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 321/322
+2020-11-20 16:26:02,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-20 16:26:02,edouard_thom,unfollowing_of_bot_followed_users,INFO,4 accounts stopped being followed since last time this function ran
+2020-11-20 16:26:02,edouard_thom,unfollowing_of_bot_followed_users,INFO,Unfollow data for user edouard_thom successfully updated
+2020-11-20 16:26:05,edouard_thom,explore_hashtag,INFO,"start, #l4l"
+2020-11-20 16:26:12,edouard_thom,explore_hashtag,INFO,start processing for account : venitaaspen
+2020-11-20 16:26:14,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:26:14,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : venitaaspen, 48000, 1819, 1445"
+2020-11-20 16:26:14,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:26:14,edouard_thom,explore_hashtag,INFO,successfully followed account : venitaaspen
+2020-11-20 16:26:14,edouard_thom,explore_hashtag,INFO,start processing for account : j.x.bby
+2020-11-20 16:26:17,edouard_thom,send_email,ERROR,failed to send email to edouard.thom@gmail.com
+2020-11-20 16:26:17,edouard_thom,send_basic_insights_email,INFO,bug report email successfully sent for user edouard_thom
+2020-11-20 16:26:17,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:26:17,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : j.x.bby, 2917, 363, 69"
+2020-11-20 16:26:17,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:26:17,edouard_thom,explore_hashtag,INFO,successfully followed account : j.x.bby
+2020-11-20 16:26:17,edouard_thom,explore_hashtag,INFO,"hashtag l4l processed, 2 accounts followed"
+2020-11-20 16:26:19,edouard_thom,send_email,ERROR,failed to send email to edouard.thom@gmail.com
+2020-11-20 16:26:19,edouard_thom,send_basic_insights_email,INFO,bug report email successfully sent for user edouard_thom
+2020-11-20 16:26:20,edouard_thom,explore_hashtag,INFO,"start, #like4like"
+2020-11-20 16:26:27,edouard_thom,explore_hashtag,INFO,start processing for account : vogueclasy
+2020-11-20 16:26:28,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:26:28,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : vogueclasy, 118000, 95, 510"
+2020-11-20 16:26:28,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:26:28,edouard_thom,explore_hashtag,INFO,successfully followed account : vogueclasy
+2020-11-20 16:26:29,edouard_thom,explore_hashtag,INFO,start processing for account : thaisadren
+2020-11-20 16:26:31,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:26:31,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : thaisadren, 8367, 3544, 500"
+2020-11-20 16:26:31,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:26:31,edouard_thom,explore_hashtag,INFO,successfully followed account : thaisadren
+2020-11-20 16:26:31,edouard_thom,explore_hashtag,INFO,"hashtag like4like processed, 2 accounts followed"
+2020-11-20 16:26:34,edouard_thom,send_basic_insights_email,INFO,start
+2020-11-20 16:26:34,edouard_thom,send_basic_insights_email,INFO,data obtained
+2020-11-20 16:26:36,edouard_thom,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-20 16:26:36,edouard_thom,send_basic_insights_email,INFO,basic insights email successfully sent for user edouard_thom
+2020-11-20 16:26:37,edouard_thom,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-20 16:26:37,edouard_thom,send_basic_insights_email,INFO,bug report email successfully sent for user edouard_thom
+2020-11-20 16:26:37,edouard_thom,MAIN,INFO,"loop 0 executed, success : [update_followers : 1, unfollowing_of_bot_followed_users : 1, explore_hashtag : [1, 1]]"
+2020-11-20 16:26:37,edouard_thom,MAIN,INFO,heartbeak... time to wait : 3027
+2020-11-20 16:27:37,edouard_thom,MAIN,INFO,loop 1 start
+2020-11-20 16:27:37,edouard_thom,log_in,INFO,start
+2020-11-20 16:27:40,edouard_thom,log_in,INFO,success
+2020-11-20 16:27:43,edouard_thom,update_followers,INFO,start
+2020-11-20 16:27:46,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-20 16:27:48,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-20 16:30:45,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 165/166
+2020-11-20 16:30:45,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-20 16:30:45,edouard_thom,update_followers,INFO,success
+2020-11-20 16:30:48,edouard_thom,unfollowing_of_bot_followed_users,INFO,start
+2020-11-20 16:30:48,edouard_thom,unfollowing_of_bot_followed_users,INFO,0 accounts to unfollow...
+2020-11-20 16:30:49,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-20 16:30:51,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-20 16:36:34,edouard_thom,get_followers_following_for_user_one_try,INFO,followers scraped : 321/322
+2020-11-20 16:36:34,edouard_thom,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-20 16:36:34,edouard_thom,unfollowing_of_bot_followed_users,INFO,4 accounts stopped being followed since last time this function ran
+2020-11-20 16:36:34,edouard_thom,unfollowing_of_bot_followed_users,INFO,Unfollow data for user edouard_thom successfully updated
+2020-11-20 16:36:37,edouard_thom,explore_hashtag,INFO,"start, #followeraktif"
+2020-11-20 16:36:44,edouard_thom,explore_hashtag,INFO,start processing for account : aniissaeffendi
+2020-11-20 16:36:45,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:36:45,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : aniissaeffendi, 2314, 728, 4"
+2020-11-20 16:36:45,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:36:45,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-20 16:36:52,edouard_thom,UIAPI,ERROR,failed to access component : picture_carousel_account_name
+2020-11-20 16:36:52,edouard_thom,explore_hashtag,INFO,start processing for account : deatzhr_rra
+2020-11-20 16:36:54,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:36:54,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : deatzhr_rra, 1036, 307, 4"
+2020-11-20 16:36:54,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:36:54,edouard_thom,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-20 16:36:55,edouard_thom,explore_hashtag,INFO,start processing for account : hallat_e_dil
+2020-11-20 16:36:57,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:36:57,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : hallat_e_dil, 487, 297, 415"
+2020-11-20 16:36:57,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:36:57,edouard_thom,explore_hashtag,INFO,successfully followed account : hallat_e_dil
+2020-11-20 16:36:58,edouard_thom,explore_hashtag,INFO,start processing for account : woles_art22
+2020-11-20 16:37:00,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:37:00,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : woles_art22, 199, 453, 113"
+2020-11-20 16:37:00,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:37:00,edouard_thom,explore_hashtag,INFO,successfully followed account : woles_art22
+2020-11-20 16:37:01,edouard_thom,UIAPI,ERROR,failed to click component : pictures_carousel_not_first_pic_right_arrow
+2020-11-20 16:37:01,edouard_thom,explore_hashtag,ERROR,stop the processing of hashtag followeraktif
+2020-11-20 16:37:01,edouard_thom,explore_hashtag,INFO,"hashtag followeraktif processed, 1 accounts followed"
+2020-11-20 16:37:04,edouard_thom,explore_hashtag,INFO,"start, #car"
+2020-11-20 16:37:10,edouard_thom,explore_hashtag,INFO,start processing for account : benz.c1ub
+2020-11-20 16:37:12,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:37:12,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : benz.c1ub, 844000, 326, 4344"
+2020-11-20 16:37:12,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:37:12,edouard_thom,explore_hashtag,INFO,successfully followed account : benz.c1ub
+2020-11-20 16:37:13,edouard_thom,explore_hashtag,INFO,start processing for account : mercedesworldd
+2020-11-20 16:37:15,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:37:18,edouard_thom,UIAPI,ERROR,failed to access component : profile_page_target_nb_following
+2020-11-20 16:37:18,edouard_thom,get_account_data_from_profile_page,ERROR,"couldn't scrape raw account data properly. What we got : mercedesworldd, 721k, 0, 1,996"
+2020-11-20 16:37:20,edouard_thom,explore_hashtag,INFO,start processing for account : luxuriousupercars
+2020-11-20 16:37:21,edouard_thom,get_account_data_from_profile_page,INFO,start
+2020-11-20 16:37:21,edouard_thom,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : luxuriousupercars, 8698, 7213, 278"
+2020-11-20 16:37:21,edouard_thom,follow_from_profile_page,INFO,start
+2020-11-20 16:37:22,edouard_thom,explore_hashtag,INFO,successfully followed account : luxuriousupercars
+2020-11-20 16:37:22,edouard_thom,explore_hashtag,INFO,"hashtag car processed, 2 accounts followed"

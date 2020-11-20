@@ -35,10 +35,23 @@ You need :
 * Chrome driver that suits your version of Chrome. You can download it here : https://chromedriver.chromium.org/downloads. Then you need to make it findable by Selenium. On MacOS, as an example, I put it in the folder */usr/local/bin*.  
 #### 2. Run the bot
 * Clone this repository in a cosy location  
-* Navigate to the instabot folder (InstaBot)  
+* Navigate to the instabot folder `cd InstaBot`  
 * Fill *instabot_running_variables.py* with the values of your choice and save.  
   Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
-* Finally, run  *instabot_main.py* and let the bot do its job. You should see the logs being printed out.    
+* Finally, run *instabot_main.py* and let the bot do its job. Depending where you run the code, you might see the logs being printed out.    
+  
+If you run in a terminal :  
+  
+![Alt text](/documentation/screenshot_terminal.png?raw=true)  
+  
+From time to time you will receive a polite email containing insights :  
+
+![Alt text](/documentation/screenshot_insights_email.png?raw=true)   
+  
+You'll also receive bug reports :  
+
+![Alt text](/documentation/screenshot_bug_report.png?raw=true)  
+   
 #### About the data generated  
 The bot MVP generates 3 datasets at the moment, including the one containing the logs.  
 The schema and description of each dataset is defined in the class *registeredTableDefinitions* in the *instabot_data_api.csv* file. There you can see exactly what data the bot outputs, and what it contains.

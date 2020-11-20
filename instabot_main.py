@@ -9,6 +9,7 @@ from instabot_functions import log_in,update_followers,unfollowing_of_accounts_f
 from instabot_email_service import send_basic_insights_email,send_bug_report_email
 from instabot_data_api import dataAPI
 from instabot_run_variables import *
+import instabot_data_api
 instabot_data_api.STORE_LOGS = True 
 
 
