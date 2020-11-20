@@ -1,26 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from instabot_functions import log_in,update_followers,unfollowing_of_accounts_followed_by_bot,explore_hashtag,sleep,datetime,np
-from instabot_email_service import send_basic_insights_email
 import warnings 
 warnings.filterwarnings("ignore") #f**k warnings
-import instabot_data_api
+import datetime
+
+from instabot_functions import log_in,update_followers,unfollowing_of_accounts_followed_by_bot,explore_hashtag,sleep,datetime,np
+from instabot_email_service import send_basic_insights_email,send_bug_report_email
 from instabot_data_api import dataAPI
-instabot_data_api.STORE_LOGS = True 
 from instabot_run_variables import *
+instabot_data_api.STORE_LOGS = True 
 
 
 
 
-
-### That loop runs once every time_between_loops seconds
+### That loop runs once every [time_between_loops] seconds
 last_round = datetime.datetime.now()
 loop_number = 0
+dataAPI().log(user,"MAIN","INFO","Bot started for user {} !".format(user))
 while 1:
     dataAPI().log(user,"MAIN","INFO","loop {} start".format(loop_number))
     
-    driver = log_in(email,password,user,for_aws=False,headless=True)
+    driver = log_in(user_email,password,user,for_aws=False,headless=True)
     ### If login failure, we cannot pursue the loop, we retry
     if driver==0:
         dataAPI().log(user,"MAIN","INFO","failed to log-in and get the driver - restarting in 2 minutes...")
