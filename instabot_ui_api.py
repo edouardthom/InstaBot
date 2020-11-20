@@ -88,7 +88,7 @@ class registeredUIComponents:
         "xpaths" : ['/html/body/div[5]/div/div/div/div[3]/button[1]'],
         "description" : ""
     }
-      like_media_post = {
+    like_media_post = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/div[1]/article/div[3]/section[1]/span[1]/button/div/span'],
         "description" : ""
     }
