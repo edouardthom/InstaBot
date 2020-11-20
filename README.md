@@ -3,17 +3,17 @@
 ### Instagram audience expansion and monitoring  
   
 [Features](#part1)  
-[Technical requirements](#part2)
-[Get started with the bot](#part3)
-[Code organisation](#part4)
+[Technical requirements](#part2)  
+[Get started with the bot](#part3)  
+[Code organisation](#part4)  
    
-<a name="part1"/>
+<a name="part1"/>  
 ## Features :  
 * automatically interact with accounts in a smart way to maximise the number of followers 
 * provide reporting data regarding both the audience evolution and the interaction strategy 
 * communicate insights based on that data
 
-<a name="part2"/>
+<a name="part2"/>  
 ## Technical requirements    
 * (MVP) Autonomy and robustness 
   * Should be able to run continuously and rarely crash 
@@ -39,7 +39,7 @@
 * (2.0) Audience targetting
   * Gain followers that are part of a target audience
 
-<a name="part3"/>
+<a name="part3"/>  
 ## Get started with the bot   
 You need :  
 * Python 3.7
@@ -57,7 +57,7 @@ By default the logs will be both printed, and be stored in *database_path/logs_X
 Regarding the xpaths of the diverse compoments (buttons, textboxes) the bots will interact with (get text, click, enter text), they are all listed in the *instabot_ui_api.py*. It is yet another API, this time to manage efficiently  the paths to the components.  
 If you see often logs like "failed to click component" relative to the same component, you might need to update its xpath in the class registeredUIComponents in *instabot_ui_api.py*.
 
-<a name="part4"/>  
+<a name="part4"/>   
 ## Code organisation   
 The central piece of the bot is the while(1) loop that you can find in *instabot_main.py*.  
 Here is the structure of the code with the interactions between the diverse parts :  
