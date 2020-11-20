@@ -1,5 +1,7 @@
 # InstaBot 🤖  
-
+  
+*Documentation in progress - Nov 2020*
+  
 ### Instagram audience expansion and monitoring  
   
 [Features](#part1)  
@@ -62,4 +64,4 @@ Here is the structure of the code with the interactions between the diverse part
      
 #### About the data API  
 See the objectives and the documentation in the file "instabot_data_api.py"
-
+    
