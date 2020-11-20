@@ -31,5 +31,28 @@
   * Diverse techniques can be employed to make the most of historical data to optimise the bot interactions (follows, likes,comments) , in order to maximise metrics such as the number of followers or their loyalty. We can think of the bot making the decision to follow a certain account based on a score given by a ML model.
 * (2.0) Audience targetting
   * Gain followers that are part of a target audience
+
+## Get started with the bot :  
+You need :  
+* Python 3.7
+* Python packages : Selenium, Pandas, Numpy. I recommend conda : you can create a virtual env. with Python 3.7 and install these packages.
+* Google Chrome
+* Chrome driver that suits your version of Chrome. You can download it here : https://chromedriver.chromium.org/downloads. It should be findable by Selenium. On MacOS you can put it it /usr/local/bin
+Once the 4 ingredients above are well set-up, fill *instabot_running_variables.py* with the values of your choice. Be careful not to follow more than 20 accounts per hour if you don't want your account to be blocked.  
+You can then run *instabot_main.py* and let the bot do its job. It should be relatively robust, but expect some failures here and there (MVP - Nov. 2020).   
+### About the data generated  
+The data is managed within the code by the DataAPI (*instabot_data_api.csv*). It is useful to enforce data quality and bring clarity regarding what the data contains (more info next section).
+The schema and description of each dataframe is defined in the class *registeredTableDefinitions* in the dataAPI file. There you can see exactly what data the bot outputs, and what it contains.
+### About the maintenance  
+The bot is designed to run even if if faces some unforeseen events. However it can still crash. In that case you will need to look into the logs.  
+By default the logs will be both printed, and be stored in *database_path/logs_X.csv* for user X.  
+Regarding the xpaths of the diverse compoments (buttons, textboxes) the bots will interact with (get text, click, enter text), they are all listed in the *instabot_ui_api.py*. It is yet another API, this time to manage efficiently  the paths to the components.  
+If you see often logs like "failed to click component" relative to the same component, you might need to update its xpath in the class registeredUIComponents in *instabot_ui_api.py*.
+
    
-*Version 1.0 - Work In Progress*
+## Code organisation :  
+The central piece of the bot is the while(1) loop that you can find in instabot_main.py.  
+here is the structure of the code with the interactions between the diverse parts : https://docs.google.com/presentation/d/14eSchvhfaAI7qlS3UsG310wBtyJoGWc0YeTfvbOhhYI/edit#slide=id.p.  
+*more details coming....*
+
+
