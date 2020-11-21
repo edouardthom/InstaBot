@@ -53,7 +53,7 @@ class registeredTableDefinitions:
     '''
     
     follow_actions = {
-    "description" : "1 new row each time the bot follows an account",
+    "description" : "1 new row each time the bot follows an account. When the bot uinfollows the account, the dataset is uptaded with the unfollowing time.",
     "schema" : {
         "follow_time" : "When the account was followed by the bot",
         "account_username" : "Username of the account that the bot followed",

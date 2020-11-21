@@ -306,9 +306,11 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
         if np.random.randint(2):
             first_pic_liked = UIComponentsAPI().click("pictures_carousel_like_button",user,driver)
         
-        ### The bot follows each accounts for a random limited amount of hours - between 4 and 96 hours.
-        hours_before_unfollowing =  np.random.randint(4,96,1)[0]
-                                   
+        ### IMPORTANT VARIABLE : number of hours max before unfollowing !
+        ### The bot follows each accounts for a random limited amount of hours - between 2 and 24 hours.
+        hours_before_unfollowing =  np.random.randint(2,24,1)[0]
+         
+                          
         record = {"follow_time" : datetime.datetime.now(),
                   "account_username" : account_username,
                   "account_nb_followers" : nb_followers,
@@ -381,8 +383,6 @@ def get_account_data_from_profile_page(user,driver):
 
     
     
-
-
 
 def treat_number(s,user):
     s = s.split(" ")[0]

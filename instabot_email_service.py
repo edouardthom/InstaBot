@@ -61,13 +61,13 @@ def send_basic_insights_email(hours_back,email_destination,user):
     
     text = 'Hola {} !\n\n \
     I hope you are staying positive and testing negative. \n\n \
-    Here are your account stats for the past {} hours : \n\n \
+    Here are your Instagram stats for the past {} hours : \n\n \
         - Number of new followers : {} \n \
         - Number of accounts that unfollowed you : {} \n\n \
         - Welcome some of your new followers : {} \n \
         - Some of the accounts that unfollowed you : {} \n\n \
     Good bye :) \n \
-    Instagrobot'.format(user,hours_back,nb_new_followers,nb_new_unfollowers,
+    InstaBot🤖'.format(user,hours_back,nb_new_followers,nb_new_unfollowers,
                             ", ".join(new_followers[:5]),
                             ", ".join(new_unfollowers[:5]))
     

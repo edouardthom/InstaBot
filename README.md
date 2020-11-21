@@ -15,15 +15,15 @@
 * communicate insights based on that data  
    
 **More concretely, what does the bot (MVP) do ?**  
-Once given access to an Instagram account, he follows random accounts, that he finds through the list of hashtags you provided him beforehand.  
-The hope is to be followed-back by a portion of these accounts.  
+Once given access to an Instagram account, the bot follows random accounts, based on a list of hashtags you provided him beforehand.  
+The hope is to be followed-back by these accounts.      
 After some (random) time, he will unfollow them, to prevent the account from following too many people.  
-While performing this follow-unfollow process, he makes sure to store and update datasets (csv files) regarding both his actions (who he followed, unfollowed, their characteristics like # of posts/followers..., picture liked...), and the audience of the account (mainly who followed and unfollowed the account).  
-This high-quality data is easily accessible in a database folder if you want to analyse it. You can check for example the characteristics of the accounts who follow-back the most, or the hashtags that work the best to get follow-backs.  
+On top of that, while performing this follow-unfollow process, he makes sure to store and update datasets (csv files) regarding both his actions (who he followed, unfollowed, and more details), and the audience of the account (mainly who followed and unfollowed the account).  
+This data is accessible in a database folder if you wish to analyse it.  
 Besides, the bot uses that data to regularly send emails containing relevant insights.  
 Last techy thing : to allow you to monitor the run, logs are stored in the database, and bug reports can regularly be sent via email.  
   
-*Performances : as of Nov 20, on my 2017 macbook pro 13,  the bot properly run days without crashing :))*
+*Performances : as of Nov 21, on my 2017 macbook pro,  the bot runs perfectly for days without crashing :))*
   
 ## Get started with the bot - tutorial  
 #### 1. Set-up the environment 
@@ -40,7 +40,7 @@ You need :
   Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
 * Finally, run `python instabot_main.py` and let the bot do its job. Depending where you run the code, you might see the logs being printed out.    
   
-If you run in a terminal :  
+If you run in a terminal, it will look like that :  
   
 ![Alt text](/documentation/screenshot_terminal.png?raw=true)  
   
@@ -53,7 +53,7 @@ You'll also receive bug reports :
 ![Alt text](/documentation/screenshot_bug_report.png?raw=true)  
    
 #### About the data generated  
-The bot MVP generates 3 datasets at the moment, including the one containing the logs.  
+The bot (MVP) generates 3 datasets at the moment (including the one containing the log)s.  
 The schema and description of each dataset is defined in the class *registeredTableDefinitions* in the *instabot_data_api.csv* file. There you can see exactly what data the bot outputs, and what it contains.
 The datasets are stored as csv in the *InstaBot/database* folder
 #### About the maintenance  
