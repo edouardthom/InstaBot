@@ -34,9 +34,9 @@ BOT_GMAIL_ADDRESS = 'instabot.insights@gmail.com'
 BOT_GMAIL_PASSWORD = ''
 
 # How often the bot sends insights emails 
-time_between_insights_emails = 3600*2
+time_between_insights_emails = 3600*3
 # The basic insight emails sum-up to the user what happened over the past few hours
-email_hours_back = 2
+email_hours_back = 3
 
 # Authorize the sending of maintenance emails
 send_maintenance_emails = True
@@ -45,6 +45,6 @@ send_maintenance_emails = True
 dev_email = 'edouard.thom@gmail.com'
 
 # How often the bot sends maintenance emails 
-time_between_maintenance_emails = 3600*3
+time_between_maintenance_emails = 3600*4
 # The basic insight emails sum-up to the developer the errors that occurred over the past few hours
-email_hours_back = 3
+email_hours_back = 4

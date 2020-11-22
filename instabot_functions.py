@@ -260,24 +260,38 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
         
     pic_number = 0
     nb_accounts_followed = 0
+    failures = 0
     while nb_accounts_followed < nb_follows:
         
+        ### In each iteration : 3 main steps that can fail :
+        # - step 1 : getting the account name
+        # - step 2 : getting the account details (number of posts, followers,...)
+        # - step 3 : follow the account
+        # Whenever 1 of these fail, we try to move to the next picture (press_right_arrow)
+        # If the press fails, we are doomed : we just stop the loop (break), and therefore the whole function
+        # If the press succeeds, we go to the next iteration (continue), and we log 1 fail (failures+=1)
+        # After 4 fails, we just give up and end the loop.
+        if failures>=4:
+            dataAPI().log(user,"explore_hashtag","ERROR","Too many failures, we stop the loop")
+            break
+        
+        ### Step 1
         account_username = UIComponentsAPI().get_text("picture_carousel_account_name",user,driver)
         if account_username==0:
             right_arrow_pressed = press_righ_arrow(pic_number,user,driver)
             if right_arrow_pressed == 0:
                 dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
                 break
+            failures+=1
             continue
-        
         dataAPI().log(user,"explore_hashtag","INFO","start processing for account : {}".format(account_username))
         
+        ### Step 2
         account_url = "https://www.instagram.com/"+account_username+"/"
         driver.execute_script("window.open('');")
         driver.switch_to.window(driver.window_handles[1])
         driver.get(account_url)        
         account_username,nb_posts,nb_followers,nb_following = get_account_data_from_profile_page(user,driver)   
-
         if None in [account_username,nb_posts,nb_followers,nb_following]:
             driver.close()
             driver.switch_to.window(driver.window_handles[0])
@@ -285,8 +299,10 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
             if right_arrow_pressed == 0:
                 dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
                 break
+            failures+=1
             continue
         
+        ### Step 3
         follow_success = follow_from_profile_page(user,driver)  
         if follow_success==0:
             driver.close()
@@ -296,9 +312,11 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
                 dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
                 break
             pic_number+=1
+            failures+=1
             continue
         dataAPI().log(user,"explore_hashtag","INFO","successfully followed account : {}".format(account_username))
 
+        ### The 3 steps succeeded, lets' move to the less inportrant bits 
         driver.close()
         driver.switch_to.window(driver.window_handles[0])
          
@@ -321,13 +339,14 @@ def explore_hashtag(hashtag,nb_follows,user,driver):
                   "hours_before_unfollowing" : hours_before_unfollowing,
                   "unfollow_time" : None}
         dataAPI().add_record("follow_actions",user,record)
-               
+        nb_accounts_followed+=1
+        
         success_right_arrow_press = press_righ_arrow(pic_number,user,driver)
         if success_right_arrow_press==0:
             dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
             break
         pic_number=1
-        nb_accounts_followed+=1
+        
     
     dataAPI().log(user,"explore_hashtag","INFO","hashtag {0} processed, {1} accounts followed".format(hashtag,nb_accounts_followed))
     sleep(3)
