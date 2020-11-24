@@ -15,9 +15,8 @@
 * communicate insights based on that data  
    
 **More concretely, what does the bot (MVP) do ?**  
-Once given access to an Instagram account, the bot follows random accounts, based on a list of hashtags you provided him beforehand.  
-The hope is to be followed-back by these accounts.      
-After some (random) time, he will unfollow them, to prevent the account from following too many people.  
+The bot follows random accounts, based on a list of hashtags you provided him beforehand.  
+After some time, he will unfollow them, to avoid following too many people at the same time.  
 On top of that, while performing this follow-unfollow process, he makes sure to store and update datasets (csv files) regarding both his actions (who he followed, unfollowed, and more details), and the audience of the account (mainly who followed and unfollowed the account).  
 This data is accessible in a database folder if you wish to analyse it.  
 Besides, the bot uses that data to regularly send emails containing relevant insights.  
@@ -30,7 +29,6 @@ Last techy thing : to allow you to monitor the run, logs are stored in the datab
 You need :  
 * Python 3.7
 * Python packages : Selenium, Pandas, Numpy.  
-  As a package management solution, I recommend conda : you can create a virtual env. with Python 3.7 and install these packages.
 * Google Chrome. Check the version you have within Chrome : menu->Help->About.
 * Chrome driver that suits your version of Chrome. You can download it here : https://chromedriver.chromium.org/downloads. Then you need to make it findable by Selenium. On MacOS, as an example, I put it in the folder */usr/local/bin*.  
 #### 2. Run the bot

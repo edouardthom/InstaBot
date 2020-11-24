@@ -23,7 +23,7 @@ time_between_loops = 3600
 # During one loop, number of hashtags that the bot will search for, and for each how
 # many accounts it will follow
 # Be aware that Instagram blocks accounts that follow too much.  
-nb_hashtags_per_loop = 7 
+nb_hashtags_per_loop = 5
 nb_follows_per_hashtag = 3
 
 

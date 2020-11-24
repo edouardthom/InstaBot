@@ -42,6 +42,7 @@ import pandas as pd
 import datetime
 from instabot_run_variables import database_path
 
+
 class registeredTableDefinitions:
     
     '''
