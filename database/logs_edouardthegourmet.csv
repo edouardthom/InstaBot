@@ -1,0 +1,381 @@
+timestamp,user,function,seriousness,message
+2020-11-24 11:50:50,edouardthegourmet,MAIN,INFO,Bot started for user edouardthegourmet !
+2020-11-24 11:50:50,edouardthegourmet,MAIN,INFO,loop 0 start
+2020-11-24 11:50:50,edouardthegourmet,log_in,INFO,start
+2020-11-24 11:50:53,edouardthegourmet,log_in,INFO,success
+2020-11-24 11:50:56,edouardthegourmet,update_followers,INFO,start
+2020-11-24 11:50:58,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-24 11:51:00,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:51:05,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_followers_button
+2020-11-24 11:51:07,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:51:12,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_followers_button
+2020-11-24 11:51:14,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:51:18,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_followers_button
+2020-11-24 11:51:18,edouardthegourmet,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-24 11:51:18,edouardthegourmet,update_followers,ERROR,failed to get the followers list -> abort the followers update
+2020-11-24 11:51:18,edouardthegourmet,unfollow_accounts,INFO,start
+2020-11-24 11:51:18,edouardthegourmet,unfollow_accounts,INFO,0 accounts to unfollow...
+2020-11-24 11:51:19,edouardthegourmet,unfollow_accounts,INFO,0 accounts successfully unfollowed
+2020-11-24 11:51:20,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-24 11:51:22,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:51:27,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_following_button
+2020-11-24 11:51:29,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:51:33,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_following_button
+2020-11-24 11:51:35,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:51:40,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_following_button
+2020-11-24 11:51:40,edouardthegourmet,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-24 11:51:40,edouardthegourmet,update_follow_actions_data,ERROR,failed to get the following list -> stop the function execution
+2020-11-24 11:51:43,edouardthegourmet,explore_hashtag,INFO,"start, #instalife"
+2020-11-24 11:51:49,edouardthegourmet,explore_hashtag,INFO,start processing for account : yasmine.benboubaker
+2020-11-24 11:51:51,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:51:51,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : yasmine.benboubaker, 1404, 738, 63"
+2020-11-24 11:51:51,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:51:51,edouardthegourmet,explore_hashtag,INFO,successfully followed account : yasmine.benboubaker
+2020-11-24 11:51:52,edouardthegourmet,explore_hashtag,INFO,start processing for account : a_naisnl
+2020-11-24 11:51:53,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:51:53,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : a_naisnl, 1476, 993, 223"
+2020-11-24 11:51:53,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:51:53,edouardthegourmet,explore_hashtag,INFO,successfully followed account : a_naisnl
+2020-11-24 11:51:54,edouardthegourmet,explore_hashtag,INFO,start processing for account : gianfrancocepollaro
+2020-11-24 11:51:55,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:51:56,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : gianfrancocepollaro, 31200, 1973, 454"
+2020-11-24 11:51:56,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:51:56,edouardthegourmet,explore_hashtag,INFO,successfully followed account : gianfrancocepollaro
+2020-11-24 11:51:56,edouardthegourmet,explore_hashtag,INFO,"hashtag instalife processed, 3 accounts followed"
+2020-11-24 11:51:59,edouardthegourmet,explore_hashtag,INFO,"start, #foodie"
+2020-11-24 11:52:05,edouardthegourmet,explore_hashtag,INFO,start processing for account : sheroseontimare
+2020-11-24 11:52:06,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:52:06,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : sheroseontimare, 48800, 2452, 6124"
+2020-11-24 11:52:06,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:52:06,edouardthegourmet,explore_hashtag,INFO,successfully followed account : sheroseontimare
+2020-11-24 11:52:07,edouardthegourmet,explore_hashtag,INFO,start processing for account : farinalievitoefantasia
+2020-11-24 11:52:09,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:52:09,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : farinalievitoefantasia, 21800, 2882, 3632"
+2020-11-24 11:52:09,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:52:09,edouardthegourmet,explore_hashtag,INFO,successfully followed account : farinalievitoefantasia
+2020-11-24 11:52:10,edouardthegourmet,explore_hashtag,INFO,start processing for account : lelautrec
+2020-11-24 11:52:12,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:52:12,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : lelautrec, 13000, 667, 929"
+2020-11-24 11:52:12,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:52:12,edouardthegourmet,explore_hashtag,INFO,successfully followed account : lelautrec
+2020-11-24 11:52:12,edouardthegourmet,explore_hashtag,INFO,"hashtag foodie processed, 3 accounts followed"
+2020-11-24 11:52:15,edouardthegourmet,explore_hashtag,INFO,"start, #followforfollow"
+2020-11-24 11:52:21,edouardthegourmet,explore_hashtag,INFO,start processing for account : nikita___nicole
+2020-11-24 11:52:22,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:52:22,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : nikita___nicole, 10700, 2990, 27"
+2020-11-24 11:52:22,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:52:22,edouardthegourmet,explore_hashtag,INFO,successfully followed account : nikita___nicole
+2020-11-24 11:52:23,edouardthegourmet,explore_hashtag,INFO,start processing for account : mirandahaarsma
+2020-11-24 11:52:25,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:52:25,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : mirandahaarsma, 5336, 820, 218"
+2020-11-24 11:52:25,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:52:25,edouardthegourmet,explore_hashtag,INFO,successfully followed account : mirandahaarsma
+2020-11-24 11:52:26,edouardthegourmet,explore_hashtag,INFO,start processing for account : _mbabe
+2020-11-24 11:52:27,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 11:52:27,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : _mbabe, 8014, 1137, 716"
+2020-11-24 11:52:27,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 11:52:27,edouardthegourmet,explore_hashtag,INFO,successfully followed account : _mbabe
+2020-11-24 11:52:27,edouardthegourmet,explore_hashtag,INFO,"hashtag followforfollow processed, 3 accounts followed"
+2020-11-24 11:54:07,edouardthegourmet,log_in,INFO,start
+2020-11-24 11:54:11,edouardthegourmet,log_in,INFO,success
+2020-11-24 11:56:34,edouardthegourmet,MAIN,INFO,Bot started for user edouardthegourmet !
+2020-11-24 11:56:34,edouardthegourmet,MAIN,INFO,loop 0 start
+2020-11-24 11:56:34,edouardthegourmet,log_in,INFO,start
+2020-11-24 11:56:39,edouardthegourmet,log_in,INFO,success
+2020-11-24 11:56:42,edouardthegourmet,update_followers,INFO,start
+2020-11-24 11:56:45,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-24 11:56:47,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:56:54,edouardthegourmet,get_followers_following_for_user_one_try,INFO,followers entries scraped : 1/2
+2020-11-24 11:56:54,edouardthegourmet,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-24 11:56:54,edouardthegourmet,update_followers,INFO,success
+2020-11-24 11:56:57,edouardthegourmet,unfollow_accounts,INFO,start
+2020-11-24 11:56:57,edouardthegourmet,unfollow_accounts,INFO,0 accounts to unfollow...
+2020-11-24 11:56:58,edouardthegourmet,unfollow_accounts,INFO,0 accounts successfully unfollowed
+2020-11-24 11:56:59,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-24 11:57:01,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:57:11,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 327, in get_followers_following_for_user_one_try
+    driver.execute_script('arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', fBody)
+  File ""/Users/ethomas/anaconda3/lib/python3.6/site-packages/selenium/webdriver/remote/webdriver.py"", line 636, in execute_script
+    'args': converted_args})['value']
+  File ""/Users/ethomas/anaconda3/lib/python3.6/site-packages/selenium/webdriver/remote/webdriver.py"", line 321, in execute
+    self.error_handler.check_response(response)
+  File ""/Users/ethomas/anaconda3/lib/python3.6/site-packages/selenium/webdriver/remote/errorhandler.py"", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: window was already closed
+  (Session info: chrome=87.0.4280.67)
+
+"
+2020-11-24 11:57:13,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:57:13,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-24 11:57:15,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:57:15,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't load user profile page
+2020-11-24 11:57:15,edouardthegourmet,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-24 11:57:15,edouardthegourmet,update_follow_actions_data,ERROR,failed to get the following list -> stop the function execution
+2020-11-24 11:57:18,edouardthegourmet,explore_hashtag,INFO,"start, #followbackalways"
+2020-11-24 11:57:27,edouardthegourmet,log_in,INFO,start
+2020-11-24 11:57:31,edouardthegourmet,log_in,INFO,success
+2020-11-24 12:00:51,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 1
+2020-11-24 12:00:53,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 2
+2020-11-24 12:00:55,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 3
+2020-11-24 12:00:57,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 4
+2020-11-24 12:00:57,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,"too many fails to get the entries, stopping execution"
+2020-11-24 12:05:57,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-24 12:05:59,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 12:06:09,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 1
+2020-11-24 12:06:11,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 2
+2020-11-24 12:06:13,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 3
+2020-11-24 12:06:13,edouardthegourmet,get_followers_following_for_user_one_try,INFO,followers entries scraped : 0/3
+2020-11-24 12:06:15,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 12:06:26,edouardthegourmet,get_followers_following_for_user_one_try,INFO,followers entries scraped : 3/3
+2020-11-24 12:06:26,edouardthegourmet,get_followers_following_for_user,INFO,success at attempt number : 2
+2020-11-24 12:15:41,edouardthegourmet,MAIN,INFO,Bot started for user edouardthegourmet !
+2020-11-24 12:15:41,edouardthegourmet,MAIN,INFO,loop 0 start
+2020-11-24 12:15:41,edouardthegourmet,log_in,INFO,start
+2020-11-24 12:15:44,edouardthegourmet,UIAPI,ERROR,failed to access component : login_email_input_field
+2020-11-24 12:15:44,edouardthegourmet,UIAPI,ERROR,failed to access component : login_password_input_field
+2020-11-24 12:15:45,edouardthegourmet,UIAPI,ERROR,failed to access component : login_connexion_button
+2020-11-24 12:15:45,edouardthegourmet,log_in,ERROR,failed
+2020-11-24 12:15:45,edouardthegourmet,MAIN,INFO,failed to log-in and get the driver - restarting in 2 minutes...
+2020-11-24 12:16:00,edouardthegourmet,MAIN,INFO,Bot started for user edouardthegourmet !
+2020-11-24 12:16:00,edouardthegourmet,MAIN,INFO,loop 0 start
+2020-11-24 12:16:00,edouardthegourmet,log_in,INFO,start
+2020-11-24 12:16:03,edouardthegourmet,log_in,INFO,success
+2020-11-24 12:16:06,edouardthegourmet,update_followers,INFO,start
+2020-11-24 12:16:08,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-24 12:16:10,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 12:16:20,edouardthegourmet,get_followers_following_for_user_one_try,INFO,followers entries scraped : 4/4
+2020-11-24 12:16:20,edouardthegourmet,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-24 12:16:20,edouardthegourmet,update_followers,INFO,success
+2020-11-24 12:16:23,edouardthegourmet,unfollow_accounts,INFO,start
+2020-11-24 12:16:23,edouardthegourmet,unfollow_accounts,INFO,0 accounts to unfollow...
+2020-11-24 12:16:24,edouardthegourmet,unfollow_accounts,INFO,0 accounts successfully unfollowed
+2020-11-24 12:16:25,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-24 12:16:27,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 12:16:50,edouardthegourmet,get_followers_following_for_user_one_try,INFO,following entries scraped : 18/18
+2020-11-24 12:16:50,edouardthegourmet,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-24 12:16:50,edouardthegourmet,update_follow_actions_data,INFO,0 accounts stopped being followed since last time the dataframe follow_actions was updated
+2020-11-24 12:16:50,edouardthegourmet,update_follow_actions_data,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 156, in update_follow_actions_data
+    follow_actions = follow_actions.drop(""planned_unfollow_date"",1)
+  File ""/Users/ethomas/anaconda3/lib/python3.6/site-packages/pandas/core/frame.py"", line 3997, in drop
+    errors=errors,
+  File ""/Users/ethomas/anaconda3/lib/python3.6/site-packages/pandas/core/generic.py"", line 3936, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File ""/Users/ethomas/anaconda3/lib/python3.6/site-packages/pandas/core/generic.py"", line 3970, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File ""/Users/ethomas/anaconda3/lib/python3.6/site-packages/pandas/core/indexes/base.py"", line 5017, in drop
+    raise KeyError(f""{labels[mask]} not found in axis"")
+KeyError: ""['planned_unfollow_date'] not found in axis""
+"
+2020-11-24 12:16:53,edouardthegourmet,explore_hashtag,INFO,"start, #followeraktif"
+2020-11-24 12:17:01,edouardthegourmet,explore_hashtag,INFO,start processing for account : habib_ibnu18
+2020-11-24 12:17:02,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:02,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : habib_ibnu18, 2116, 953, 43"
+2020-11-24 12:17:02,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:02,edouardthegourmet,explore_hashtag,INFO,successfully followed account : habib_ibnu18
+2020-11-24 12:17:04,edouardthegourmet,explore_hashtag,INFO,start processing for account : mutiahhsnh_
+2020-11-24 12:17:05,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:05,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : mutiahhsnh_, 3784, 1148, 30"
+2020-11-24 12:17:05,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:05,edouardthegourmet,explore_hashtag,INFO,successfully followed account : mutiahhsnh_
+2020-11-24 12:17:06,edouardthegourmet,explore_hashtag,INFO,start processing for account : foll_media
+2020-11-24 12:17:07,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:08,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : foll_media, 1042, 1373, 46"
+2020-11-24 12:17:08,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:08,edouardthegourmet,explore_hashtag,INFO,successfully followed account : foll_media
+2020-11-24 12:17:08,edouardthegourmet,explore_hashtag,INFO,"hashtag followeraktif processed, 3 accounts followed"
+2020-11-24 12:17:11,edouardthegourmet,explore_hashtag,INFO,"start, #followstagram"
+2020-11-24 12:17:17,edouardthegourmet,explore_hashtag,INFO,start processing for account : irshad_ali93
+2020-11-24 12:17:19,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:19,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : irshad_ali93, 605, 866, 35"
+2020-11-24 12:17:19,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:19,edouardthegourmet,explore_hashtag,INFO,successfully followed account : irshad_ali93
+2020-11-24 12:17:20,edouardthegourmet,explore_hashtag,INFO,start processing for account : navaneesh_sv
+2020-11-24 12:17:22,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:22,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : navaneesh_sv, 3116, 2714, 10"
+2020-11-24 12:17:22,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:23,edouardthegourmet,explore_hashtag,INFO,successfully followed account : navaneesh_sv
+2020-11-24 12:17:24,edouardthegourmet,explore_hashtag,INFO,start processing for account : aamir6928khan
+2020-11-24 12:17:25,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:26,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : aamir6928khan, 1169, 1184, 23"
+2020-11-24 12:17:26,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:26,edouardthegourmet,explore_hashtag,INFO,successfully followed account : aamir6928khan
+2020-11-24 12:17:26,edouardthegourmet,explore_hashtag,INFO,"hashtag followstagram processed, 3 accounts followed"
+2020-11-24 12:17:29,edouardthegourmet,explore_hashtag,INFO,"start, #like4like"
+2020-11-24 12:17:35,edouardthegourmet,explore_hashtag,INFO,start processing for account : jin.ni_
+2020-11-24 12:17:36,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:36,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : jin.ni_, 473, 210, 22"
+2020-11-24 12:17:36,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:37,edouardthegourmet,explore_hashtag,INFO,successfully followed account : jin.ni_
+2020-11-24 12:17:38,edouardthegourmet,explore_hashtag,INFO,start processing for account : chosecret4you2
+2020-11-24 12:17:39,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:40,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : chosecret4you2, 3905, 6083, 57"
+2020-11-24 12:17:40,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:40,edouardthegourmet,explore_hashtag,INFO,successfully followed account : chosecret4you2
+2020-11-24 12:17:41,edouardthegourmet,explore_hashtag,INFO,start processing for account : l2_28
+2020-11-24 12:17:42,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:43,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : l2_28, 4122, 362, 132"
+2020-11-24 12:17:43,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:43,edouardthegourmet,explore_hashtag,INFO,successfully followed account : l2_28
+2020-11-24 12:17:43,edouardthegourmet,explore_hashtag,INFO,"hashtag like4like processed, 3 accounts followed"
+2020-11-24 12:17:46,edouardthegourmet,explore_hashtag,INFO,"start, #followstagram"
+2020-11-24 12:17:51,edouardthegourmet,explore_hashtag,INFO,start processing for account : irshad_ali93
+2020-11-24 12:17:52,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:52,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : irshad_ali93, 606, 866, 35"
+2020-11-24 12:17:52,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:52,edouardthegourmet,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-24 12:17:53,edouardthegourmet,explore_hashtag,INFO,start processing for account : navaneesh_sv
+2020-11-24 12:17:54,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:55,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : navaneesh_sv, 3117, 2714, 10"
+2020-11-24 12:17:55,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:55,edouardthegourmet,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-24 12:17:55,edouardthegourmet,explore_hashtag,INFO,start processing for account : aamir6928khan
+2020-11-24 12:17:56,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:57,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : aamir6928khan, 1170, 1184, 23"
+2020-11-24 12:17:57,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:17:57,edouardthegourmet,follow_from_profile_page,INFO,"already following this dude, next"
+2020-11-24 12:17:57,edouardthegourmet,explore_hashtag,INFO,start processing for account : hasib_bin_rahim
+2020-11-24 12:17:59,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:17:59,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : hasib_bin_rahim, 1001, 294, 14"
+2020-11-24 12:17:59,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:18:00,edouardthegourmet,explore_hashtag,INFO,successfully followed account : hasib_bin_rahim
+2020-11-24 12:18:00,edouardthegourmet,explore_hashtag,INFO,start processing for account : hansika6913
+2020-11-24 12:18:02,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:18:02,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : hansika6913, 706, 23, 28"
+2020-11-24 12:18:02,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:18:02,edouardthegourmet,explore_hashtag,INFO,successfully followed account : hansika6913
+2020-11-24 12:18:03,edouardthegourmet,explore_hashtag,INFO,start processing for account : _nastyushaa
+2020-11-24 12:18:04,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 12:18:04,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : _nastyushaa, 2177, 451, 32"
+2020-11-24 12:18:04,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 12:18:04,edouardthegourmet,explore_hashtag,INFO,successfully followed account : _nastyushaa
+2020-11-24 12:18:05,edouardthegourmet,explore_hashtag,INFO,"hashtag followstagram processed, 3 accounts followed"
+2020-11-24 12:18:08,edouardthegourmet,send_basic_insights_email,INFO,start
+2020-11-24 12:18:08,edouardthegourmet,send_basic_insights_email,INFO,data obtained
+2020-11-24 12:18:09,edouardthegourmet,send_email,INFO,email successfully sent to instabot.insights@gmail.com
+2020-11-24 12:18:09,edouardthegourmet,send_basic_insights_email,INFO,basic insights email successfully sent for user edouardthegourmet
+2020-11-24 12:18:11,edouardthegourmet,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-24 12:18:11,edouardthegourmet,send_basic_insights_email,INFO,bug report email successfully sent for user edouardthegourmet
+2020-11-24 12:18:11,edouardthegourmet,MAIN,INFO,"loop 0 executed, successes : [update_followers_data : 1, unfollow_accounts : 1, update_follow_actions_data:0, explore_hashtag : [1, 1, 1, 1]]"
+2020-11-24 12:18:11,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 3469
+2020-11-24 12:23:38,edouardthegourmet,log_in,INFO,start
+2020-11-24 12:23:43,edouardthegourmet,log_in,INFO,success
+2020-11-24 12:23:49,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-24 12:23:51,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 12:24:11,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 3109
+2020-11-24 12:24:29,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 1
+2020-11-24 12:24:31,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 2
+2020-11-24 12:24:33,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 3
+2020-11-24 12:24:35,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,couldn't get entry 4
+2020-11-24 12:24:35,edouardthegourmet,get_followers_following_for_user_one_try,ERROR,"too many fails to get the entries, stopping execution"
+2020-11-24 12:24:37,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 12:25:13,edouardthegourmet,get_followers_following_for_user_one_try,INFO,following entries scraped : 30/30
+2020-11-24 12:25:13,edouardthegourmet,get_followers_following_for_user,INFO,success at attempt number : 2
+2020-11-24 12:25:13,edouardthegourmet,update_follow_actions_data,INFO,0 accounts stopped being followed since last time the dataframe follow_actions was updated
+2020-11-24 12:25:13,edouardthegourmet,update_follow_actions_data,INFO,follow_actions dataframe for user edouardthegourmet successfully updated
+2020-11-24 12:30:11,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 2749
+2020-11-24 12:36:11,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 2389
+2020-11-24 12:42:11,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 2029
+2020-11-24 12:48:11,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 1669
+2020-11-24 12:54:11,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 1309
+2020-11-24 13:08:51,edouardthegourmet,MAIN,INFO,Bot started for user edouardthegourmet !
+2020-11-24 13:08:51,edouardthegourmet,MAIN,INFO,loop 0 start
+2020-11-24 13:08:51,edouardthegourmet,log_in,INFO,start
+2020-11-24 13:08:55,edouardthegourmet,UIAPI,ERROR,failed to access component : login_email_input_field
+2020-11-24 13:08:55,edouardthegourmet,UIAPI,ERROR,failed to access component : login_password_input_field
+2020-11-24 13:08:55,edouardthegourmet,UIAPI,ERROR,failed to access component : login_connexion_button
+2020-11-24 13:08:55,edouardthegourmet,log_in,ERROR,failed
+2020-11-24 13:08:55,edouardthegourmet,MAIN,INFO,failed to log-in and get the driver - restarting in 2 minutes...
+2020-11-24 13:09:10,edouardthegourmet,MAIN,INFO,Bot started for user edouardthegourmet !
+2020-11-24 13:09:10,edouardthegourmet,MAIN,INFO,loop 0 start
+2020-11-24 13:09:10,edouardthegourmet,log_in,INFO,start
+2020-11-24 13:09:14,edouardthegourmet,log_in,INFO,success
+2020-11-24 13:09:17,edouardthegourmet,update_followers,INFO,start
+2020-11-24 13:09:19,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-24 13:09:21,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 13:09:34,edouardthegourmet,get_followers_following_for_user_one_try,INFO,followers entries scraped : 7/7
+2020-11-24 13:09:34,edouardthegourmet,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-24 13:09:34,edouardthegourmet,update_followers,INFO,success
+2020-11-24 13:09:37,edouardthegourmet,unfollow_accounts,INFO,start
+2020-11-24 13:09:37,edouardthegourmet,unfollow_accounts,INFO,0 accounts to unfollow...
+2020-11-24 13:09:38,edouardthegourmet,unfollow_accounts,INFO,0 accounts successfully unfollowed
+2020-11-24 13:09:39,edouardthegourmet,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-24 13:09:41,edouardthegourmet,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 13:10:19,edouardthegourmet,get_followers_following_for_user_one_try,INFO,following entries scraped : 32/32
+2020-11-24 13:10:19,edouardthegourmet,get_followers_following_for_user,INFO,success at attempt number : 1
+2020-11-24 13:10:19,edouardthegourmet,update_follow_actions_data,INFO,1 accounts stopped being followed since last time the dataframe follow_actions was updated
+2020-11-24 13:10:19,edouardthegourmet,update_follow_actions_data,INFO,follow_actions dataframe for user edouardthegourmet successfully updated
+2020-11-24 13:10:22,edouardthegourmet,explore_hashtag,INFO,"start, #f4f"
+2020-11-24 13:10:29,edouardthegourmet,explore_hashtag,INFO,start processing for account : swimeeee__
+2020-11-24 13:10:33,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:10:36,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_target_username
+2020-11-24 13:10:36,edouardthegourmet,get_account_data_from_profile_page,ERROR,"couldn't scrape raw account data properly. What we got : 0, 1,141, 283, 17"
+2020-11-24 13:10:37,edouardthegourmet,explore_hashtag,INFO,start processing for account : j_jhrw
+2020-11-24 13:10:38,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:10:39,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : j_jhrw, 15400, 368, 45"
+2020-11-24 13:10:39,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:10:39,edouardthegourmet,explore_hashtag,INFO,successfully followed account : j_jhrw
+2020-11-24 13:10:39,edouardthegourmet,explore_hashtag,INFO,start processing for account : swimeeee__
+2020-11-24 13:10:40,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:10:44,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_target_username
+2020-11-24 13:10:44,edouardthegourmet,get_account_data_from_profile_page,ERROR,"couldn't scrape raw account data properly. What we got : 0, 1,141, 283, 17"
+2020-11-24 13:10:47,edouardthegourmet,UIAPI,ERROR,failed to access component : pictures_carousel_not_first_pic_right_arrow
+2020-11-24 13:10:47,edouardthegourmet,explore_hashtag,ERROR,stop the processing of hashtag f4f
+2020-11-24 13:10:47,edouardthegourmet,explore_hashtag,INFO,"hashtag f4f processed, 1 accounts followed"
+2020-11-24 13:10:50,edouardthegourmet,explore_hashtag,INFO,"start, #beach"
+2020-11-24 13:10:57,edouardthegourmet,explore_hashtag,INFO,start processing for account : yasmindeborah
+2020-11-24 13:10:58,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:10:58,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : yasmindeborah, 106000, 2143, 1409"
+2020-11-24 13:10:58,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:10:58,edouardthegourmet,explore_hashtag,INFO,successfully followed account : yasmindeborah
+2020-11-24 13:10:59,edouardthegourmet,explore_hashtag,INFO,start processing for account : allesinisgalli
+2020-11-24 13:11:01,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:11:01,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : allesinisgalli, 8776, 1994, 2707"
+2020-11-24 13:11:01,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:11:01,edouardthegourmet,explore_hashtag,INFO,successfully followed account : allesinisgalli
+2020-11-24 13:11:02,edouardthegourmet,explore_hashtag,INFO,start processing for account : chrstnyhns
+2020-11-24 13:11:03,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:11:03,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : chrstnyhns, 4501, 1775, 36"
+2020-11-24 13:11:03,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:11:03,edouardthegourmet,explore_hashtag,INFO,successfully followed account : chrstnyhns
+2020-11-24 13:11:03,edouardthegourmet,explore_hashtag,INFO,"hashtag beach processed, 3 accounts followed"
+2020-11-24 13:11:06,edouardthegourmet,explore_hashtag,INFO,"start, #followers"
+2020-11-24 13:11:12,edouardthegourmet,explore_hashtag,INFO,start processing for account : the.sams_
+2020-11-24 13:11:14,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:11:14,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : the.sams_, 1649, 1498, 44"
+2020-11-24 13:11:14,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:11:17,edouardthegourmet,UIAPI,ERROR,failed to access component : profile_page_follow_button
+2020-11-24 13:11:19,edouardthegourmet,explore_hashtag,INFO,start processing for account : hoda_hamza20
+2020-11-24 13:11:21,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:11:21,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : hoda_hamza20, 9181, 152, 32"
+2020-11-24 13:11:21,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:11:21,edouardthegourmet,explore_hashtag,INFO,successfully followed account : hoda_hamza20
+2020-11-24 13:11:22,edouardthegourmet,explore_hashtag,INFO,start processing for account : mhdjashal_
+2020-11-24 13:11:23,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:11:23,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : mhdjashal_, 3009, 549, 47"
+2020-11-24 13:11:23,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:11:24,edouardthegourmet,explore_hashtag,INFO,successfully followed account : mhdjashal_
+2020-11-24 13:11:24,edouardthegourmet,explore_hashtag,INFO,start processing for account : shabi_daa
+2020-11-24 13:11:26,edouardthegourmet,get_account_data_from_profile_page,INFO,start
+2020-11-24 13:11:26,edouardthegourmet,get_account_data_from_profile_page,INFO,"raw account data scraped and transformed successfully : shabi_daa, 2073, 2217, 300"
+2020-11-24 13:11:26,edouardthegourmet,follow_from_profile_page,INFO,start
+2020-11-24 13:11:26,edouardthegourmet,explore_hashtag,INFO,successfully followed account : shabi_daa
+2020-11-24 13:11:26,edouardthegourmet,explore_hashtag,INFO,"hashtag followers processed, 3 accounts followed"
+2020-11-24 13:11:29,edouardthegourmet,send_basic_insights_email,INFO,start
+2020-11-24 13:11:29,edouardthegourmet,send_basic_insights_email,INFO,data obtained
+2020-11-24 13:11:31,edouardthegourmet,send_email,INFO,email successfully sent to instabot.insights@gmail.com
+2020-11-24 13:11:31,edouardthegourmet,send_basic_insights_email,INFO,basic insights email successfully sent for user edouardthegourmet
+2020-11-24 13:11:32,edouardthegourmet,send_email,INFO,email successfully sent to edouard.thom@gmail.com
+2020-11-24 13:11:32,edouardthegourmet,send_basic_insights_email,INFO,bug report email successfully sent for user edouardthegourmet
+2020-11-24 13:11:32,edouardthegourmet,MAIN,INFO,"loop 0 executed, successes : [update_followers_data : 1, unfollow_accounts : 1, update_follow_actions_data:1, explore_hashtag : [1, 1, 1]]"
+2020-11-24 13:11:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 3458
+2020-11-24 13:17:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 3098
+2020-11-24 13:23:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 2738
+2020-11-24 13:29:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 2378
+2020-11-24 13:35:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 2018
+2020-11-24 13:41:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 1658
+2020-11-24 13:47:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 1298
+2020-11-24 13:53:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 938
+2020-11-24 13:59:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 578
+2020-11-24 14:05:32,edouardthegourmet,MAIN,INFO,heartbeak... time to wait : 218

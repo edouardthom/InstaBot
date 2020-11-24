@@ -104,7 +104,7 @@ def unfollow_accounts(user,driver):
         ### Get the follows made by the bot
         follow_actions = dataAPI().get("follow_actions",user)
         
-        ### Identify the accounts that the bot followed that need to be unfollowed because the time has come 
+        ### Identify the accounts that the bot followed that need to be unfollowed because their time has come 
         # Reminder : In the function explore_hashtag, each account followed by the bot is assigned a number of hours before the unfollow must happen
         follow_actions['follow_time'] = follow_actions['follow_time'].apply(lambda x:datetime.datetime.strptime(x,"%Y-%m-%d %H:%M:%S.%f"))
         follow_actions["planned_unfollow_date"] = follow_actions["follow_time"] + follow_actions.hours_before_unfollowing.apply(lambda x:datetime.timedelta(hours=x))
@@ -133,7 +133,9 @@ def update_follow_actions_data(user,driver):
     try:
         ### Get the follows made by the bot
         follow_actions = dataAPI().get("follow_actions",user)
-        
+        follow_actions['follow_time'] = follow_actions['follow_time'].apply(lambda x:datetime.datetime.strptime(x,"%Y-%m-%d %H:%M:%S.%f"))
+        follow_actions["planned_unfollow_date"] = follow_actions["follow_time"] + follow_actions.hours_before_unfollowing.apply(lambda x:datetime.timedelta(hours=x))
+
         ### We get the list of accounts followed by the user to update the follow data
         profile_url = 'https://www.instagram.com/{}/'.format(user)
         driver.get(profile_url)
@@ -227,9 +229,11 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
             right_arrow_pressed = press_righ_arrow(pic_number,user,driver)
             if right_arrow_pressed == 0:
                 dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
+                sleep(2)
                 break
             pic_number+=1
             failures+=1
+            sleep(2)
             continue
         dataAPI().log(user,"explore_hashtag","INFO","successfully followed account : {}".format(account_username))
 
@@ -261,6 +265,7 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
         success_right_arrow_press = press_righ_arrow(pic_number,user,driver)
         if success_right_arrow_press==0:
             dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
+            sleep(2)
             break
         pic_number=1
         
@@ -293,6 +298,7 @@ def get_followers_following_for_user(entry,user,driver):
             dataAPI().log(user,"get_followers_following_for_user","INFO","success at attempt number : {}".format(attempt))
             return entries
     dataAPI().log(user,"get_followers_following_for_user","ERROR","failed after {} attempts".format(nb_max_attempts))
+    sleep(2)
     return 0
        
 def get_followers_following_for_user_one_try(entry,user,driver):
@@ -331,8 +337,8 @@ def get_followers_following_for_user_one_try(entry,user,driver):
         entries = []
         fails = 0
         sleep(2)
-        for n in range(1,nb_entries):
-            if fails>3:
+        for n in range(1,nb_entries+1):
+            if fails>=4:
                 dataAPI().log(user,"get_followers_following_for_user_one_try","ERROR","too many fails to get the entries, stopping execution")
                 return (0,0)
             try:
@@ -351,9 +357,6 @@ def get_followers_following_for_user_one_try(entry,user,driver):
     except:
         dataAPI().log(user,"get_followers_following_for_user_one_try","ERROR","UNIDENTIFIED failure, full exception : {}".format(traceback.format_exc())) 
         return (0,0)
-
-
-
 
 
 
@@ -392,10 +395,7 @@ def unfollow_one_account(user_to_unfollow,user,driver):
         return 1
     else:
         dataAPI().log(user,"unfollow_account_from_profile_page","ERROR","Failed to unfollow user {} - 2nd unfollow click".format(user_to_unfollow))
-        return 0
-
-
-    
+        return
 
     
 def press_righ_arrow(pic_number,user,driver):

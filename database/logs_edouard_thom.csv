@@ -9987,3 +9987,110 @@ Traceback (most recent call last):
     data = pd.read_csv(database_path+name+""_""+user+"".csv"")
 KeyboardInterrupt
 "
+2020-11-24 10:56:28,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-24 10:56:28,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-24 10:56:28,edouard_thom,log_in,INFO,start
+2020-11-24 10:56:33,edouard_thom,log_in,INFO,success
+2020-11-24 10:56:36,edouard_thom,update_followers,INFO,start
+2020-11-24 10:56:36,edouard_thom,update_followers,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 67, in update_followers_data
+    if driver.current_url!=profile_url:
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 669, in current_url
+    return self.execute(Command.GET_CURRENT_URL)['value']
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 321, in execute
+    self.error_handler.check_response(response)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py"", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchWindowException: Message: no such window: window was already closed
+  (Session info: chrome=87.0.4280.67)
+
+"
+2020-11-24 10:56:39,edouard_thom,unfollow_accounts,INFO,start
+2020-11-24 10:56:39,edouard_thom,unfollow_accounts,INFO,185 accounts to unfollow...
+2020-11-24 10:56:41,edouard_thom,unfollow_account_from_profile_page,INFO,"start, user_to_unfollow=noemi.knz"
+2020-11-24 10:56:42,edouard_thom,unfollow_account_from_profile_page,ERROR,failed to access profile URL
+2020-11-24 10:56:43,edouard_thom,unfollow_account_from_profile_page,INFO,"start, user_to_unfollow=cozyynights"
+2020-11-24 10:56:43,edouard_thom,unfollow_account_from_profile_page,ERROR,failed to access profile URL
+2020-11-24 10:56:44,edouard_thom,unfollow_account_from_profile_page,INFO,"start, user_to_unfollow=gayatri.nairr"
+2020-11-24 10:56:44,edouard_thom,unfollow_account_from_profile_page,ERROR,failed to access profile URL
+2020-11-24 10:56:45,edouard_thom,unfollow_accounts,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 120, in unfollow_accounts
+    sleep(1)
+KeyboardInterrupt
+"
+2020-11-24 10:56:48,edouard_thom,update_follow_actions_data,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/connection.py"", line 84, in create_connection
+    raise err
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/connection.py"", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 672, in urlopen
+    chunked=chunked,
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 1026, in _send_output
+    self.send(msg)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/http/client.py"", line 966, in send
+    self.connect()
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 184, in connect
+    conn = self._new_conn()
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connection.py"", line 169, in _new_conn
+    self, ""Failed to establish a new connection: %s"" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7fbcebda2450>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 139, in update_follow_actions_data
+    driver.get(profile_url)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py"", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py"", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py"", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/request.py"", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/request.py"", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/poolmanager.py"", line 330, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 760, in urlopen
+    **response_kw
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/connectionpool.py"", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File ""/Users/ethomas/anaconda3/envs/python37/lib/python3.7/site-packages/urllib3/util/retry.py"", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=50193): Max retries exceeded with url: /session/31f9a237e987ee2f571eb4932356ea5b/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fbcebda2450>: Failed to establish a new connection: [Errno 61] Connection refused'))
+"
+2020-11-24 10:56:53,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-24 10:56:53,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-24 10:56:53,edouard_thom,log_in,INFO,start
+2020-11-24 10:56:56,edouard_thom,log_in,INFO,success
+2020-11-24 10:56:59,edouard_thom,update_followers,INFO,start
+2020-11-24 10:57:02,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-24 10:57:04,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-24 11:01:05,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 1
+2020-11-24 11:01:07,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 2
+2020-11-24 11:01:10,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 3
+2020-11-24 11:01:12,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 4
+2020-11-24 11:01:12,edouard_thom,get_followers_following_for_user_one_try,ERROR,"too many fails to get the entries, stopping execution"
+2020-11-24 11:01:14,edouard_thom,get_followers_following_for_user_one_try,INFO,start
