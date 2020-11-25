@@ -3,9 +3,9 @@
 ### Instagram audience expansion and monitoring  
   
 [Features](#part1)  
-[Get started with the bot - tutorial](#part2) 
-[Next steps](#part3) 
-[Code organisation](#part4)  
+[Get started with the bot - tutorial](#part2)  
+[Next steps](#part3)  
+[Code organisation](#part4)   
    
 ## Features :  
 * automatically interact with accounts in a smart way to maximise the number of followers 
@@ -59,9 +59,8 @@ The UI API (*instagram_ui_api.py*) ensures a frictionless management of the inte
 If you see often logs like "failed to click component X" , you might need to update its xpath in the class *registeredUIComponents* in *instabot_ui_api.py*.
    
 ## Next steps
-The bot is currently running on several accounts, 
-Get insights regarding 
-Leverage the data produced by the bot for audience targetting.
+The bot is currently running on several accounts, gathering data.   
+Next : leverage the data produced by the bot for audience targetting.
       
 ## Code organisation   
 The central piece of the bot is the while(1) loop that you can find in *instabot_main.py*.  
