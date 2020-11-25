@@ -5,8 +5,12 @@ import smtplib
 import json
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from instabot_run_variables import BOT_GMAIL_ADDRESS,BOT_GMAIL_PASSWORD
 from instabot_data_api import dataAPI
+from utilities import load_config_variable
+
+BOT_GMAIL_ADDRESS = load_config_variable("BOT_GMAIL_ADDRESS","config.json")
+BOT_GMAIL_PASSWORD = load_config_variable("BOT_GMAIL_PASSWORD","config.json")
+
 
 def send_email(subject,text,email_destination,user):
     try:
@@ -28,12 +32,12 @@ def send_email(subject,text,email_destination,user):
         dataAPI().log(user,"send_email","ERROR","failed to send email to {}".format(email_destination))
 
     
-    
 
 ######################################## INSIGHTS EMAILS ########################################
 # such emails are sent to the customers of the bot. It provides them diverse insights regarding #
 # evolution of their audience                                                                   #
 #################################################################################################
+
 
 def send_basic_insights_email(hours_back,email_destination,user):
     dataAPI().log(user,"send_basic_insights_email","INFO","start")

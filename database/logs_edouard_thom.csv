@@ -10094,3 +10094,81 @@ urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=5019
 2020-11-24 11:01:12,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 4
 2020-11-24 11:01:12,edouard_thom,get_followers_following_for_user_one_try,ERROR,"too many fails to get the entries, stopping execution"
 2020-11-24 11:01:14,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-26 00:29:26,edouard_thom,log_in,INFO,start
+2020-11-26 00:29:31,edouard_thom,log_in,INFO,success
+2020-11-26 00:29:46,edouard_thom,log_in,INFO,start
+2020-11-26 00:29:51,edouard_thom,log_in,INFO,success
+2020-11-26 00:30:30,edouard_thom,log_in,INFO,start
+2020-11-26 00:30:35,edouard_thom,log_in,INFO,success
+2020-11-26 00:38:54,edouard_thom,log_in,INFO,start
+2020-11-26 00:38:59,edouard_thom,log_in,INFO,success
+2020-11-26 00:39:30,edouard_thom,log_in,INFO,start
+2020-11-26 00:39:35,edouard_thom,log_in,INFO,success
+2020-11-26 00:39:56,edouard_thom,update_followers,INFO,start
+2020-11-26 00:39:59,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-26 00:40:00,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-26 00:44:29,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 61
+2020-11-26 00:44:32,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 62
+2020-11-26 00:44:35,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 63
+2020-11-26 00:44:37,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 64
+2020-11-26 00:44:38,edouard_thom,get_followers_following_for_user_one_try,ERROR,"too many fails to get the entries, stopping execution"
+2020-11-26 00:44:40,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-26 00:48:37,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 1
+2020-11-26 00:48:39,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 2
+2020-11-26 00:48:42,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 3
+2020-11-26 00:48:44,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 4
+2020-11-26 00:48:45,edouard_thom,get_followers_following_for_user_one_try,ERROR,"too many fails to get the entries, stopping execution"
+2020-11-26 00:48:47,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-26 00:52:46,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 1
+2020-11-26 00:52:49,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 2
+2020-11-26 00:52:51,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 3
+2020-11-26 00:52:54,edouard_thom,get_followers_following_for_user_one_try,ERROR,couldn't get entry 4
+2020-11-26 00:52:55,edouard_thom,get_followers_following_for_user_one_try,ERROR,"too many fails to get the entries, stopping execution"
+2020-11-26 00:52:55,edouard_thom,get_followers_following_for_user,ERROR,failed after 3 attempts
+2020-11-26 00:52:56,edouard_thom,update_followers,ERROR,failed to get the followers list -> abort the followers update
+2020-11-26 00:52:56,edouard_thom,unfollow_accounts,INFO,start
+2020-11-26 00:52:56,edouard_thom,unfollow_accounts,INFO,219 accounts to unfollow...
+2020-11-26 00:53:03,edouard_thom,unfollow_account_from_profile_page,INFO,"start, user_to_unfollow=bentley_fan"
+2020-11-26 00:53:12,edouard_thom,UIAPI,ERROR,failed to access component : unfollow_red_button_confirm
+2020-11-26 00:53:12,edouard_thom,unfollow_account_from_profile_page,ERROR,Failed to unfollow user bentley_fan - 2nd unfollow click
+2020-11-26 00:53:12,edouard_thom,unfollow_accounts,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 120, in unfollow_accounts
+    nb_of_accounts_unfollowed+=unfollowing_success
+TypeError: unsupported operand type(s) for +=: 'int' and 'NoneType'
+"
+2020-11-26 00:53:17,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the following data
+2020-11-26 00:53:19,edouard_thom,get_followers_following_for_user_one_try,INFO,start
+2020-11-26 00:54:14,edouard_thom,get_followers_following_for_user_one_try,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 334, in get_followers_following_for_user_one_try
+    smart_sleep(1)
+  File ""/Users/ethomas/InstaBot/utilities.py"", line 17, in smart_sleep
+    sleep(sleep_time)
+KeyboardInterrupt
+"
+2020-11-26 00:54:14,edouard_thom,update_follow_actions_data,ERROR,"UNIDENTIFIED failure, full exception : Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 334, in get_followers_following_for_user_one_try
+    smart_sleep(1)
+  File ""/Users/ethomas/InstaBot/utilities.py"", line 17, in smart_sleep
+    sleep(sleep_time)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 140, in update_follow_actions_data
+    following = get_followers_following_for_user(""following"",user,driver)
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 289, in get_followers_following_for_user
+    entries,nb_entries = get_followers_following_for_user_one_try(entry,user,driver)
+  File ""/Users/ethomas/InstaBot/instabot_functions.py"", line 362, in get_followers_following_for_user_one_try
+    smart_sleep(2)
+  File ""/Users/ethomas/InstaBot/utilities.py"", line 17, in smart_sleep
+    sleep(sleep_time)
+KeyboardInterrupt
+"
+2020-11-26 00:54:38,edouard_thom,MAIN,INFO,Bot started for user edouard_thom !
+2020-11-26 00:54:38,edouard_thom,MAIN,INFO,loop 0 start
+2020-11-26 00:54:38,edouard_thom,log_in,INFO,start
+2020-11-26 00:54:42,edouard_thom,log_in,INFO,success
+2020-11-26 00:54:45,edouard_thom,update_followers,INFO,start
+2020-11-26 00:54:48,edouard_thom,get_followers_following_for_user,INFO,start - first attempt to get the followers data
+2020-11-26 00:54:51,edouard_thom,get_followers_following_for_user_one_try,INFO,start

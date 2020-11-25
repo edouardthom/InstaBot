@@ -2,6 +2,7 @@
 
 from instabot_data_api import dataAPI
 from instabot_ui_api import UIComponentsAPI
+from utilities import smart_sleep
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -9,12 +10,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from time import sleep
-import numpy as np
 import datetime
 import pandas as pd
 import traceback
-    
+import numpy as np   
 
 ############################################################################################################
 ############################# The 5 Main independent blocks #############################################
@@ -30,7 +29,6 @@ def log_in(email,password,user,for_aws=True,headless=False):
             chrome_options.add_argument("--disable-dev-shm-usage")
             chrome_options.add_argument('headless')
             chrome_options.add_argument('--no-sandbox')
-            #chrome_options.add_argument('start-maximized')
             driver = webdriver.Chrome(chrome_options=chrome_options)
         else:
             if headless:
@@ -52,11 +50,11 @@ def log_in(email,password,user,for_aws=True,headless=False):
             return 0
         else:
             dataAPI().log(user,"log_in","INFO","success")  
-            sleep(3)
+            smart_sleep(3)
             return driver
     except:
         dataAPI().log(user,"log_in","ERROR","failed, full exception : {}".format(traceback.format_exc()))  
-        sleep(3)
+        smart_sleep(3)
         return 0
 
 
@@ -66,7 +64,7 @@ def update_followers_data(user,driver):
         profile_url = 'https://www.instagram.com/{}/'.format(user)
         if driver.current_url!=profile_url:
             driver.get(profile_url)
-        sleep(2)
+        smart_sleep(2)
         
         followers_now = get_followers_following_for_user("followers",user,driver)
 
@@ -88,11 +86,11 @@ def update_followers_data(user,driver):
         data = data.drop("present_now",1)
         dataAPI().store("followers",user,data)
         dataAPI().log(user,"update_followers","INFO","success")
-        sleep(3)
+        smart_sleep(3)
         return 1
     except:
         dataAPI().log(user,"update_followers","ERROR","UNIDENTIFIED failure, full exception : {}".format(traceback.format_exc())) 
-        sleep(3)
+        smart_sleep(3)
         return 0
     
 
@@ -115,9 +113,9 @@ def unfollow_accounts(user,driver):
         ### Then we (try to) unfollow these accounts
         dataAPI().log(user,"unfollow_accounts","INFO","{} accounts to unfollow...".format(str(len(accounts_to_unfollow))))
         nb_of_accounts_unfollowed = 0
-        sleep(1)
+        smart_sleep(2)
         for u in accounts_to_unfollow:
-            sleep(1)
+            smart_sleep(4)
             unfollowing_success = unfollow_one_account(u,user,driver)
             nb_of_accounts_unfollowed+=unfollowing_success
         # remark : we can fail to unfollow an account because we were not following it. (the bot is not the only entity to have the ability to unfollow accounts)
@@ -125,7 +123,7 @@ def unfollow_accounts(user,driver):
         return 1
     except:
         dataAPI().log(user,"unfollow_accounts","ERROR","UNIDENTIFIED failure, full exception : {}".format(traceback.format_exc())) 
-        sleep(3)
+        smart_sleep(3)
         return 0           
 
 
@@ -143,7 +141,7 @@ def update_follow_actions_data(user,driver):
     
         if type(following) ==int : 
             dataAPI().log(user,"update_follow_actions_data","ERROR","failed to get the following list -> stop the function execution")
-            sleep(3)
+            smart_sleep(3)
             return 0
             
         following = pd.DataFrame({"account_username":following,"following":1})
@@ -158,11 +156,11 @@ def update_follow_actions_data(user,driver):
         follow_actions = follow_actions.drop("planned_unfollow_date",1)
         dataAPI().store("follow_actions",user,follow_actions)
         dataAPI().log(user,"update_follow_actions_data","INFO","follow_actions dataframe for user {} successfully updated".format(user))
-        sleep(3)
+        smart_sleep(3)
         return 1
     except:
         dataAPI().log(user,"update_follow_actions_data","ERROR","UNIDENTIFIED failure, full exception : {}".format(traceback.format_exc())) 
-        sleep(3)
+        smart_sleep(3)
         return 0        
  
     
@@ -170,11 +168,11 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
     dataAPI().log(user,"explore_hashtag","INFO","start, #{}".format(hashtag))  
     
     driver.get('https://www.instagram.com/explore/tags/'+ hashtag + '/')
-    sleep(2)
+    smart_sleep(2)
     ok = UIComponentsAPI().click("first_thumbnail_photo",user,driver)
     if ok==0:
         dataAPI().log(user,"explore_hashtag","ERROR","fail, full exception : {}".format(traceback.format_exc()))  
-        sleep(3)
+        smart_sleep(3)
         return 0
         
     pic_number = 0
@@ -190,7 +188,7 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
         # If the press fails, we are doomed : we just stop the loop (break), and therefore the whole function
         # If the press succeeds, we go to the next iteration (continue), and we log 1 fail (failures+=1)
         # After 4 fails, we just give up and end the loop.
-        if failures>=4:
+        if failures>=6:
             dataAPI().log(user,"explore_hashtag","ERROR","Too many failures, we stop the loop")
             break
         
@@ -229,11 +227,11 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
             right_arrow_pressed = press_righ_arrow(pic_number,user,driver)
             if right_arrow_pressed == 0:
                 dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
-                sleep(2)
+                smart_sleep(2)
                 break
             pic_number+=1
             failures+=1
-            sleep(2)
+            smart_sleep(2)
             continue
         dataAPI().log(user,"explore_hashtag","INFO","successfully followed account : {}".format(account_username))
 
@@ -261,22 +259,23 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
                   "unfollow_time" : None}
         dataAPI().add_record("follow_actions",user,record)
         nb_accounts_followed+=1
+        smart_sleep(10)
         
         success_right_arrow_press = press_righ_arrow(pic_number,user,driver)
         if success_right_arrow_press==0:
             dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
-            sleep(2)
+            smart_sleep(2)
             break
         pic_number=1
         
     
     dataAPI().log(user,"explore_hashtag","INFO","hashtag {0} processed, {1} accounts followed".format(hashtag,nb_accounts_followed))
-    sleep(3)
+    smart_sleep(3)
     return 1
         
 
 ############################################################################################################
-#################################### Secondary handy functions #############################################
+################################## Secondary interaction functions #########################################
 ############################################################################################################
 
 
@@ -286,7 +285,7 @@ def get_followers_following_for_user(entry,user,driver):
     attempt = 1
     dataAPI().log(user,"get_followers_following_for_user","INFO","start - first attempt to get the {} data".format(entry))
     while attempt <= nb_max_attempts:
-        sleep(2)
+        smart_sleep(2)
         entries,nb_entries = get_followers_following_for_user_one_try(entry,user,driver)
         if entries==0:
             attempt+=1
@@ -298,7 +297,7 @@ def get_followers_following_for_user(entry,user,driver):
             dataAPI().log(user,"get_followers_following_for_user","INFO","success at attempt number : {}".format(attempt))
             return entries
     dataAPI().log(user,"get_followers_following_for_user","ERROR","failed after {} attempts".format(nb_max_attempts))
-    sleep(2)
+    smart_sleep(2)
     return 0
        
 def get_followers_following_for_user_one_try(entry,user,driver):
@@ -310,10 +309,11 @@ def get_followers_following_for_user_one_try(entry,user,driver):
     try:
         profile_url = 'https://www.instagram.com/{}/'.format(user)
         driver.get(profile_url)
+        smart_sleep(2)
     except:
         dataAPI().log(user,"get_followers_following_for_user_one_try","ERROR","couldn't load user profile page")
+        smart_sleep(2)
         return (0,0)
-    sleep(1)
     ### Open the followers/ing scrollable window from the profile page + get the # of entries
     if entry == "followers":
         nb_entries = UIComponentsAPI().get_text_and_click("profile_page_followers_button",user,driver)
@@ -321,7 +321,7 @@ def get_followers_following_for_user_one_try(entry,user,driver):
         nb_entries = UIComponentsAPI().get_text_and_click("profile_page_following_button",user,driver)
     if nb_entries==0:
         return (0,0)
-    sleep(1)
+    smart_sleep(1)
     try:
         nb_entries = treat_number(nb_entries,user)
         #find all elements in list
@@ -331,12 +331,12 @@ def get_followers_following_for_user_one_try(entry,user,driver):
         scroll = 0
         while scroll < nb_entries: # each scroll displays ~12 row, we divide by 3 to be reaaaallllyyy sure we don't miss any
             driver.execute_script('arguments[0].scrollTop = arguments[0].scrollTop + arguments[0].offsetHeight;', fBody)
-            sleep(1)
+            smart_sleep(1)
             scroll += 1
         
         entries = []
         fails = 0
-        sleep(2)
+        smart_sleep(2)
         for n in range(1,nb_entries+1):
             if fails>=4:
                 dataAPI().log(user,"get_followers_following_for_user_one_try","ERROR","too many fails to get the entries, stopping execution")
@@ -346,16 +346,20 @@ def get_followers_following_for_user_one_try(entry,user,driver):
                 info = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH,xpath))).text
                 name = info.split("\n")[0]
                 entries.append(name)
+                smart_sleep(0.5)
             except:
                 fails+=1
                 dataAPI().log(user,"get_followers_following_for_user_one_try","ERROR","couldn't get entry {}".format(n))
+                smart_sleep(0.5)
                 pass
 
         dataAPI().log(user,"get_followers_following_for_user_one_try","INFO","{} entries scraped : {}/{}".format(entry,len(entries),nb_entries))
+        smart_sleep(2)
         return (entries,nb_entries)
     
     except:
         dataAPI().log(user,"get_followers_following_for_user_one_try","ERROR","UNIDENTIFIED failure, full exception : {}".format(traceback.format_exc())) 
+        smart_sleep(2)
         return (0,0)
 
 
@@ -367,7 +371,7 @@ def unfollow_one_account(user_to_unfollow,user,driver):
     user_to_unfollow : str
         The name of the account the bot will unfollow.
     user : TYPE
-        the user tyhe bot is working for
+        the user yhe bot is working for
     driver : TYPE
         The current selenium webdriver.
 
@@ -383,12 +387,12 @@ def unfollow_one_account(user_to_unfollow,user,driver):
     except:
         dataAPI().log(user,"unfollow_account_from_profile_page","ERROR","failed to access profile URL")
         return 0
-    sleep(1)
+    smart_sleep(2)
     ok = UIComponentsAPI().click("unfollow_button",user,driver)
     if ok==0:
         dataAPI().log(user,"unfollow_account_from_profile_page","ERROR","Failed to unfollow user {} - 1st unfollow click".format(user_to_unfollow))
         return 0
-    sleep(2)
+    smart_sleep(2)
     ok = UIComponentsAPI().click("unfollow_red_button_confirm",user,driver)
     if ok==1:
         dataAPI().log(user,"unfollow_account_from_profile_page","INFO","success, account {} unfollowed".format(user_to_unfollow))
@@ -463,5 +467,3 @@ def treat_number(s,user):
         return int(s)
     return int(s)
 
-
-  

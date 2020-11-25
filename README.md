@@ -1,12 +1,10 @@
 # InstaBot 🤖  
-  
-*Documentation in progress - Nov 2020*
-  
+    
 ### Instagram audience expansion and monitoring  
   
 [Features](#part1)  
-[Get started with the bot - tutorial](#part3)  
-[Technical requirements](#part2)  
+[Get started with the bot - tutorial](#part2) 
+[Next steps](#part3) 
 [Code organisation](#part4)  
    
 ## Features :  
@@ -15,15 +13,13 @@
 * communicate insights based on that data  
    
 **More concretely, what does the bot (MVP) do ?**  
-The bot follows random accounts, based on a list of hashtags you provided him beforehand.  
-After some time, he will unfollow them, to avoid following too many people at the same time.  
-On top of that, while performing this follow-unfollow process, he makes sure to store and update datasets (csv files) regarding both his actions (who he followed, unfollowed, and more details), and the audience of the account (mainly who followed and unfollowed the account).  
-This data is accessible in a database folder if you wish to analyse it.  
-Besides, the bot uses that data to regularly send emails containing relevant insights.  
-Last techy thing : to allow you to monitor the run, logs are stored in the database, and bug reports can regularly be sent via email.  
-  
-*Performances : as of Nov 21, on my 2017 macbook pro,  the bot runs perfectly for days without crashing :))*
-  
+* follow random accounts, based on a list of hashtags you provided him beforehand  
+* after some time, unfollow them, to avoid following too many people at the same time
+* while performing this follow-unfollow process, store and update datasets regarding both the actions (who he followed, unfollowed,...), and the audience of the account (mainly who followed and unfollowed the user).  
+* this data is stored in CSV files accessible in a database folder if you wish to analyse them  
+* the bot uses that data to regularly send emails containing relevant insights.  
+* he also allows you to monitor the run : logs are stored in the database, and bug reports can regularly be sent via email.  
+    
 ## Get started with the bot - tutorial  
 #### 1. Set-up the environment 
 You need :  
@@ -34,15 +30,14 @@ You need :
 #### 2. Run the bot
 * Clone this repository in a cosy location : `git clone https://github.com/edouardthom/InstaBot.git`
 * Navigate to the instabot folder `cd InstaBot`  
-* Fill *instabot_running_variables.py* with the values of your choice, and save.  
-  Be particularly careful with the variable *nb_hashtags_per_loop* and *nb_follows_per_hashtag*. They will determine how many accounts the bot will follow at every loop (one loop every *time_between_loops* seconds). You shouldn't follow more than 20 accounts per hour if you don't want your account to get blocked by Instagram.  
-* Finally, run `python instabot_main.py` and let the bot do its job. Depending where you run the code, you might see the logs being printed out.    
+* Fill *config.xml* with the values of your choice, and save.  
+* Finally, run `python instabot_main.py` and let the bot do its job.      
   
-If you run in a terminal, it will look like that :  
+If you run in a terminal, you will be able to follow what the bot is doing with the logs :  
   
 ![Alt text](/documentation/screenshot_terminal.png?raw=true)  
   
-From time to time you will receive a polite email containing insights :  
+From time to time you will receive a polite email containing insights (parameters in config.xml) :  
 
 ![Alt text](/documentation/screenshot_insights_email.png?raw=true)   
   
@@ -51,9 +46,9 @@ You'll also receive bug reports :
 ![Alt text](/documentation/screenshot_bug_report.png?raw=true)  
    
 #### About the data generated  
-The bot (MVP) generates 3 datasets at the moment (including the one containing the log)s.  
+The bot (MVP) generates 3 datasets at the moment (including the one containing the logs).
+The datasets are stored as csv in the *InstaBot/database* folder.  
 The schema and description of each dataset is defined in the class *registeredTableDefinitions* in the *instabot_data_api.csv* file. There you can see exactly what data the bot outputs, and what it contains.
-The datasets are stored as csv in the *InstaBot/database* folder
 #### About the maintenance  
 The bot is designed to overcome minor errors and keep running. From time to time it can crash but that should remaine relatively rare.    
 It is a good practice to regularly have a look at the logs to spot recurring minor errors and fix them.  
@@ -63,39 +58,13 @@ One specific kind of eror occurs when the bot fails to interact (click, enter te
 The UI API (*instagram_ui_api.py*) ensures a frictionless management of the interactions with the UI. All components that the bot interacts with are declared in the *registeredUIComponents* class.  
 If you see often logs like "failed to click component X" , you might need to update its xpath in the class *registeredUIComponents* in *instabot_ui_api.py*.
    
-## Technical requirements    
-* (MVP) Autonomy and robustness 
-  * Should be able to run continuously and rarely crash 
-* (MVP) Low maintenance efforts  
-  * make it frictionless to ensure that the code keeps up with Instagram UI changes 
-  * efficient logs management
-* (MVP) Environment-agnostic  
-  * The bot should be able to run on usual platforms : raspberry Pi, AWS instance, classic desktop...
-  * Only prerequisite : Python, Selenium, Chrome+Driver
-* (MVP) Output good-quality data  
-  * transparency and clarity over what the data contains  
-  * guarantee the quality of that data 
-* (MVP) Send emails containing relevant insights
-  * Grab and process the data to get insights
-  * Ship these insights to whoever is interested via email
-* (MVP) Multi-account support
-  * The bot should be able to run for several different Instagram accounts in parallel.
-   
-* (2.0) Display relevant insights in a real-time dashboard easily accessible
-  * This should provide more granular insights that a daily email newsletter
-* (2.0) Possibility to optimise the interactions strategy to maximise certain metrics, using past data 
-  * Diverse techniques can be employed to make the most of historical data to optimise the bot interactions (follows, likes,comments) , in order to maximise metrics such as the number of followers or their loyalty. We can think of the bot making the decision to follow a certain account based on a score given by a ML model.
-* (2.0) Audience targetting
-  * Gain followers that are part of a target audience
+## Next steps
+The bot is currently running on several accounts, 
+Get insights regarding 
+Leverage the data produced by the bot for audience targetting.
       
 ## Code organisation   
 The central piece of the bot is the while(1) loop that you can find in *instabot_main.py*.  
 Here is the structure of the code with the interactions between the diverse parts :  
    
 ![Alt text](/documentation/code_structure.png?raw=true "Structure of the code")
-     
-#### About the data API  
-See the objectives and the documentation in the file "instabot_data_api.py"
-    
-I think you should use an
-`<addr>` element here instead.

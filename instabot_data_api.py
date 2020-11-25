@@ -40,7 +40,11 @@
 import os
 import pandas as pd
 import datetime
-from instabot_run_variables import database_path
+
+
+### Get the database path from the config file
+from utilities import load_config_variable
+database_path = load_config_variable("database_path","config.json")
 
 
 class registeredTableDefinitions:
