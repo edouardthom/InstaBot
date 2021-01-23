@@ -30,14 +30,14 @@ You need :
 #### 2. Run the bot
 * Clone this repository in a cosy location : `git clone https://github.com/edouardthom/InstaBot.git`
 * Navigate to the instabot folder `cd InstaBot`  
-* Fill *config.xml* with the values of your choice, and save.  
-* Finally, run `python instabot_main.py` and let the bot do its job.      
+* Fill *config.json* with the values of your choice, and save.  
+* Finally, run `python instabot_main.py [account_username]` and let the bot do its job      
   
 If you run in a terminal, you will be able to follow what the bot is doing with the logs :  
   
 ![Alt text](/documentation/screenshot_terminal.png?raw=true)  
   
-From time to time you will receive a polite email containing insights (parameters in config.xml) :  
+Every morning and evening you will receive a polite email containing insights (parameters in config.xml) :  
 
 ![Alt text](/documentation/screenshot_insights_email.png?raw=true)   
   
