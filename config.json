@@ -2,11 +2,13 @@
 {
     "database_path":"/Users/ethomas/Instabot/database/",
     "BOT_GMAIL_ADDRESS":"instabot.insights@gmail.com",
-    "BOT_GMAIL_PASSWORD":"",    
+    "BOT_GMAIL_PASSWORD":"instaedobot_1993", 
+    "SCRAPER_ACCOUNT_GMAIL_ADDRESS":"jackiedelarime@gmail.com",
+    "SCRAPER_ACCOUNT_PASSWORD":"instaedobot_1993",   
 
     "edouardthegourmet":{
         "user_email":"instabot.insights@gmail.com",
-        "user_password":"",
+        "user_password":"instaedobot_1993",
         "hashtags": 
             ["instalife","friends","beach","ski","followeraktif","follower4follower",
             "instagood","followme","selfie","foodie",
@@ -19,18 +21,15 @@
             "french","france",
             "foodblogger", "foodlover", "delicious", "homemade", "healthyfood", 
             "dinner", "foodgasm", "foodies", "tasty"],
-        "max_follows_per_day":170,
-        "hours_between_insights_emails":1,
-        "insights_email_hours_back":3,
-        "send_bugreport_emails":true,
-        "dev_email":"instabot.insights@gmail.com",
-        "hours_between_bugreport_emails":6,
-        "bugreport_email_hours_back":6
+        "account_usernames":
+            ["omarattiyah","_aline.km_","natgeo","chef_liviu.moroiu","filthy_buns","butternut_and_co",
+             "basicallybreakfast"],
+        "dev_email":"instabot.insights@gmail.com"
         },  
 
     "edouard_thom":{
         "user_email":"edouard.thom@gmail.com",
-        "user_password":"",
+        "user_password":"instaedobot1994",
         "hashtags": 
             ["instalife","friends","beach","ski","followeraktif","follower4follower",
             "instagood","followme","selfie","foodie",
@@ -43,13 +42,10 @@
             "french","france",
             "foodblogger", "foodlover", "delicious", "homemade", "healthyfood", 
             "dinner", "soccer", "art", "tasty"],
-        "max_follows_per_day":160,
-        "hours_between_insights_emails":6,
-        "insights_email_hours_back":6,
-        "send_bugreport_emails":true,
-        "dev_email":"instabot.insights@gmail.com",
-        "hours_between_bugreport_emails":6,
-        "bugreport_email_hours_back":6
+        "account_usernames":
+            ["omarattiyah","_aline.km_","natgeo","chef_liviu.moroiu","filthy_buns","butternut_and_co",
+             "basicallybreakfast"],
+        "dev_email":"instabot.insights@gmail.com"
         }
         
 }

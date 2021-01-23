@@ -78,8 +78,16 @@ class registeredUIComponents:
     }
     profile_page_target_username = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[1]/h2'],
-        "description" : ""
+        "description" : "On the page of a random account, the name at the top of the page"
     }
+    profile_page_target_name = {
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[2]/h1'],
+        "description" : "On the page of a random account, the name right above the description"
+    }
+    profile_page_target_description = {
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[2]/span'],
+        "description" : ""
+    }    
     unfollow_button = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div[2]/div/span/span[1]/button'],
         "description" : ""
@@ -87,6 +95,11 @@ class registeredUIComponents:
     unfollow_red_button_confirm = {
         "xpaths" : ['/html/body/div[5]/div/div/div/div[3]/button[1]'],
         "description" : ""
+    }
+    profile_page_follow_status_button = {
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div/div/span/span[1]/button',
+                    '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div[2]/button/div'],
+        "description" : "the button that allows to follow or unfollow an account"        
     }
 
     
@@ -110,16 +123,22 @@ class UIComponentsAPI(registeredUIComponents):
         return 0
     
     def click(self,component,user,driver):
-        element = self.get(component,user,driver)
-        if element == 0:
-            return 0
-        else:
-            try:
-                element.click()
-                return 1
-            except:
-                dataAPI().log(user,"UIAPI","ERROR","failed to click component : "+component) 
+        if component not in [i for i in dir(registeredUIComponents) if not callable(i)]:
+            raise Exception("UIComponentNotRegisteredInUIAPI")
+        xpaths = getattr(registeredUIComponents, component).get("xpaths")
+        for xpath in xpaths:
+            try :
+                element = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                break
+            except :
+                dataAPI().log(user,"UIAPI","ERROR","failed to access component : "+component) 
                 return 0
+        try:
+            element.click()       
+            return 1            
+        except:
+            dataAPI().log(user,"UIAPI","ERROR","failed to click component : "+component) 
+            return 0
             
             
     def get_text(self,component,user,driver):

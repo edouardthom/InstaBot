@@ -3,6 +3,7 @@
 import datetime
 import smtplib
 import json
+import traceback
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from instabot_data_api import dataAPI
@@ -29,7 +30,7 @@ def send_email(subject,text,email_destination,user):
         s.quit()
         dataAPI().log(user,"send_email","INFO","email successfully sent to {}".format(email_destination))
     except:
-        dataAPI().log(user,"send_email","ERROR","failed to send email to {}".format(email_destination))
+        dataAPI().log(user,"send_email","ERROR","failed to send email to {} - full exception : {}".format(email_destination,traceback.format_exc()))
 
     
 

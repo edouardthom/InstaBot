@@ -13,9 +13,9 @@
 * communicate insights based on that data  
    
 **More concretely, what does the bot (MVP) do ?**  
-* follow random accounts, based on a list of hashtags you provided him beforehand  
+* follow random accounts (found through hashtags, or from the followers list of some accounts)   
 * after some time, unfollow them, to avoid following too many people at the same time
-* while performing this follow-unfollow process, store and update datasets regarding both the actions (who he followed, unfollowed,...), and the audience of the account (mainly who followed and unfollowed the user).  
+* while performing this follow-unfollow process, supdate datasets regarding both the actions (who he followed, unfollowed,...), and the audience of the account (mainly who followed and unfollowed the user).  
 * this data is stored in CSV files accessible in a database folder if you wish to analyse them  
 * the bot uses that data to regularly send emails containing relevant insights.  
 * he also allows you to monitor the run : logs are stored in the database, and bug reports can regularly be sent via email.  
@@ -61,9 +61,3 @@ If you see often logs like "failed to click component X" , you might need to upd
 ## Next steps
 The bot is currently running on several accounts, gathering data.   
 Next : leverage the data produced by the bot for audience targetting.
-      
-## Code organisation   
-The central piece of the bot is the while(1) loop that you can find in *instabot_main.py*.  
-Here is the structure of the code with the interactions between the diverse parts :  
-   
-![Alt text](/documentation/code_structure.png?raw=true "Structure of the code")
