@@ -16,6 +16,8 @@ import traceback
 import numpy as np   
 import random
 import math
+import pickle
+
 
 ############################################################################################################
 ############################# The 5 Main independent blocks #############################################
@@ -26,7 +28,7 @@ def open_browser(user,for_aws=False,headless=False):
     Just opens a browser and Instagram, but doesn't log-in'
 
     """
-    dataAPI().log(user,"open_browser","INFO","start") 
+    dataAPI().log(user,"open_browser","INFO","start function") 
     try:
         if for_aws:
             chrome_options = Options()
@@ -47,18 +49,29 @@ def open_browser(user,for_aws=False,headless=False):
         dataAPI().log(user,"open_browser","INFO","success - browser opened") 
         return driver
     except:
-        dataAPI().log(user,"log_in","ERROR","failed, full exception : {}".format(traceback.format_exc()))  
+        dataAPI().log(user,"open_browser","ERROR","failed, full exception : {}".format(traceback.format_exc()))  
         smart_sleep(3)
         return 0
 
 
-def log_in(email,password,user,for_aws=False,headless=False):
+
+def save_cookie(driver, path):
+    with open(path, 'wb') as filehandler:
+        pickle.dump(driver.get_cookies(), filehandler)
+
+def load_cookie(driver, path):
+     with open(path, 'rb') as cookiesfile:
+         cookies = pickle.load(cookiesfile)
+         for cookie in cookies:
+             driver.add_cookie(cookie)
+
+def log_in(email,password,user,use_cookies=True,headless=False,for_aws=False):
     """
     This function creates a webdriver, and log-in into Instagram for the specified user.
     It returns the webdriver for performing further actions.
 
     """
-    dataAPI().log(user,"log_in","INFO","start") 
+    dataAPI().log(user,"log_in","INFO","start function") 
     try:
         if for_aws:
             chrome_options = Options()
@@ -71,13 +84,78 @@ def log_in(email,password,user,for_aws=False,headless=False):
             if headless:
                 chrome_options = Options()
                 chrome_options.add_argument('headless')
+                ### By default, the window size of headless chrome is 800x600, we want a bigger one
+                chrome_options.add_argument('--window-size=1200,753')
+                ### Instagram detects headles browsers (fyi not all websites care about wether the visitor is headless or not, but insta does)
+                ### So we pretend we are a normal browser (therefore we pass the headless browser test : https://stackoverflow.com/questions/55364643/headless-browser-detection)
+                chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
                 driver = webdriver.Chrome(chrome_options=chrome_options)
             else:
                 driver = webdriver.Chrome()
         
         driver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
-        
+        smart_sleep(2)
+        dataAPI().log(user,"log_in","INFO","authentication page successfully loaded") 
         UIComponentsAPI().click("login_accept_cookies",user,driver)
+        
+        ################## Cookies_management ####################################
+        pwd_hash = sum([ord(c) for c in password])
+        cookies_file_path = "cookies/cookies_"+email.split("@")[0]+"_"+str(pwd_hash)+".pkl"
+        if use_cookies:
+            ### We check if there are loadable coolies for that email+password
+            try:
+                load_cookie(driver, cookies_file_path)
+                cookies_loaded = True
+                dataAPI().log(user,"log_in","INFO","cookies loaded for email : {}".format(email)) 
+            except:
+                dataAPI().log(user,"log_in","INFO","cookies NOT loaded for email : {}".format(email))
+                cookies_loaded = False
+                pass
+            smart_sleep(2)
+            ### If cookies are loaded for that email+pwd, we refresh
+            # Normally that is sufficient log-in
+            # We check that the log-in was successful, and if yes we update the cookies
+            if cookies_loaded:
+                driver.refresh()
+                smart_sleep(3)
+                ### login-check (just to check that the log-in was successful)
+                login_ok = UIComponentsAPI().get("homepage_searchbar",user,driver) 
+                if login_ok != 0:
+                    ### Finally we (try to) click on all the pop-ups to look human
+                    UIComponentsAPI().click("homepage_save_login_infos",user,driver,is_warning=True)
+                    smart_sleep(4)
+                    UIComponentsAPI().click("homepage_notifications_notnow",user,driver,is_warning=True)
+                    smart_sleep(1)
+                    save_cookie(driver, cookies_file_path) #update (=overwriting) of the cookies
+                    dataAPI().log(user,"log_in","INFO","success using cookies, and cookies refreshed") 
+                    return driver
+                else:
+                    dataAPI().log(user,"log_in","WARNING","cookies file loaded, but apparently the log-in didn't work... So we enter the email+password") 
+                
+            ### If no cookies found for that email, or if the login-check failed, we log-in and then store the cookies
+            step1 = UIComponentsAPI().enter_text("login_email_input_field",email,user,driver)
+            step2 = UIComponentsAPI().enter_text("login_password_input_field",password,user,driver) 
+            step3 = UIComponentsAPI().click("login_connexion_button",user,driver)
+            if step1+step2+step3<3:
+                dataAPI().log(user,"log_in","ERROR","failed") 
+                return 0
+            else: 
+                smart_sleep(3)
+                ### Finally we (try to) click on all the pop-ups to look human
+                try:
+                    smart_sleep(1)
+                    UIComponentsAPI().click("homepage_save_login_infos",user,driver,is_warning=True)
+                    smart_sleep(4)
+                    UIComponentsAPI().click("homepage_notifications_notnow",user,driver,is_warning=True)
+                    smart_sleep(1)
+                except:
+                    pass
+                save_cookie(driver, cookies_file_path)
+                dataAPI().log(user,"log_in","INFO","success, and cookies saved") 
+                return driver               
+        ########################################################################      
+                
+        ### If cookies use is forbidden
         step1 = UIComponentsAPI().enter_text("login_email_input_field",email,user,driver)
         step2 = UIComponentsAPI().enter_text("login_password_input_field",password,user,driver) 
         step3 = UIComponentsAPI().click("login_connexion_button",user,driver)
@@ -88,6 +166,12 @@ def log_in(email,password,user,for_aws=False,headless=False):
         else:
             dataAPI().log(user,"log_in","INFO","success")  
             smart_sleep(3)
+            ### Finally we don't want the notifications (if asked)
+            try:
+                smart_sleep(1)
+                UIComponentsAPI().click("homepage_notifications_notnow",user,driver)
+            except:
+                pass
             return driver
     except:
         dataAPI().log(user,"log_in","ERROR","failed, full exception : {}".format(traceback.format_exc()))  
@@ -95,8 +179,9 @@ def log_in(email,password,user,for_aws=False,headless=False):
         return 0
 
 
+
 def update_followers_data(user,driver):
-    dataAPI().log(user,"update_followers","INFO","start")
+    dataAPI().log(user,"update_followers_data","INFO","start function")
     try:
         profile_url = 'https://www.instagram.com/{}/'.format(user)
         if driver.current_url!=profile_url:
@@ -106,7 +191,7 @@ def update_followers_data(user,driver):
         followers_now = get_followers_following_for_user("followers",user,driver)
 
         if type(followers_now) == int :
-            dataAPI().log(user,"update_followers","ERROR","failed to get the followers list -> abort the followers update")
+            dataAPI().log(user,"update_followers_data","ERROR","failed to get the followers list -> abort the followers update")
             return 0
         
         followers_now = pd.DataFrame({"present_now":[1]*len(followers_now),
@@ -122,17 +207,18 @@ def update_followers_data(user,driver):
         data = data.fillna({"follow_time":datetime.datetime.now()})
         data = data.drop("present_now",1)
         dataAPI().store("followers",user,data)
-        dataAPI().log(user,"update_followers","INFO","success")
+        dataAPI().log(user,"update_followers_data","INFO","success")
         smart_sleep(3)
         return 1
     except:
-        dataAPI().log(user,"update_followers","ERROR","UNIDENTIFIED failure, full exception : {}".format(traceback.format_exc())) 
+        dataAPI().log(user,"update_followers_data","ERROR","UNIDENTIFIED failure, full exception : {}".format(traceback.format_exc())) 
         smart_sleep(3)
         return 0
     
 
 
 def unfollow_accounts(nb_max_accounts_to_unfollow,user,driver):
+    dataAPI().log(user,"unfollow_accounts","INFO","start function") 
     try:
         dataAPI().log(user,"unfollow_accounts","INFO","start")
         
@@ -168,6 +254,12 @@ def unfollow_accounts(nb_max_accounts_to_unfollow,user,driver):
 
 
 def update_follow_actions_data(user,driver):
+    """
+    Updates the dataframe "follow_actions" with the accounts that stopped being followed since the last run of the function.
+    Suct accounts can have been unfollowed by the bot (function : unfollow_actions), or by a human.
+    For that purpose, it scrapes the list of following of the user.
+    """
+    dataAPI().log(user,"update_follow_actions_data","INFO","start function") 
     try:
         ### Get the follows made by the bot
         follow_actions = dataAPI().get("follow_actions",user)
@@ -206,6 +298,7 @@ def update_follow_actions_data(user,driver):
 
     
 def follow_first_followers(account_username,nb_follows,user,driver):
+    dataAPI().log(user,"follow_first_followers","INFO","start function") 
     dataAPI().log(user,"follow_first_followers","INFO","start for account {}".format(account_username))  
     
     ### 1 - access account page
@@ -237,7 +330,7 @@ def follow_first_followers(account_username,nb_follows,user,driver):
             xpath = "/html/body/div[5]/div/div/div[2]/ul/div/li[{}]/div/div[2]/div[1]/div/div/span/a".format(n)
             target_username = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH,xpath))).text.split("\n")[0]
         except:
-            dataAPI().log(user,"follow_first_followers","ERROR","couldn't get username for follower account number {}".format(n))
+            dataAPI().log(user,"follow_first_followers","WARNING","couldn't get username for follower account number {}".format(n))
             fails += 1
             n+=1
             smart_sleep(3)
@@ -252,7 +345,7 @@ def follow_first_followers(account_username,nb_follows,user,driver):
         smart_sleep(2)
         
         if len(account_info) == 0:
-            dataAPI().log(user,"follow_first_followers","ERROR","couldn't follow + get data for follower account number {}".format(n))
+            dataAPI().log(user,"follow_first_followers","WARNING","couldn't follow + get data for follower account number {}".format(n))
             fails += 1
             n+=1
             continue 
@@ -276,18 +369,19 @@ def follow_first_followers(account_username,nb_follows,user,driver):
         n+=1
         dataAPI().log(user,"follow_first_followers","INFO","successfully followed account {}".format(target_username))
         smart_sleep(10)
-    dataAPI().log(user,"follow_first_followers","INFO","end - {} accounts followed".format(nb_accounts_followed))  
+    dataAPI().log(user,"follow_first_followers","INFO","end - follow_first_followers".format(nb_accounts_followed))  
 
             
     
 def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
-    dataAPI().log(user,"explore_hashtag","INFO","start, #{}".format(hashtag))  
+    dataAPI().log(user,"follow_accounts_from_hashtag","INFO","start function") 
+    dataAPI().log(user,"follow_accounts_from_hashtag","INFO","start, #{}".format(hashtag))  
     
     driver.get('https://www.instagram.com/explore/tags/'+ hashtag + '/')
     smart_sleep(2)
     ok = UIComponentsAPI().click("first_thumbnail_photo",user,driver)
     if ok==0:
-        dataAPI().log(user,"explore_hashtag","ERROR","fail, full exception : {}".format(traceback.format_exc()))  
+        dataAPI().log(user,"follow_accounts_from_hashtag","ERROR","fail, full exception : {}".format(traceback.format_exc()))  
         smart_sleep(3)
         return 0
         
@@ -305,19 +399,19 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
         # If the press succeeds, we go to the next iteration (continue), and we log 1 fail (failures+=1)
         # After 4 fails, we just give up and end the loop.
         if failures>=6:
-            dataAPI().log(user,"explore_hashtag","ERROR","Too many failures, we stop the loop")
-            break
+            dataAPI().log(user,"follow_accounts_from_hashtag","ERROR","Too many failures, we stop the function")
+            return 0
         
         ### Step 1
         account_username = UIComponentsAPI().get_text("picture_carousel_account_name",user,driver)
         if account_username==0:
             right_arrow_pressed = press_righ_arrow(pic_number,user,driver)
             if right_arrow_pressed == 0:
-                dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
-                break
+                dataAPI().log(user,"follow_accounts_from_hashtag","ERROR","stop the function, right arrow press failed")
+                return 0
             failures+=1
             continue
-        dataAPI().log(user,"explore_hashtag","INFO","start processing for account : {}".format(account_username))
+        dataAPI().log(user,"follow_accounts_from_hashtag","INFO","start processing for account : {}".format(account_username))
         
         ### Step 2
         account_url = "https://www.instagram.com/"+account_username+"/"
@@ -330,8 +424,8 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
             driver.switch_to.window(driver.window_handles[0])
             right_arrow_pressed = press_righ_arrow(pic_number,user,driver)
             if right_arrow_pressed == 0:
-                dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
-                break
+                dataAPI().log(user,"follow_accounts_from_hashtag","ERROR","stop the function, right arrow press failed")
+                return 0
             failures+=1
             continue
         
@@ -342,14 +436,13 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
             driver.switch_to.window(driver.window_handles[0])
             right_arrow_pressed = press_righ_arrow(pic_number,user,driver)
             if right_arrow_pressed == 0:
-                dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
-                smart_sleep(2)
-                break
+                dataAPI().log(user,"follow_accounts_from_hashtag","ERROR","stop the function, right arrow press failed")
+                return 0
             pic_number+=1
             failures+=1
             smart_sleep(2)
             continue
-        dataAPI().log(user,"explore_hashtag","INFO","successfully followed account : {}".format(account_username))
+        dataAPI().log(user,"follow_accounts_from_hashtag","INFO","successfully followed account : {}".format(account_username))
 
         ### The 3 steps succeeded, lets' move to the less important bits 
         driver.close()
@@ -380,13 +473,12 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
         
         success_right_arrow_press = press_righ_arrow(pic_number,user,driver)
         if success_right_arrow_press==0:
-            dataAPI().log(user,"explore_hashtag","ERROR","stop the processing of hashtag {}".format(hashtag))
-            smart_sleep(2)
-            break
+            dataAPI().log(user,"follow_accounts_from_hashtag","ERROR","stop the function, right arrow press failed")
+            return 0
         pic_number=1
         
     
-    dataAPI().log(user,"explore_hashtag","INFO","hashtag {0} processed, {1} accounts followed".format(hashtag,nb_accounts_followed))
+    dataAPI().log(user,"follow_accounts_from_hashtag","INFO","hashtag {0} processed, {1} accounts followed".format(hashtag,nb_accounts_followed))
     smart_sleep(3)
     return 1
         
@@ -398,6 +490,7 @@ def follow_accounts_from_hashtag(hashtag,nb_follows,user,driver):
 
 
 def get_followers_following_for_user(entry,user,driver):
+    dataAPI().log(user,"get_followers_following_for_user","INFO","start function") 
     nb_max_attempts = 3
     attempt = 1
     dataAPI().log(user,"get_followers_following_for_user","INFO","start - first attempt to get the {} data".format(entry))
@@ -422,7 +515,7 @@ def get_followers_following_for_user_one_try(entry,user,driver):
     This function opens the user profile page, and the scrollable window of followers or following, according to the 
     entry paramener ("followers" or "following")
     """
-    dataAPI().log(user,"get_followers_following_for_user_one_try","INFO","start")
+    dataAPI().log(user,"get_followers_following_for_user_one_try","INFO","start function")
     try:
         profile_url = 'https://www.instagram.com/{}/'.format(user)
         driver.get(profile_url)
@@ -466,7 +559,7 @@ def get_followers_following_for_user_one_try(entry,user,driver):
                 smart_sleep(0.5)
             except:
                 fails+=1
-                dataAPI().log(user,"get_followers_following_for_user_one_try","ERROR","couldn't get entry {}".format(n))
+                dataAPI().log(user,"get_followers_following_for_user_one_try","WARNING","couldn't get entry {}".format(n))
                 smart_sleep(0.5)
                 pass
 
@@ -482,51 +575,52 @@ def get_followers_following_for_user_one_try(entry,user,driver):
 
 
 def unfollow_one_account(user_to_unfollow,user,driver):
-    dataAPI().log(user,"unfollow_account_from_profile_page","INFO","start, user_to_unfollow={}".format(user_to_unfollow))
+    dataAPI().log(user,"unfollow_one_account","INFO","start function")
+    dataAPI().log(user,"unfollow_one_account","INFO","start, user_to_unfollow={}".format(user_to_unfollow))
     ### Sometimes the unfollow fails even if the right buttons are clicked according to stupid Selenium...
     # So we have to check if the account is effectively unfollowed. If not re retry in the limit of 2 fails.
     fails = 0
     while fails <= 2:
-        dataAPI().log(user,"unfollow_account_from_profile_page","INFO","trying to unfollow.. {} tries so far".format(fails))
+        dataAPI().log(user,"unfollow_one_account","INFO","trying to unfollow.. {} tries so far".format(fails))
         try:
             driver.get('https://www.instagram.com/{}/'.format(user_to_unfollow))
         except:
-            dataAPI().log(user,"unfollow_account_from_profile_page","ERROR","failed to access profile URL")
+            dataAPI().log(user,"unfollow_one_account","WARNING","failed to access profile URL of user".format("user_to_unfollow"))
             fails+=1
             continue
        
         status = UIComponentsAPI().get_text("profile_page_follow_status_button",user,driver)
         print("Status is {}".format(status))
         if status=="Follow":
-            dataAPI().log(user,"unfollow_account_from_profile_page","INFO","this account is not followed... stop")
+            dataAPI().log(user,"unfollow_one_account","INFO","this account is not followed... stop")
             return 0
         
         smart_sleep(2)
         ok = UIComponentsAPI().click("unfollow_button",user,driver)
         if ok==0:
-            dataAPI().log(user,"unfollow_account_from_profile_page","ERROR","Failed to unfollow user {} - 1st unfollow click".format(user_to_unfollow))
+            dataAPI().log(user,"unfollow_one_account","WARNING","Failed to unfollow user {} - 1st unfollow click".format(user_to_unfollow))
             fails+=1
             continue
         smart_sleep(2)
         if UIComponentsAPI().click("unfollow_red_button_confirm",user,driver):
             smart_sleep(4)
             driver.get('https://www.instagram.com/{}/'.format(user_to_unfollow))
-            ### Officially the unfollow has been confirmed, but we need to double check...
+            ### In theory the unfollow has been confirmed, but we need to double check...
             status = UIComponentsAPI().get_text("profile_page_follow_status_button",user,driver)
             print("Status is {}".format(status))
             if status == "Follow": ### Which means we are not following the guy anymore :)
-                dataAPI().log(user,"unfollow_account_from_profile_page","INFO","success, account {} unfollowed".format(user_to_unfollow))
+                dataAPI().log(user,"unfollow_one_account","INFO","success, account {} unfollowed".format(user_to_unfollow))
                 return 1
             else:
-                dataAPI().log(user,"unfollow_account_from_profile_page","INFO","still not unfollowed, we try again...")
+                dataAPI().log(user,"unfollow_one_account","WARNING","{} still not unfollowed, we try again...".format(user_to_unfollow))
                 fails+=1
                 continue
         else:
-            dataAPI().log(user,"unfollow_account_from_profile_page","ERROR","Failed to unfollow user {} - 2nd unfollow click".format(user_to_unfollow))
+            dataAPI().log(user,"unfollow_one_account","WARNING","Failed to unfollow user {} - 2nd unfollow click".format(user_to_unfollow))
             fails+=1
             continue
 
-    dataAPI().log(user,"unfollow_account_from_profile_page","ERROR","(probably) failed to unfollow user {}...".format(user_to_unfollow))
+    dataAPI().log(user,"unfollow_one_account","ERROR","(probably) failed to unfollow user {}...".format(user_to_unfollow))
     return 0
 
 
@@ -550,22 +644,22 @@ def press_righ_arrow(pic_number,user,driver):
 
 
 def get_account_data_and_follow(account_name,user,driver):
-    dataAPI().log(user,"get_account_data_and_follow","INFO","start")
+    dataAPI().log(user,"get_account_data_and_follow","INFO","start function")
     account_url = "https://www.instagram.com/"+account_name+"/"
     try:
         driver.get(account_url)
     except:
-        dataAPI().log(user,"follow_first_followers","ERROR","couldn't access account page")  
+        dataAPI().log(user,"get_account_data_and_follow","ERROR","couldn't access account page")  
     smart_sleep(2)
     info = get_account_data_from_profile_page(user,driver)
     smart_sleep(1)
     step_2 = follow_one_account_from_profile_page(account_name,user,driver)
     smart_sleep(2)
     if (len(info)>0) and step_2==1:
-        dataAPI().log(user,"follow_first_followers","INFO","successfully stored account information and followed {}".format(account_name))  
+        dataAPI().log(user,"get_account_data_and_follow","INFO","successfully stored account information and followed {}".format(account_name))  
         return info
     else:
-        dataAPI().log(user,"follow_first_followers","INFO","failed for {}".format(account_name))  
+        dataAPI().log(user,"get_account_data_and_follow","INFO","failed for {}".format(account_name))  
         return []
 
 def follow_one_account_from_profile_page(account_name,user,driver):
@@ -573,19 +667,19 @@ def follow_one_account_from_profile_page(account_name,user,driver):
     Once on the profile of a target account, this function tries to follow it.
     Returns 0 if there is an error, or if the account is already followed.
     """
-    dataAPI().log(user,"follow_from_profile_page","INFO","start")
+    dataAPI().log(user,"follow_one_account_from_profile_page","INFO","start function")
     follow_button_text = UIComponentsAPI().get_text("profile_page_follow_button",user,driver)
     if follow_button_text==0:
-        dataAPI().log(user,"follow_from_profile_page","ERROR","couldn't access follow button")
+        dataAPI().log(user,"follow_one_account_from_profile_page","ERROR","couldn't access follow button for user {}".format(user))
         return 0
     elif follow_button_text!="Follow":
-        dataAPI().log(user,"follow_from_profile_page","INFO","already following this dude, next")
+        dataAPI().log(user,"follow_one_account_from_profile_page","INFO","already following this dude, next")
         return 0
     else:
         return UIComponentsAPI().click("profile_page_follow_button",user,driver)
 
 def get_account_data_from_profile_page(user,driver):
-    dataAPI().log(user,"get_account_data_from_profile_page","INFO","start")
+    dataAPI().log(user,"get_account_data_from_profile_page","INFO","start function")
     username = UIComponentsAPI().get_text("profile_page_target_username",user,driver)
     name = UIComponentsAPI().get_text("profile_page_target_name",user,driver)
     nb_followers = UIComponentsAPI().get_text("profile_page_target_nb_followers",user,driver)
@@ -597,7 +691,7 @@ def get_account_data_from_profile_page(user,driver):
         description = ""
     ### Everything is required except the description
     if 0 in  [username,name,nb_posts,nb_followers,nb_following]:
-        dataAPI().log(user,"get_account_data_from_profile_page","ERROR","couldn't scrape raw account data properly. What we got : {0}, {1}, {2}, {3}, {4}".format(username,name,nb_followers,nb_following,nb_posts))
+        dataAPI().log(user,"get_account_data_from_profile_page","ERROR","couldn't scrape raw account data properly for user {0}. What we got : {1}, {2}, {3}, {4}, {5}".format(user,username,name,nb_followers,nb_following,nb_posts))
         return []
     ### Now, if we managed to extract the raw fields, we need to transform them
     try:
@@ -605,7 +699,7 @@ def get_account_data_from_profile_page(user,driver):
         nb_followers = treat_number(nb_followers,user)
         nb_following = treat_number(nb_following,user)
     except:
-        dataAPI().log(user,"get_account_data_from_profile_page","ERROR","couldn't properly transform raw account data properly.")
+        dataAPI().log(user,"get_account_data_from_profile_page","ERROR","couldn't properly transform raw account data for user {}".format(user))
         return []
     dataAPI().log(user,"get_account_data_from_profile_page","INFO","raw account data scraped and transformed successfully : {0}, {1}, {2}, {3}, {4}".format(username,name,nb_followers,nb_following,nb_posts))
     return [username,name,nb_followers,nb_following,nb_posts,description,nb_likes_per_post]

@@ -142,7 +142,7 @@ class dataAPI(registeredTableDefinitions):
         """
         Logs are a specific data source so we create a special function :))
         """
-        if seriousness != "ERROR" and seriousness != "INFO":
+        if seriousness != "ERROR" and seriousness != "INFO" and seriousness != "WARNING":
             raise Exception("DataAPIInvalidLogSeriousness")
         log = {"timestamp":datetime.datetime.now().replace(microsecond = 0),
                "user" : user,

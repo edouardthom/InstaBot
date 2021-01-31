@@ -14,7 +14,7 @@ from instabot_email_service import send_basic_insights_email,send_bug_report_ema
 from instabot_data_api import dataAPI
 import instabot_data_api
 instabot_data_api.STORE_LOGS = True 
-headless = False
+headless = True
 
 user = argv[1]
 
@@ -37,11 +37,11 @@ dev_email = config["dev_email"]
 
 
 ### TEST
-user = "edouardthegourmet"
-headless = False
+# user = "edouardthegourmet"
+# headless = True
 
 
-nb_actions_per_day = 30
+nb_actions_per_day = 35
 
 while(1):
     ## The bot sleeps until 7am
@@ -50,9 +50,8 @@ while(1):
         seconds_to_sleep = (8 - now.hour)*3600 - (now.minute)*60
         dataAPI().log(user,"MAIN","INFO","It's night time, time for the bot to sleep : approximately {} seconds".format(seconds_to_sleep))
         sleep(seconds_to_sleep)   
-    
-    ### Sleep so that the bot starts randomly between 7 and 9 am  (on average at 8)
-    sleep(random.randint(0,7200))
+        ### Sleep a bit more so that the bot starts randomly between 7 and 9 am  (on average at 8)
+        sleep(random.randint(0,7200))
     
     ### define the start and stop timestamps for the day
     dataAPI().log(user,"MAIN","INFO","Good morning ! The bot started for user {} !".format(user))
@@ -63,8 +62,8 @@ while(1):
     times = generate_daily_poisson_times(start_day,stop_day,nb_actions_per_day)
     
     ### Send the morning emails
-    send_basic_insights_email(24,user_email,user)
-    send_bug_report_email(12,dev_email,user)
+    # send_basic_insights_email(24,user_email,user)
+    # send_bug_report_email(12,dev_email,user)
     
     option = 1
     for time in times:
@@ -91,7 +90,7 @@ while(1):
             dataAPI().log(user,"MAIN","INFO","Option 3 ended - success={}".format(ok))       
         if option == 4:
             dataAPI().log(user,"MAIN","INFO","Option 4 started")
-            driver = log_in(user_email,user_password,user,for_aws=False,headless=headless)
+            driver = log_in(user_email,user_password,user,use_cookies=True,for_aws=False,headless=headless)
             nb_follows_per_hashtag = np.random.choice([3,4,5]) 
             hashtag = hashtags[np.random.randint(0,len(hashtags))]
             ok = follow_accounts_from_hashtag(hashtag,user=user,
@@ -114,11 +113,7 @@ while(1):
         option = next_option
     
     ### Send the evening emails        
-    send_basic_insights_email(24,user_email,user)
-    send_bug_report_email(12,dev_email,user)
+    # send_basic_insights_email(24,user_email,user)
+    # send_bug_report_email(12,dev_email,user)
     dataAPI().log(user,"MAIN","INFO","Loop over :)")        
-        
-
-
-   
     

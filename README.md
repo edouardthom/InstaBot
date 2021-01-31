@@ -8,15 +8,15 @@
 [Code organisation](#part4)   
    
 ## Features :  
-* automatically interact with accounts in a smart way to maximise the number of followers 
+* automatically follows accounts to maximise the number of followers 
 * provide reporting data regarding both the audience evolution and the interaction strategy 
 * communicate insights based on that data  
    
 **More concretely, what does the bot (MVP) do ?**  
 * follow random accounts (found through hashtags, or from the followers list of some accounts)   
 * after some time, unfollow them, to avoid following too many people at the same time
-* while performing this follow-unfollow process, supdate datasets regarding both the actions (who he followed, unfollowed,...), and the audience of the account (mainly who followed and unfollowed the user).  
-* this data is stored in CSV files accessible in a database folder if you wish to analyse them  
+* while performing this follow-unfollow process, update datasets regarding both the actions (who he followed, unfollowed,...), and the audience of the account (mainly who followed and unfollowed the user).  
+* this data is stored in CSV files accessible in the database folder if you wish to analyse them  
 * the bot uses that data to regularly send emails containing relevant insights.  
 * he also allows you to monitor the run : logs are stored in the database, and bug reports can regularly be sent via email.  
     
@@ -58,6 +58,7 @@ One specific kind of eror occurs when the bot fails to interact (click, enter te
 The UI API (*instagram_ui_api.py*) ensures a frictionless management of the interactions with the UI. All components that the bot interacts with are declared in the *registeredUIComponents* class.  
 If you see often logs like "failed to click component X" , you might need to update its xpath in the class *registeredUIComponents* in *instabot_ui_api.py*.
    
-## Next steps
+## Next steps  
+1st : elaborate an efficient way to monitor the bot and fix/improve it effortlessly.  
 The bot is currently running on several accounts, gathering data.   
-Next : leverage the data produced by the bot for audience targetting.
+Next : leverage the data produced by the bot for audience targetting.  

@@ -31,6 +31,20 @@ class registeredUIComponents:
         "xpaths" : ['//*[@id="loginForm"]/div/div[3]/button/div'],
         "description" : ""
     }
+    homepage_searchbar = {
+        "xpaths" : ['//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div/div/span[2]'],
+        "description" : "The home search bar. Used to check that the login was successful"
+    }     
+    homepage_notifications_notnow = {
+        "xpaths" : ['/html/body/div[4]/div/div/div/div[3]/button[2]',
+                    '/html/body/div[5]/div/div/div/div[3]/button[2]'],
+        "description" : "Click on not_now when asked to turn on notifications"
+    }  
+    homepage_save_login_infos = {
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/div/div/section/div/button'],
+        "description" : "At the first connection (no cookies), the button to save the login infos"
+    }  
+    
     profile_page_followers_button = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a/span'],
         "description" : ""
@@ -65,11 +79,13 @@ class registeredUIComponents:
         "description" : ""
     }
     profile_page_target_nb_followers = {
-        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a/span'],
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a/span',
+                    '//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/span/span'],
         "description" : ""
     }
     profile_page_target_nb_following = {
-        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a/span'],
+        "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a/span',
+                    '//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/span/span'],
         "description" : ""
     }
     profile_page_target_nb_posts = {
@@ -98,7 +114,9 @@ class registeredUIComponents:
     }
     profile_page_follow_status_button = {
         "xpaths" : ['//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div/div/span/span[1]/button',
-                    '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div[2]/button/div'],
+                    '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div[2]/button/div',
+                    '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[2]/div/div[2]/div/span/span[1]/button/div/span',
+                    '//*[@id="react-root"]/section/main/div/header/section/div[1]/div[1]/div/div/button'],
         "description" : "the button that allows to follow or unfollow an account"        
     }
 
@@ -108,6 +126,7 @@ class UIComponentsAPI(registeredUIComponents):
     
     def __init__(self):
         pass
+   
         
     def get(self,component,user,driver):
         if component not in [i for i in dir(registeredUIComponents) if not callable(i)]:
@@ -122,7 +141,11 @@ class UIComponentsAPI(registeredUIComponents):
         dataAPI().log(user,"UIAPI","ERROR","failed to access component : "+component) 
         return 0
     
-    def click(self,component,user,driver):
+    def click(self,component,user,driver,is_warning=False):
+        if is_warning == True:
+            seriousness = "WARNING"
+        else:
+            seriousness = "ERROR"
         if component not in [i for i in dir(registeredUIComponents) if not callable(i)]:
             raise Exception("UIComponentNotRegisteredInUIAPI")
         xpaths = getattr(registeredUIComponents, component).get("xpaths")
@@ -131,13 +154,13 @@ class UIComponentsAPI(registeredUIComponents):
                 element = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, xpath)))
                 break
             except :
-                dataAPI().log(user,"UIAPI","ERROR","failed to access component : "+component) 
+                dataAPI().log(user,"UIAPI",seriousness,"failed to access component : "+component) 
                 return 0
         try:
             element.click()       
             return 1            
         except:
-            dataAPI().log(user,"UIAPI","ERROR","failed to click component : "+component) 
+            dataAPI().log(user,"UIAPI",seriousness,"failed to click component : "+component) 
             return 0
             
             
