@@ -685,7 +685,7 @@ def get_account_data_from_profile_page(user,driver):
     nb_followers = UIComponentsAPI().get_text("profile_page_target_nb_followers",user,driver)
     nb_following = UIComponentsAPI().get_text("profile_page_target_nb_following",user,driver)
     nb_posts = UIComponentsAPI().get_text("profile_page_target_nb_posts",user,driver)    
-    description = UIComponentsAPI().get_text("profile_page_target_description",user,driver)
+    description = UIComponentsAPI().get_text("profile_page_target_description",user,driver,is_warning=True)
     nb_likes_per_post = 0 ## incoming
     if description == 0:
         description = ""

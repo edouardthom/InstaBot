@@ -127,8 +127,12 @@ class UIComponentsAPI(registeredUIComponents):
     def __init__(self):
         pass
    
-        
-    def get(self,component,user,driver):
+    def get(self,component,user,driver,is_warning=False):
+        dataAPI().log(user,"UIAPI","INFO","try to get component : "+component)
+        if is_warning == True:
+            seriousness = "WARNING"
+        else:
+            seriousness = "ERROR"
         if component not in [i for i in dir(registeredUIComponents) if not callable(i)]:
             raise Exception("UIComponentNotRegisteredInUIAPI")
         xpaths = getattr(registeredUIComponents, component).get("xpaths")
@@ -138,7 +142,7 @@ class UIComponentsAPI(registeredUIComponents):
                 return element
             except :
                 pass
-        dataAPI().log(user,"UIAPI","ERROR","failed to access component : "+component) 
+        dataAPI().log(user,"UIAPI",seriousness,"failed to access component : "+component) 
         return 0
     
     def click(self,component,user,driver,is_warning=False):
@@ -160,12 +164,12 @@ class UIComponentsAPI(registeredUIComponents):
             element.click()       
             return 1            
         except:
-            dataAPI().log(user,"UIAPI",seriousness,"failed to click component : "+component) 
+            dataAPI().log(user,"UIAPI","ERROR","failed to click component : "+component) 
             return 0
             
             
-    def get_text(self,component,user,driver):
-        element = self.get(component,user,driver)
+    def get_text(self,component,user,driver,is_warning=False):
+        element = self.get(component,user,driver,is_warning)
         if element == 0:
             return 0
         else:

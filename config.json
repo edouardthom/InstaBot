@@ -1,14 +1,13 @@
-
 {
-    "database_path":"/Users/ethomas/Instabot/database/",
-    "BOT_GMAIL_ADDRESS":"instabot.insights@gmail.com",
-    "BOT_GMAIL_PASSWORD":"", 
-    "SCRAPER_ACCOUNT_GMAIL_ADDRESS":"jackiedelarime@gmail.com",
-    "SCRAPER_ACCOUNT_PASSWORD":"",   
+    "database_path":"~/Instabot/database/",
+    "BOT_GMAIL_ADDRESS":"X@gmail.com",
+    "BOT_GMAIL_PASSWORD":"X", 
+    "SCRAPER_ACCOUNT_GMAIL_ADDRESS":"X@gmail.com",
+    "SCRAPER_ACCOUNT_PASSWORD":"X",   
 
-    "edouardthegourmet":{
-        "user_email":"instabot.insights@gmail.com",
-        "user_password":"",
+    "[account_username]":{
+        "user_email":"X@gmail.com",
+        "user_password":"X",
         "hashtags": 
             ["instalife","friends","beach","ski","followeraktif","follower4follower",
             "instagood","followme","selfie","foodie",
@@ -24,28 +23,7 @@
         "account_usernames":
             ["omarattiyah","_aline.km_","natgeo","chef_liviu.moroiu","filthy_buns","butternut_and_co",
              "basicallybreakfast"],
-        "dev_email":"instabot.insights@gmail.com"
-        },  
-
-    "edouard_thom":{
-        "user_email":"edouard.thom@gmail.com",
-        "user_password":"",
-        "hashtags": 
-            ["instalife","friends","beach","ski","followeraktif","follower4follower",
-            "instagood","followme","selfie","foodie",
-            "car","clothing","followers","like4like","f2f","l4l",
-            "followforfollow","followback","followbackinstantly","tagblender","followmefollowyou",
-            "followbackteam","followmeback","followbackalways","f4f",
-            "homemade","iliketurtles","followstagram",
-            "fresh","foodporn","cute","me","igdaily",
-            "doglovers","rockstar","sharefood","photooftheday","instadaily",
-            "french","france",
-            "foodblogger", "foodlover", "delicious", "homemade", "healthyfood", 
-            "dinner", "soccer", "art", "tasty"],
-        "account_usernames":
-            ["omarattiyah","_aline.km_","natgeo","chef_liviu.moroiu","filthy_buns","butternut_and_co",
-             "basicallybreakfast"],
-        "dev_email":"instabot.insights@gmail.com"
-        }
+        "dev_email":"X@gmail.com"
+        }  
         
 }

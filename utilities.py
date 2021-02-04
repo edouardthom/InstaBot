@@ -4,6 +4,7 @@ from time import sleep
 import numpy as np
 import json
 import sys
+import dis
 
 ############################################################################################################
 ########################################### Utilities functions ############################################
@@ -54,4 +55,20 @@ def load_config_variable(variable,config_file_name):
         sys.exit() 
     return variable    
 
+
+def list_func_calls(fn,the_functions):
+    """
+    Takes as input a function name (fn) and get all its calls to other functions
+    Returns only the ones that appear in the list the_functions
+    """
+    funcs = []
+    bytecode = dis.Bytecode(fn)
+    instrs = list(reversed([instr for instr in bytecode]))
+    for (ix, instr) in enumerate(instrs):
+        if instr.opname=="CALL_FUNCTION":
+            load_func_instr = instrs[ix + instr.arg + 1]
+            funcs.append(load_func_instr.argval)
+            
+    funcs = [f for f in funcs if f in the_functions]
+    return funcs
 

@@ -17,6 +17,7 @@ instabot_data_api.STORE_LOGS = True
 headless = True
 
 user = argv[1]
+config_file_path = argv[2]
 
 ############################################# General configuration ###################################
 scraper_account_email_address = load_config_variable("SCRAPER_ACCOUNT_GMAIL_ADDRESS","config.json")
@@ -25,9 +26,8 @@ scraper_account_password = load_config_variable("SCRAPER_ACCOUNT_PASSWORD","conf
 
 
 ############################################# Configuration bit for the user ###########################
-config_file_name = "config.json"
 variables = ["user_email","user_password","hashtags","account_usernames","dev_email"]
-config = load_config_user(user,variables,"config.json")
+config = load_config_user(user,variables,config_file_path)
 user_email = config["user_email"]
 user_password = config["user_password"]
 account_usernames = config["account_usernames"]
@@ -41,7 +41,7 @@ dev_email = config["dev_email"]
 # headless = True
 
 
-nb_actions_per_day = 35
+nb_actions_per_day = 30
 
 while(1):
     ## The bot sleeps until 7am
@@ -66,6 +66,7 @@ while(1):
     # send_bug_report_email(12,dev_email,user)
     
     option = 1
+    ### REMINDER : every option will execute 6 times per day on average
     for time in times:
         if datetime.datetime.now() < time:
             sleep((time-datetime.datetime.now()).seconds)
@@ -84,7 +85,7 @@ while(1):
         if option == 3:
             dataAPI().log(user,"MAIN","INFO","Option 3 started")
             driver = log_in(user_email,user_password,user,for_aws=False,headless=headless)
-            nb_max_accounts_to_unfollow = 9
+            nb_max_accounts_to_unfollow = 6
             ok = unfollow_accounts(nb_max_accounts_to_unfollow,user,driver)
             driver.close()
             dataAPI().log(user,"MAIN","INFO","Option 3 ended - success={}".format(ok))       
@@ -101,7 +102,7 @@ while(1):
         if option == 5:
             dataAPI().log(user,"MAIN","INFO","Option 5 started")
             driver = log_in(user_email,user_password,user,for_aws=False,headless=headless)
-            nb_follows = np.random.choice([5,6,7])
+            nb_follows = np.random.choice([2,3,4,5])
             account_username = account_usernames[np.random.randint(0,len(account_usernames))]
             ok = follow_first_followers(account_username,nb_follows,user,driver)
             driver.close()
@@ -115,5 +116,6 @@ while(1):
     ### Send the evening emails        
     # send_basic_insights_email(24,user_email,user)
     # send_bug_report_email(12,dev_email,user)
+        
     dataAPI().log(user,"MAIN","INFO","Loop over :)")        
     
